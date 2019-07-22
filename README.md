@@ -21,9 +21,12 @@ Two eletronics set off on a perilous journy to find a mysterious machine called 
 
 **[Windows] System Requirements (Subject to change)**
 
->OS: Windows XP SP3 or later
->Processor: Dual Core CPU, 2 GHz
->Memory: 1 GB RAM
->Graphics: 512 MB Video Memory
->DirectX: Version 9.0c
->Storage: 500 MB available space
+- OS: Windows XP SP3 or later
+- Processor: Dual Core CPU, 2 GHz
+- Memory: 1 GB RAM
+- Graphics: 512 MB Video Memory
+- DirectX: Version 9.0c
+- Storage: 500 MB available space
+
+**[Mac] System Requirements (Subject to change)**
+- N/A
