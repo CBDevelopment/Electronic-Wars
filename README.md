@@ -15,6 +15,6 @@ Two eletronics set off on a perilous journy to find a mysterious machine called 
 - Built-in minigames and challenges to test your platforming skills!
 - Play as 2 different electronic characters.
 - 2 Game modes: Simulator Mode & Story Mode.
-- Unique simple story and universe!
+- Unique story and universe!
 - Local Co-op play!
 - Cool catchy music!
