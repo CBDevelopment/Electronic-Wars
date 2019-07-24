@@ -10,9 +10,12 @@ public class PauseMenu : MonoBehaviour {
 
     private bool paused = false;
 
+    private PlayerController tvPlayer;
+
     private void Start()
     {
         PauseUI.SetActive(false);
+        tvPlayer = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -27,6 +30,7 @@ public class PauseMenu : MonoBehaviour {
         {
             PauseUI.SetActive(true);
             Time.timeScale = 0;
+            tvPlayer.grounded = false;
             
         }
 
@@ -34,7 +38,7 @@ public class PauseMenu : MonoBehaviour {
         {
             PauseUI.SetActive(false);
             Time.timeScale = 1;
-            
+
         }
     }
 
