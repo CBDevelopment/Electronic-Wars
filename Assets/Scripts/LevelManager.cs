@@ -104,6 +104,9 @@ public class LevelManager : MonoBehaviour {
 
         }
 
+        //Update the text every frame.
+        memText.text = memCount.ToString();
+        livesText.text = "x" + currentLives.ToString();
     }
 
 

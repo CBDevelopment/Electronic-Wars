@@ -23575,7 +23575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9ed70c73fd2ce4ba5b93659128e7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Special
+  levelToLoad: CityRegion
   leveltoUnlock: 
 --- !u!4 &2147273362
 Transform:
@@ -23777,30 +23777,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5852427835787449325, guid: e2901f16e8bd4c845842319f4efe2593,
-        type: 3}
-      propertyPath: gunPickUp
-      value: 
-      objectReference: {fileID: 1465872501}
-    - target: {fileID: 5852427835787449325, guid: e2901f16e8bd4c845842319f4efe2593,
-        type: 3}
-      propertyPath: slot1Image
-      value: 
-      objectReference: {fileID: 1530761139}
     - target: {fileID: 1406580970904227341, guid: e2901f16e8bd4c845842319f4efe2593,
         type: 3}
       propertyPath: speed
       value: 850
-      objectReference: {fileID: 0}
-    - target: {fileID: 57311616384983352, guid: e2901f16e8bd4c845842319f4efe2593,
-        type: 3}
-      propertyPath: Priority
-      value: 88
-      objectReference: {fileID: 0}
-    - target: {fileID: 57311616384983352, guid: e2901f16e8bd4c845842319f4efe2593,
-        type: 3}
-      propertyPath: m_Pitch
-      value: 2.58
       objectReference: {fileID: 0}
     - target: {fileID: 5168270013547715618, guid: e2901f16e8bd4c845842319f4efe2593,
         type: 3}
@@ -23811,21 +23791,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3076418189763729576, guid: e2901f16e8bd4c845842319f4efe2593,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7799657960358443404, guid: e2901f16e8bd4c845842319f4efe2593,
-        type: 3}
-      propertyPath: attackTimer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7799657960358443404, guid: e2901f16e8bd4c845842319f4efe2593,
-        type: 3}
-      propertyPath: attackCD
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6313581103762878284, guid: e2901f16e8bd4c845842319f4efe2593,
         type: 3}
@@ -23853,11 +23818,46 @@ PrefabInstance:
       propertyPath: phaserBulletText
       value: 
       objectReference: {fileID: 965743990}
+    - target: {fileID: 5852427835787449325, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: gunPickUp
+      value: 
+      objectReference: {fileID: 1465872501}
+    - target: {fileID: 5852427835787449325, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: slot1Image
+      value: 
+      objectReference: {fileID: 1530761139}
+    - target: {fileID: 3076418189763729576, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799657960358443404, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: attackTimer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799657960358443404, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: attackCD
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3086918264030758891, guid: e2901f16e8bd4c845842319f4efe2593,
         type: 3}
       propertyPath: transformationCloudAnimator
       value: 
       objectReference: {fileID: 1089398061}
+    - target: {fileID: 57311616384983352, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: Priority
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 57311616384983352, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 2.58
+      objectReference: {fileID: 0}
     - target: {fileID: 5505944335271371596, guid: e2901f16e8bd4c845842319f4efe2593,
         type: 3}
       propertyPath: m_TagString
