@@ -9,12 +9,14 @@ public class LevelManager : MonoBehaviour {
     public PlayerController tvPlayer;
     public PlasmaPlayer plasmaPlayer;
     private PlayerGun playerGunScript;
+    private PlayerRouter playerRouterScript;
     private Evolve evolveScript;
     private BatteryHealth batteryHealthScript;
     private Boss boss1;
     public GameObject deathBreak;
     private LevelEnd levelEndScript;
     private GunPickup gunPickupScript;
+    private RouterPickup routerPickupScript;
 
     //Global Things to save on the level.
     public int memCount;
@@ -43,18 +45,22 @@ public class LevelManager : MonoBehaviour {
         batteryHealthScript = FindObjectOfType<BatteryHealth>();
         boss1 = FindObjectOfType<Boss>();
         playerGunScript = FindObjectOfType<PlayerGun>();
+        playerRouterScript = FindObjectOfType<PlayerRouter>();
         levelEndScript = FindObjectOfType<LevelEnd>();
         gunPickupScript = FindObjectOfType<GunPickup>();
+        routerPickupScript = FindObjectOfType<RouterPickup>();
 
         //***********************LOADING********************************************
+
+        if (PlayerPrefs.HasKey("HasRouter"))
+        {
+            tvPlayer.hasRouter = PlayerPrefs.GetInt("HasRouter");
+        }
 
         if (PlayerPrefs.HasKey("HasGun"))
         {
             tvPlayer.hasGun = PlayerPrefs.GetInt("HasGun");
         }
-
-        
-
 
         //Checks for if you have phaser bullets. If there you do, it will load those back.
         //CODE GOES HERE
@@ -101,6 +107,13 @@ public class LevelManager : MonoBehaviour {
         {
 
             gunPickupScript.slot1Image.gameObject.SetActive(true);
+
+        }
+
+        if (tvPlayer.hasRouter == 1)
+        {
+
+            routerPickupScript.slot2Image.gameObject.SetActive(true);
 
         }
 

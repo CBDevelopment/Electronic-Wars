@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     //Special Bools ***********
     public int hasGun = 0;
+    public int hasRouter = 0;
     public bool facingRight;
     public bool facingLeft;
 

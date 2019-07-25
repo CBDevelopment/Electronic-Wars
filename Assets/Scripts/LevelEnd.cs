@@ -51,6 +51,7 @@ public class LevelEnd : MonoBehaviour {
         PlayerPrefs.SetInt("PhaserBulletCount", playerGunScript.phaserBulletCount);
         // *** Saves that you got the gun. ****
         PlayerPrefs.SetInt("HasGun", tvPlayer.hasGun);
+        PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
         PlayerPrefs.SetInt(leveltoUnlock, 1);
 
         yield return new WaitForSeconds(2.0f);

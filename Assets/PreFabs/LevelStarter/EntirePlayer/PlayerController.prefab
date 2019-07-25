@@ -977,6 +977,7 @@ GameObject:
   - component: {fileID: 6348569082927741416}
   - component: {fileID: 7799657960358443404}
   - component: {fileID: 6313581103762878284}
+  - component: {fileID: 1439320750675594612}
   - component: {fileID: 4866245570944920987}
   - component: {fileID: 4304847842556392227}
   m_Layer: 8
@@ -1104,6 +1105,7 @@ MonoBehaviour:
   hurtSound: {fileID: 2589211501430140906}
   deathSound: {fileID: 8477922234609837212}
   hasGun: 0
+  hasRouter: 0
   facingRight: 0
   facingLeft: 0
   pos: {x: 0, y: 0, z: 0}
@@ -1193,6 +1195,18 @@ MonoBehaviour:
   shotFX: {fileID: 57311616384983352}
   phaserBulletCount: 0
   phaserBulletText: {fileID: 0}
+--- !u!114 &1439320750675594612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637299067669830267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732beb06d73e37a469267d245d9e851f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &4866245570944920987
 BoxCollider2D:
   m_ObjectHideFlags: 0

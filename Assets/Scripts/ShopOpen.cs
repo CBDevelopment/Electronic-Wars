@@ -46,13 +46,13 @@ public class ShopOpen : MonoBehaviour
             shopScreenUI.SetActive(true);
             if(shopIUSelect == 1)
             {
-                phaserUI.SetActive(true);
-                extraLifeUI.SetActive(false);
+                phaserUI.SetActive(false);
+                extraLifeUI.SetActive(true);
             }
             if(shopIUSelect == 2)
             {
-                phaserUI.SetActive(false);
-                extraLifeUI.SetActive(true);
+                phaserUI.SetActive(true);
+                extraLifeUI.SetActive(false);
             }
             
         }
@@ -152,7 +152,15 @@ public class ShopOpen : MonoBehaviour
         if(shopIUSelect == 1)
         {
             shopIUSelect = 2;
-        }  
+        }
+        else if (shopIUSelect == 2)
+        {
+            shopIUSelect = 3;
+        }
+        else if(shopIUSelect == 3)
+        {
+            shopIUSelect = 4;
+        }
 
     }
 
