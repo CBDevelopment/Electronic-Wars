@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 13
   lifeTime: 2.5
+  destroyEffect: {fileID: 5866807528191175492, guid: 114585ed11b559e44b3092c0646fabef,
+    type: 3}
 --- !u!114 &7777911716611486455
 MonoBehaviour:
   m_ObjectHideFlags: 0

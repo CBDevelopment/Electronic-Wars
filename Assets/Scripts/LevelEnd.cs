@@ -10,6 +10,7 @@ public class LevelEnd : MonoBehaviour {
     private PlayerController tvPlayer;
     private PlasmaPlayer plasmaPlayer;
     private PlayerGun playerGunScript;
+    private PlayerRouter playerRouterScript;
     private LevelManager theLevelManagerScript;
 
 	// Use this for initialization
@@ -19,6 +20,7 @@ public class LevelEnd : MonoBehaviour {
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
         theLevelManagerScript = FindObjectOfType<LevelManager>();
         playerGunScript = FindObjectOfType<PlayerGun>();
+        playerRouterScript = FindObjectOfType<PlayerRouter>();
 	}
 	
 	// Update is called once per frame
@@ -49,7 +51,7 @@ public class LevelEnd : MonoBehaviour {
         PlayerPrefs.SetInt("UpgradeCount", theLevelManagerScript.upgradeCount);
         PlayerPrefs.SetInt("PlayerLives", theLevelManagerScript.currentLives);
         PlayerPrefs.SetInt("PhaserBulletCount", playerGunScript.phaserBulletCount);
-        // *** Saves that you got the gun. ****
+        PlayerPrefs.SetInt("ShieldChargeCount", playerRouterScript.shieldChargeCount);
         PlayerPrefs.SetInt("HasGun", tvPlayer.hasGun);
         PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
         PlayerPrefs.SetInt(leveltoUnlock, 1);

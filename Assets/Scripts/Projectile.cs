@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public float speed;
     public float lifeTime;
 
-    //public GameObject destroyEffect;
+    public GameObject destroyEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +38,13 @@ public class Projectile : MonoBehaviour
         if(other.tag == "Player")
         {
             Destroy(gameObject);
+        }
+
+        if(other.tag == "Shield")
+        {
+            Instantiate(destroyEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+
         }
     }
 }

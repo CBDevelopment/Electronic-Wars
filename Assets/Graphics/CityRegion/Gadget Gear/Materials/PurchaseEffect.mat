@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PurchaseEffect
-  m_Shader: {fileID: 10512, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 202, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -47,6 +47,7 @@ Material:
     - _DstBlend: 10
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
+    - _InvFade: 1
     - _LightingEnabled: 0
     - _Mode: 3
     - _Shininess: 0.078125

@@ -34,7 +34,7 @@ public class RouterPickup : MonoBehaviour
         if (other.tag == "Player" | other.tag == "AttackTrigger" && tvPlayerScript.hasRouter == 0)
         {
             tvPlayerScript.hasRouter= 1; //Sets to True using int value of 1.
-            //playerGunScript.phaserBulletCount = 5;
+            playerRouterScript.shieldChargeCount = 1;
 
             Instantiate(routerPickUp, this.transform.position, this.transform.rotation);
 

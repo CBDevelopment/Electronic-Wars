@@ -40,6 +40,8 @@ public class LevelManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        //currentLives = startingLives;
+
         tvPlayer = FindObjectOfType<PlayerController>();
         evolveScript = FindObjectOfType<Evolve>();
         batteryHealthScript = FindObjectOfType<BatteryHealth>();
@@ -50,7 +52,14 @@ public class LevelManager : MonoBehaviour {
         gunPickupScript = FindObjectOfType<GunPickup>();
         routerPickupScript = FindObjectOfType<RouterPickup>();
 
-        //***********************LOADING********************************************
+        //***********************LOADING SAVE DATA********************************************
+
+        if (PlayerPrefs.HasKey("ShieldChargeCount"))
+        {
+            playerRouterScript.shieldChargeCount = PlayerPrefs.GetInt("ShieldChargeCount");
+        }
+        playerRouterScript.shieldChargeText.text = playerRouterScript.shieldChargeCount.ToString();
+
 
         if (PlayerPrefs.HasKey("HasRouter"))
         {
@@ -91,18 +100,24 @@ public class LevelManager : MonoBehaviour {
         {
             currentLives = PlayerPrefs.GetInt("PlayerLives");
         }
-        else { currentLives = startingLives;
+
+        else
+        {
+            currentLives = startingLives;
         }
 
-        currentLives = startingLives;
+        //currentLives = startingLives;
         livesText.text = "x " + currentLives;
-
         objectsToReset = FindObjectsOfType<ResetOnRespawn>();
 	}
 
     //// Update is called once per frame
     void Update()
     {
+        //Update the text every frame.
+        memText.text = memCount.ToString();
+        livesText.text = "x" + currentLives.ToString();
+
         if (tvPlayer.hasGun == 1)
         {
 
@@ -117,9 +132,6 @@ public class LevelManager : MonoBehaviour {
 
         }
 
-        //Update the text every frame.
-        memText.text = memCount.ToString();
-        livesText.text = "x" + currentLives.ToString();
     }
 
 

@@ -18,6 +18,7 @@ TagManager:
   - FollowPoint
   - Gun
   - Bullet
+  - Shield
   layers:
   - Default
   - TransparentFX

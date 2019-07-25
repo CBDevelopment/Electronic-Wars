@@ -10,11 +10,13 @@ public class MainMenu : MonoBehaviour {
     public string[] levelNames;
     public int startingLives;
     private PlayerController tvPlayer;
+    private LevelManager levelManagerScript;
 
 	// Use this for initialization
 	void Start () {
 
         tvPlayer = FindObjectOfType<PlayerController>();
+        levelManagerScript = FindObjectOfType<LevelManager>();
 	}
 	
 	// Update is called once per frame
@@ -35,12 +37,13 @@ public class MainMenu : MonoBehaviour {
         //Resets all collectables.
         PlayerPrefs.SetInt("MemCount", 0);
         PlayerPrefs.SetInt("UpgradeCount", 0);
-        PlayerPrefs.SetInt("PlayerLives", startingLives);
+        PlayerPrefs.SetInt("PlayerLives", 3);
         PlayerPrefs.SetInt("MemCount", 0);
         PlayerPrefs.SetInt("UpgradeCount", 0);
-        PlayerPrefs.SetInt("PlayerLives", startingLives);
         PlayerPrefs.SetInt("PhaserBulletCount", 0);
         PlayerPrefs.SetInt("HasGun", 0);
+        PlayerPrefs.SetInt("HasRouter", 0);
+        PlayerPrefs.SetInt("ShieldChargeCount", 0);
 
     }
 
