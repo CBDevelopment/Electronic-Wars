@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 9022040715454705311}
   - component: {fileID: 9022040715454705308}
   - component: {fileID: 9022040715454705309}
+  - component: {fileID: 6108682895819671669}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -375,6 +376,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot1Image: {fileID: 0}
   gunPickUp: {fileID: 0}
+--- !u!114 &6108682895819671669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022040715454705310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb2d2cccc785b344a47af70043addaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot2Image: {fileID: 0}
+  routerPickUp: {fileID: 0}
 --- !u!1 &9022040715622888958
 GameObject:
   m_ObjectHideFlags: 0

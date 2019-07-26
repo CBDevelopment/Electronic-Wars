@@ -11,12 +11,14 @@ public class ShopOpen : MonoBehaviour
     //under certain contraints.
     public GameObject PhaserBuyButton;
     public GameObject SimBuyButton;
+    public GameObject ShieldBuyButton;
     public GameObject Dialog;
+    public GameObject ShieldsMessage;
     //public GameObject ExtraLifeDialog;
-    public GameObject phaserUI;
-    public GameObject extraLifeUI;
-    public GameObject simCardUI;
-    public GameObject shieldChargesUI;
+    public GameObject phaserScreen;
+    public GameObject extraLifeScreen;
+    public GameObject simCardScreen;
+    public GameObject shieldChargesScreen;
     public GameObject purchaseBreak;
 
     public int shopUISelect = 1;
@@ -38,6 +40,7 @@ public class ShopOpen : MonoBehaviour
     {
         shopScreenUI.SetActive(false);
         Dialog.SetActive(false);
+        ShieldsMessage.SetActive(false);
         tvPlayer = FindObjectOfType<PlayerController>();
         playerGunScript = FindObjectOfType<PlayerGun>();
         levelManagerScript = FindObjectOfType<LevelManager>();
@@ -55,34 +58,38 @@ public class ShopOpen : MonoBehaviour
 
             if(shopUISelect == 1)
             {
-                extraLifeUI.SetActive(true);
+                extraLifeScreen.SetActive(true);
 
-                phaserUI.SetActive(false);
-                simCardUI.SetActive(false);
+                phaserScreen.SetActive(false);
+                simCardScreen.SetActive(false);
+                shieldChargesScreen.SetActive(false);
             }
             if(shopUISelect == 2)
             {
-                phaserUI.SetActive(true);
+                phaserScreen.SetActive(true);
 
-                extraLifeUI.SetActive(false);
-                simCardUI.SetActive(false);
+                extraLifeScreen.SetActive(false);
+                simCardScreen.SetActive(false);
+                shieldChargesScreen.SetActive(false);
+
             }
             if (shopUISelect == 3)
             {
-                simCardUI.SetActive(true);
+                simCardScreen.SetActive(true);
 
-                extraLifeUI.SetActive(false);
-                phaserUI.SetActive(false);
+                extraLifeScreen.SetActive(false);
+                phaserScreen.SetActive(false);
+                shieldChargesScreen.SetActive(false);
 
             }
 
-            if(shopUISelect == 4)
+            if (shopUISelect == 4)
             {
-                shieldChargesUI.SetActive(true);
+                shieldChargesScreen.SetActive(true);
 
-                simCardUI.SetActive(false);
-                extraLifeUI.SetActive(false);
-                phaserUI.SetActive(false);
+                simCardScreen.SetActive(false);
+                extraLifeScreen.SetActive(false);
+                phaserScreen.SetActive(false);
             }
 
         }
@@ -109,11 +116,15 @@ public class ShopOpen : MonoBehaviour
         if (tvPlayer.hasSIM == 1)
         {
             SimBuyButton.GetComponent<Button>().interactable = false;
+            ShieldBuyButton.GetComponent<Button>().interactable = true;
         }
         else if (tvPlayer.hasSIM == 0)
         {
             SimBuyButton.GetComponent<Button>().interactable = true;
+            ShieldBuyButton.GetComponent<Button>().interactable = false;
+
         }
+
 
     }
 
@@ -121,12 +132,12 @@ public class ShopOpen : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if (Input.GetButtonDown("Attack"))
-            {
-                shopOpen = true;
+            //if (Input.GetButtonDown("Attack"))
+            //{
+            //    shopOpen = true;
 
-            }
-
+            //}
+            shopOpen = true;
 
         }
     }
@@ -186,8 +197,9 @@ public class ShopOpen : MonoBehaviour
         {
             purchaseSound.Play();
             levelManagerScript.memCount -= 250;
-            //reference the shield charges button here.EnterCode here to enable the button.
             tvPlayer.hasSIM = 1;
+            Instantiate(purchaseBreak, SimBuyButton.transform.position, SimBuyButton.transform.rotation);
+            ShieldsMessage.SetActive(true);
         }
 
         else if (levelManagerScript.memCount < 250)
@@ -227,6 +239,7 @@ public class ShopOpen : MonoBehaviour
     {
         arrowSound.Play();
         Dialog.SetActive(false);
+        ShieldsMessage.SetActive(false);
 
         if(shopUISelect == 1)
         {
@@ -247,6 +260,7 @@ public class ShopOpen : MonoBehaviour
     {
         arrowSound.Play();
         Dialog.SetActive(false);
+        ShieldsMessage.SetActive(false);
 
         if (shopUISelect == 4)
         {

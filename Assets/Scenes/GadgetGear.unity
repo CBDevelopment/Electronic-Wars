@@ -497,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &256697212
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1896,7 +1896,7 @@ RectTransform:
   m_LocalScale: {x: 5.3354917, y: 5.335493, z: 5.335493}
   m_Children: []
   m_Father: {fileID: 1295305928}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2089,7 +2089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &796981616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2225,6 +2225,11 @@ PrefabInstance:
       propertyPath: theLevelManager
       value: 
       objectReference: {fileID: 1210836956}
+    - target: {fileID: 8718086311294701254, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1469843898}
     - target: {fileID: 1439320750675594612, guid: e2901f16e8bd4c845842319f4efe2593,
         type: 3}
       propertyPath: shieldChargeText
@@ -2584,11 +2589,13 @@ MonoBehaviour:
   shopScreenUI: {fileID: 1295305927}
   PhaserBuyButton: {fileID: 1314185033}
   SimBuyButton: {fileID: 1115401221}
+  ShieldBuyButton: {fileID: 1496860466}
   Dialog: {fileID: 789733021}
-  phaserUI: {fileID: 256697211}
-  extraLifeUI: {fileID: 1625030386}
-  simCardUI: {fileID: 1909514057}
-  shieldChargesUI: {fileID: 1595458596}
+  ShieldsMessage: {fileID: 1411618418}
+  phaserScreen: {fileID: 256697211}
+  extraLifeScreen: {fileID: 1625030386}
+  simCardScreen: {fileID: 1909514057}
+  shieldChargesScreen: {fileID: 1595458596}
   purchaseBreak: {fileID: 5866807528191175492, guid: 114585ed11b559e44b3092c0646fabef,
     type: 3}
   shopUISelect: 1
@@ -2947,7 +2954,7 @@ GameObject:
   - component: {fileID: 1115401224}
   - component: {fileID: 1115401223}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: SimCardBuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3445,7 +3452,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: eb5627e3948e80d4eb1e2afef668f98b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37fb9fdfa7d1de0439b9a2bb0fda356a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3496,6 +3503,7 @@ RectTransform:
   - {fileID: 1595458597}
   - {fileID: 329584858}
   - {fileID: 789733022}
+  - {fileID: 1411618419}
   - {fileID: 1843335743}
   - {fileID: 778772994}
   m_Father: {fileID: 7114727487292932720}
@@ -3519,7 +3527,7 @@ GameObject:
   - component: {fileID: 1314185036}
   - component: {fileID: 1314185035}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: PhaserBuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3746,6 +3754,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411618418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411618419}
+  - component: {fileID: 1411618421}
+  - component: {fileID: 1411618420}
+  m_Layer: 5
+  m_Name: ShieldsMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1411618419
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411618418}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0003554988}
+  m_LocalScale: {x: 4.6325464, y: 4.632547, z: 4.632547}
+  m_Children: []
+  m_Father: {fileID: 1295305928}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.51489663, y: -0.52526605}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1411618420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411618418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 50511ca1cc1b7d34f85a5b4906780625, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1411618421
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411618418}
+  m_CullTransparentMesh: 0
+--- !u!95 &1469843898 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6348569082927741416, guid: e2901f16e8bd4c845842319f4efe2593,
+    type: 3}
+  m_PrefabInstance: {fileID: 804708455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1496860466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3759,7 +3848,7 @@ GameObject:
   - component: {fileID: 1496860469}
   - component: {fileID: 1496860468}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: ShieldBuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3828,7 +3917,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 838259403}
-        m_MethodName: BuySIM
+        m_MethodName: BuyShieldCharges
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4190,7 +4279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1595458597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4229,7 +4318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1625030387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4792,7 +4881,7 @@ RectTransform:
   m_LocalScale: {x: 5.3755245, y: 5.375526, z: 5.375526}
   m_Children: []
   m_Father: {fileID: 1295305928}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
