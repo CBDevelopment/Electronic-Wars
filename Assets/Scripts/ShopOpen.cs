@@ -14,6 +14,7 @@ public class ShopOpen : MonoBehaviour
     public GameObject ShieldBuyButton;
     public GameObject Dialog;
     public GameObject ShieldsMessage;
+    public GameObject SIMCardMessage;
     //public GameObject ExtraLifeDialog;
     public GameObject phaserScreen;
     public GameObject extraLifeScreen;
@@ -115,11 +116,13 @@ public class ShopOpen : MonoBehaviour
 
         if (tvPlayer.hasSIM == 1)
         {
+            SIMCardMessage.SetActive(false);
             SimBuyButton.GetComponent<Button>().interactable = false;
             ShieldBuyButton.GetComponent<Button>().interactable = true;
         }
         else if (tvPlayer.hasSIM == 0)
         {
+            SIMCardMessage.SetActive(true);
             SimBuyButton.GetComponent<Button>().interactable = true;
             ShieldBuyButton.GetComponent<Button>().interactable = false;
 
@@ -132,12 +135,20 @@ public class ShopOpen : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            //if (Input.GetButtonDown("Attack"))
-            //{
-            //    shopOpen = true;
+            if (Input.GetButtonDown("Attack"))
+            {
+                shopOpen = true;
 
-            //}
-            shopOpen = true;
+            }
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            //shopOpen = true;
 
         }
     }
@@ -193,16 +204,16 @@ public class ShopOpen : MonoBehaviour
     public void BuySIM()
     {
         //Do the purchase function here and call it when necessary.
-        if (levelManagerScript.memCount >= 250)
+        if (levelManagerScript.memCount >= 25)
         {
             purchaseSound.Play();
-            levelManagerScript.memCount -= 250;
+            levelManagerScript.memCount -= 25;
             tvPlayer.hasSIM = 1;
             Instantiate(purchaseBreak, SimBuyButton.transform.position, SimBuyButton.transform.rotation);
             ShieldsMessage.SetActive(true);
         }
 
-        else if (levelManagerScript.memCount < 250)
+        else if (levelManagerScript.memCount < 25)
         {
             insufficientSound.Play();
             Dialog.SetActive(true);
