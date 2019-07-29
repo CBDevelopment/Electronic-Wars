@@ -63,6 +63,11 @@ public class PlayerProjectile : MonoBehaviour
 
         }
 
+        if (other.tag == "Boss")
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void OnCollisionEnter2D(Collision2D other)

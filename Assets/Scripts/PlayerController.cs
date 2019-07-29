@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public int hasGun = 0;
     public int hasRouter = 0;
     public int hasSIM = 0;
+    public int hasVPN = 0;
     public bool facingRight;
     public bool facingLeft;
 
@@ -205,7 +206,7 @@ public class PlayerController : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            rb2d.AddForce(new Vector3(knockbackDir.x * -22, knockbackDir.y * -17, transform.position.z));
+            rb2d.AddForce(new Vector3(knockbackDir.x * -13, knockbackDir.y * 3, transform.position.z));
         }
         canMove = true;
 

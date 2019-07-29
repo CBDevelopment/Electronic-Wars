@@ -66,6 +66,11 @@ public class LevelManager : MonoBehaviour {
             tvPlayer.hasRouter = PlayerPrefs.GetInt("HasRouter");
         }
 
+        if (PlayerPrefs.HasKey("HasVPN"))
+        {
+            tvPlayer.hasVPN = PlayerPrefs.GetInt("HasVPN");
+        }
+
         if (PlayerPrefs.HasKey("HasGun"))
         {
             tvPlayer.hasGun = PlayerPrefs.GetInt("HasGun");

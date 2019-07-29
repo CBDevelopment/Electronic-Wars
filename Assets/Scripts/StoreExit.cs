@@ -7,13 +7,20 @@ using UnityEngine.SceneManagement;
 public class StoreExit : MonoBehaviour
 {
 
+    private LevelEnd levelEndScript;
+
     public string levelToLoad;
+
+    void Start()
+    {
+    }
 
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-                SceneManager.LoadScene(levelToLoad);
+            levelEndScript.LevelEndCo();
+            SceneManager.LoadScene(levelToLoad);
         }
     }
 }

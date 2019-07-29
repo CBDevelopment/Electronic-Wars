@@ -12,14 +12,18 @@ public class ShopOpen : MonoBehaviour
     public GameObject PhaserBuyButton;
     public GameObject SimBuyButton;
     public GameObject ShieldBuyButton;
+    public GameObject vpnBuyButton;
     public GameObject Dialog;
     public GameObject ShieldsMessage;
+    public GameObject VPNMessage;
     public GameObject SIMCardMessage;
+    public GameObject vpnHUDImage;
     //public GameObject ExtraLifeDialog;
     public GameObject phaserScreen;
     public GameObject extraLifeScreen;
     public GameObject simCardScreen;
     public GameObject shieldChargesScreen;
+    public GameObject vpnScreen;
     public GameObject purchaseBreak;
 
     public int shopUISelect = 1;
@@ -42,6 +46,8 @@ public class ShopOpen : MonoBehaviour
         shopScreenUI.SetActive(false);
         Dialog.SetActive(false);
         ShieldsMessage.SetActive(false);
+        VPNMessage.SetActive(false);
+        vpnHUDImage.SetActive(false);
         tvPlayer = FindObjectOfType<PlayerController>();
         playerGunScript = FindObjectOfType<PlayerGun>();
         levelManagerScript = FindObjectOfType<LevelManager>();
@@ -64,6 +70,7 @@ public class ShopOpen : MonoBehaviour
                 phaserScreen.SetActive(false);
                 simCardScreen.SetActive(false);
                 shieldChargesScreen.SetActive(false);
+                vpnScreen.SetActive(false);
             }
             if(shopUISelect == 2)
             {
@@ -72,6 +79,7 @@ public class ShopOpen : MonoBehaviour
                 extraLifeScreen.SetActive(false);
                 simCardScreen.SetActive(false);
                 shieldChargesScreen.SetActive(false);
+                vpnScreen.SetActive(false);
 
             }
             if (shopUISelect == 3)
@@ -81,6 +89,7 @@ public class ShopOpen : MonoBehaviour
                 extraLifeScreen.SetActive(false);
                 phaserScreen.SetActive(false);
                 shieldChargesScreen.SetActive(false);
+                vpnScreen.SetActive(false);
 
             }
 
@@ -88,6 +97,18 @@ public class ShopOpen : MonoBehaviour
             {
                 shieldChargesScreen.SetActive(true);
 
+                simCardScreen.SetActive(false);
+                extraLifeScreen.SetActive(false);
+                phaserScreen.SetActive(false);
+                vpnScreen.SetActive(false);
+
+            }
+
+            if (shopUISelect == 5)
+            {
+                vpnScreen.SetActive(true);
+
+                shieldChargesScreen.SetActive(false);
                 simCardScreen.SetActive(false);
                 extraLifeScreen.SetActive(false);
                 phaserScreen.SetActive(false);
@@ -128,6 +149,14 @@ public class ShopOpen : MonoBehaviour
 
         }
 
+
+        //Checking if the player has a VPN.
+        if (tvPlayer.hasVPN == 1)
+        {
+            vpnBuyButton.GetComponent<Button>().interactable = false;
+            vpnHUDImage.SetActive(true);
+
+        }
 
     }
 
@@ -222,6 +251,27 @@ public class ShopOpen : MonoBehaviour
 
     }
 
+    public void BuyVPN()
+    {
+        //Do the purchase function here and call it when necessary.
+        if (levelManagerScript.memCount >= 250)
+        {
+            purchaseSound.Play();
+            levelManagerScript.memCount -= 250;
+            tvPlayer.hasVPN = 1;
+            Instantiate(purchaseBreak, vpnHUDImage.transform.position, vpnHUDImage.transform.rotation);
+            VPNMessage.SetActive(true);
+        }
+
+        else if (levelManagerScript.memCount < 250)
+        {
+            insufficientSound.Play();
+            Dialog.SetActive(true);
+
+        }
+
+    }
+
     public void BuyShieldCharges()
     {
         if (levelManagerScript.memCount >= 500 && tvPlayer.hasRouter == 1 && tvPlayer.hasSIM == 1)
@@ -251,11 +301,13 @@ public class ShopOpen : MonoBehaviour
         arrowSound.Play();
         Dialog.SetActive(false);
         ShieldsMessage.SetActive(false);
+        VPNMessage.SetActive(false);
 
         if(shopUISelect == 1)
         {
             shopUISelect = 2;
         }
+
         else if (shopUISelect == 2)
         {
             shopUISelect = 3;
@@ -265,6 +317,11 @@ public class ShopOpen : MonoBehaviour
             shopUISelect = 4;
         }
 
+        else if (shopUISelect == 4)
+        {
+            shopUISelect = 5;
+        }
+
     }
 
     public void LeftArrow()
@@ -272,8 +329,14 @@ public class ShopOpen : MonoBehaviour
         arrowSound.Play();
         Dialog.SetActive(false);
         ShieldsMessage.SetActive(false);
+        VPNMessage.SetActive(false);
 
-        if (shopUISelect == 4)
+        if (shopUISelect == 5)
+        {
+            shopUISelect = 4;
+        }
+
+        else if (shopUISelect == 4)
         {
             shopUISelect = 3;
         }
