@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class FadeIn : MonoBehaviour {
 
     public float fadeTime;
-    private Image blackScreen;
+    public Image blackScreenImage;
 
 	// Use this for initialization
 	void Start () {
 
-        blackScreen = GetComponent<Image>();
+        blackScreenImage.gameObject.SetActive(true);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        blackScreen.CrossFadeAlpha(0f, fadeTime, false);
+        blackScreenImage.CrossFadeAlpha(0f, fadeTime, false);
 
-        if(blackScreen.color.a == 0)
+        if(blackScreenImage.color.a == 0)
         {
             gameObject.SetActive(false);
         }

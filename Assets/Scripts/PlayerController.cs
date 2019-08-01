@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource jumpSound;
     public AudioSource hurtSound;
     public AudioSource deathSound;
+    public AudioSource runSound;
 
     //Special Bools ***********
     public int hasGun = 0;
@@ -284,6 +285,11 @@ public class PlayerController : MonoBehaviour
 
         transform.position = lastPositionScript.pos;
 
+    }
+
+    public void RunSound()
+    {
+        runSound.Play();
     }
 
 }

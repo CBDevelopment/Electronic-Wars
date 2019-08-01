@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
     private LevelEnd levelEndScript;
     private GunPickup gunPickupScript;
     private RouterPickup routerPickupScript;
+    public GameObject vpnHUDImage;
 
     //Global Things to save on the level.
     public int memCount;
@@ -42,6 +43,7 @@ public class LevelManager : MonoBehaviour {
 
         //currentLives = startingLives;
 
+        vpnHUDImage.SetActive(false);
         tvPlayer = FindObjectOfType<PlayerController>();
         evolveScript = FindObjectOfType<Evolve>();
         batteryHealthScript = FindObjectOfType<BatteryHealth>();
@@ -122,6 +124,13 @@ public class LevelManager : MonoBehaviour {
         //Update the text every frame.
         memText.text = memCount.ToString();
         livesText.text = "x" + currentLives.ToString();
+
+        if (tvPlayer.hasVPN == 1)
+        {
+
+            vpnHUDImage.SetActive(true);
+
+        }
 
         if (tvPlayer.hasGun == 1)
         {

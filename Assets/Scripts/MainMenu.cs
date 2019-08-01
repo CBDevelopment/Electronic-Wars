@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour {
     public int startingLives;
     private PlayerController tvPlayer;
     private LevelManager levelManagerScript;
+    public GameObject blackScreen;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +44,7 @@ public class MainMenu : MonoBehaviour {
         PlayerPrefs.SetInt("PhaserBulletCount", 0);
         PlayerPrefs.SetInt("HasGun", 0);
         PlayerPrefs.SetInt("HasRouter", 0);
+        PlayerPrefs.SetInt("HasVPN", 0);
         PlayerPrefs.SetInt("ShieldChargeCount", 0);
 
     }

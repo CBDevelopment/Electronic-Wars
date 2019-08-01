@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour {
     private float openingCount;
 
     public GameObject lighting;
+    public GameObject lightingSplosion;
 
     public Transform leftPoint;
     public Transform rightPoint;
@@ -39,8 +40,8 @@ public class Boss : MonoBehaviour {
     public bool bossFlipped;
 
     public SpriteRenderer theSpriteRenderer;
-    public FlipOnX flipScript;
-    public PlayerController thePlayerscript;
+    private FlipOnX flipScript;
+    private PlayerController tvPlayer;
     public Animator anim;
 
     //public int numberOfBoss1Kills;
@@ -49,10 +50,18 @@ public class Boss : MonoBehaviour {
 
     public Slider healthBar;
 
+    public GameObject TutorialHolder;
+    public GameObject UpgradeMessage;
+    public GameObject UpgradeMessage2;
+    public GameObject memoryCardRewards;
+
     // Use this for initialization
     void Start () {
 
-
+        tvPlayer = FindObjectOfType<PlayerController>();
+        flipScript = FindObjectOfType<FlipOnX>();
+        theLevelManager = FindObjectOfType<LevelManager>();
+        TutorialHolder.SetActive(false);
         bossActive = false;
 
         theUpgradeObject.SetActive(false);
@@ -69,9 +78,6 @@ public class Boss : MonoBehaviour {
 
         currentHealth = startingHealth;
 
-        thePlayerscript = FindObjectOfType<PlayerController>();
-        theLevelManager = FindObjectOfType<LevelManager>();
-
         anim.SetBool("Attacking", false);
         anim.SetBool("Teleporting", false);
         anim.SetFloat("Speed", 0f);
@@ -86,10 +92,10 @@ public class Boss : MonoBehaviour {
 
         if (bossActive)
         {
-
+            healthBar.gameObject.SetActive(true);
             this.anim.SetBool("Attacking", true);
 
-            if (thePlayerscript.currentHealth <= 0)
+            if (tvPlayer.currentHealth <= 0)
             {
                 
                 
@@ -110,6 +116,7 @@ public class Boss : MonoBehaviour {
             {
                 lightingSpawn.position = new Vector3(Random.Range(leftPoint.position.x, rightPoint.position.x), lightingSpawn.position.y, lightingSpawn.position.z);
                 Instantiate(lighting, lightingSpawn.position, lightingSpawn.rotation);
+                Instantiate(lightingSplosion, lightingSpawn.position, lightingSpawn.rotation);
                 dropCount = timeBetweenDrops;
             }
 
@@ -155,16 +162,27 @@ public class Boss : MonoBehaviour {
                 lightningWallLeft.SetActive(false);
                 lightningWallRight.SetActive(false);
                 healthBar.gameObject.SetActive(false);
+                //Spawn 50 Mb when destroying the boss.
+                Instantiate(memoryCardRewards, theBoss.gameObject.gameObject.transform.position, theBoss.gameObject.gameObject.transform.rotation);
+                Instantiate(memoryCardRewards, theBoss.gameObject.gameObject.transform.position, theBoss.gameObject.gameObject.transform.rotation);
+                Instantiate(memoryCardRewards, theBoss.gameObject.gameObject.transform.position, theBoss.gameObject.gameObject.transform.rotation);
+                Instantiate(memoryCardRewards, theBoss.gameObject.gameObject.transform.position, theBoss.gameObject.gameObject.transform.rotation);
+                Instantiate(memoryCardRewards, theBoss.gameObject.gameObject.transform.position, theBoss.gameObject.gameObject.transform.rotation);
 
             }
 
-            if(currentHealth <=0 && theLevelManager.upgradeCount <= 1)
+            if (currentHealth <=0 && theLevelManager.upgradeCount < 1)
             {
                 theUpgradeObject.SetActive(true);
             }
 
         }
-	}
+
+        if (Input.GetButtonDown("Transform"))
+        {
+            TutorialHolder.SetActive(false);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -177,11 +195,24 @@ public class Boss : MonoBehaviour {
                 levelMusic.Stop();
                 bossMusic.Play();
             }
-    }
+        }      
 }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         isTriggered = true; 
+    }
+
+    public void Next()
+    {
+        UpgradeMessage.SetActive(false);
+        UpgradeMessage2.SetActive(true);
+
+    }
+
+    public void Close()
+    {
+        //This is turned on by the UpgradeScript.
+        //TutorialHolder.SetActive(false);
     }
 }

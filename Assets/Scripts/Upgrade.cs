@@ -7,6 +7,7 @@ public class Upgrade : MonoBehaviour
     private LevelManager theLevelManager;
     private PlayerController tvPlayer;
     private PlasmaPlayer plasmaPlayer;
+    private Boss boss1;
 
     public GameObject upgradeBreak;
 
@@ -18,6 +19,7 @@ public class Upgrade : MonoBehaviour
         theLevelManager = FindObjectOfType<LevelManager>();
         tvPlayer = FindObjectOfType<PlayerController>();
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
+        boss1 = FindObjectOfType<Boss>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,14 @@ public class Upgrade : MonoBehaviour
             theLevelManager.AddUpgrade(upgradeValue);
             Instantiate(upgradeBreak, this.transform.position, this.transform.rotation);
             gameObject.SetActive(false);
+
+            if (theLevelManager.upgradeCount == 1)
+            {
+                //This is turned off on the BossScript
+                boss1.TutorialHolder.SetActive(true);
+            }
         }
+
+        
     }
 }

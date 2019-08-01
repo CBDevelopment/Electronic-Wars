@@ -3,57 +3,52 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class LevelEnd : MonoBehaviour {
-
+public class ExitSimple : MonoBehaviour
+{
     public string levelToLoad;
-    public string leveltoUnlock;
     private PlayerController tvPlayer;
     private PlasmaPlayer plasmaPlayer;
     private PlayerGun playerGunScript;
     private PlayerRouter playerRouterScript;
     private LevelManager theLevelManagerScript;
-    public AudioSource levelExitMusic;
-    public GameObject levelCompleteImage;
+    public AudioSource levelMusic;
     private Boss bossScript;
 
-    // Use this for initialization
-    void Start () {
-
+    // Start is called before the first frame update
+    void Start()
+    {
         tvPlayer = FindObjectOfType<PlayerController>();
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
         theLevelManagerScript = FindObjectOfType<LevelManager>();
         playerGunScript = FindObjectOfType<PlayerGun>();
         playerRouterScript = FindObjectOfType<PlayerRouter>();
-        bossScript = FindObjectOfType<Boss>();
-        levelCompleteImage.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
-            StartCoroutine("LevelEndCo");
+            StartCoroutine("SceneExit");
             tvPlayer.canMove = false;
             plasmaPlayer.canMove = false;
-            
+
         }
     }
 
-    public IEnumerator LevelEndCo()
+    public IEnumerator SceneExit()
     {
 
         theLevelManagerScript.levelMusic.Stop();
-        
 
-        levelExitMusic.Play();
-        levelCompleteImage.SetActive(true);
-        bossScript.bossMusic.Stop();
+
+        levelMusic.Stop();
 
         //****************************SAVING***************************************
 
@@ -66,9 +61,8 @@ public class LevelEnd : MonoBehaviour {
         PlayerPrefs.SetInt("HasGun", tvPlayer.hasGun);
         PlayerPrefs.SetInt("HasVPN", tvPlayer.hasVPN);
         PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
-        PlayerPrefs.SetInt(leveltoUnlock, 1);
-        
-        yield return new WaitForSeconds(4.5f);
+
+        yield return new WaitForSeconds(0.5f);
 
         SceneManager.LoadScene(levelToLoad);
     }
