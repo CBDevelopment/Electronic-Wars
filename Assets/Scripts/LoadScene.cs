@@ -16,7 +16,6 @@ public class LoadScene : MonoBehaviour
             if (Input.GetButton("Attack"))
             {
                 SceneManager.LoadScene(levelToLoad);
-
             }
 
         }

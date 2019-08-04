@@ -158,6 +158,11 @@ public class ShopOpen : MonoBehaviour
 
         }
 
+        if(tvPlayer.hasRouter == 0)
+        {
+            SimBuyButton.GetComponent<Button>().interactable = false;
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D other)

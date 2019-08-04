@@ -41,7 +41,6 @@ public class LevelEnd : MonoBehaviour {
             StartCoroutine("LevelEndCo");
             tvPlayer.canMove = false;
             plasmaPlayer.canMove = false;
-            
         }
     }
 
@@ -54,6 +53,7 @@ public class LevelEnd : MonoBehaviour {
         levelExitMusic.Play();
         levelCompleteImage.SetActive(true);
         bossScript.bossMusic.Stop();
+
 
         //****************************SAVING***************************************
 
