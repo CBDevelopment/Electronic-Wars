@@ -12,10 +12,13 @@ public class PauseMenu : MonoBehaviour {
 
     private PlayerController tvPlayer;
 
+    private LevelManager levelManagerScript;
+
     private void Start()
     {
         PauseUI.SetActive(false);
         tvPlayer = FindObjectOfType<PlayerController>();
+        levelManagerScript = FindObjectOfType<LevelManager>(); 
     }
 
     private void Update()
@@ -47,10 +50,27 @@ public class PauseMenu : MonoBehaviour {
         paused = false;
     }
 
-    public void Restart()
+    //[System.Obsolete]
+    public void GameOverRestart()
     {
         Application.LoadLevel(Application.loadedLevel);
+        PlayerPrefs.SetInt("PlayerLives", 3);
+
+        //SceneManager.GetActiveScene();
+
     }
+
+    //[System.Obsolete]
+    public void Restart()
+    {
+        //Application.LoadLevel(Application.loadedLevel);
+        //levelManagerScript.currentLives = PlayerPrefs.GetInt("PlayerLives");
+
+
+        ////SceneManager.GetActiveScene();
+
+    }
+
 
     public void Quit()
     {

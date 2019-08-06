@@ -68,7 +68,7 @@ public class LevelEnd : MonoBehaviour {
         PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
         PlayerPrefs.SetInt(leveltoUnlock, 1);
         
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(2.5f);
 
         SceneManager.LoadScene(levelToLoad);
     }

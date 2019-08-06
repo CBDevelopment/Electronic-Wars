@@ -9,7 +9,7 @@ public class LoadScene : MonoBehaviour
 
     public string levelToLoad;
 
-    void OnTriggerStay2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {

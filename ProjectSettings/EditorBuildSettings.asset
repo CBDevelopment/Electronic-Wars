@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Main Menu.unity
-    guid: eab8aac40f2c92742bd7b3eb72c60a3c
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: e5ccf6a57428f6245a679e74af6f54fe
@@ -18,18 +18,21 @@ EditorBuildSettings:
     path: Assets/Scenes/CityRegion.unity
     guid: 92d4699aed7a0de4da61d7fa18ca374d
   - enabled: 1
+    path: Assets/Scenes/Level1House.unity
+    guid: 886e95ac363cfbb47ade1b1d29ef1a39
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: fb5e01095df72e845ad85412940f85ab
-  - enabled: 1
-    path: Assets/Scenes/Level1Boss.unity
-    guid: 1fbfbefea2c23804ab2958216b63de32
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: a83fece674043b84bac55f6078ffb33d
   - enabled: 1
     path: Assets/Scenes/GadgetGear.unity
     guid: c08218efa7cf27a42946250e2e0fbefe
-  - enabled: 1
-    path: Assets/Scenes/Special.unity
-    guid: 00b57ce67e8a8d94fa6ffafeb7419839
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

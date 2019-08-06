@@ -5055,7 +5055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1587608501}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &385912163
@@ -5065,12 +5065,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385912160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -96.227745, y: -87.860115, z: 0}
+  m_LocalScale: {x: 0.34865126, y: 0.34865126, z: 0.34865126}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1675691689}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514946320
 GameObject:
@@ -10101,14 +10101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7eb6f239204176419708bace6d8fba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Level1
+  firstLevel: Level1House
   levelSelect: CityRegion
   levelNames:
   - Level1
   - Level2
   - Level3
   startingLives: 3
-  blackScreen: {fileID: 0}
+  blackScreen: {fileID: 1022960582}
 --- !u!1 &966079785
 GameObject:
   m_ObjectHideFlags: 0
@@ -15524,6 +15524,7 @@ RectTransform:
   m_Children:
   - {fileID: 1587608502}
   - {fileID: 63037609}
+  - {fileID: 385912163}
   m_Father: {fileID: 929724015}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

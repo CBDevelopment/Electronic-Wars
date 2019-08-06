@@ -9,9 +9,10 @@ public class DoorEntry : MonoBehaviour
     public string levelToLoad;
     public GameObject doorEntry;
     // Start is called before the first frame update
+
     void Start()
     {
-        doorEntry.SetActive(false);
+        //doorEntry.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class DoorEntry : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             doorEntry.SetActive(true);
 
@@ -38,7 +39,7 @@ public class DoorEntry : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
 
         if (other.tag == "Player")
@@ -46,6 +47,8 @@ public class DoorEntry : MonoBehaviour
             if (Input.GetButtonDown("Attack"))
             {
                 SceneManager.LoadScene(levelToLoad);
+
+
             }
         }
     }

@@ -171,6 +171,7 @@ public class Boss : MonoBehaviour {
 
             }
 
+            //Drop the upgrade if you don't have any yet.
             if (currentHealth <=0 && theLevelManager.upgradeCount < 1)
             {
                 theUpgradeObject.SetActive(true);
@@ -205,7 +206,6 @@ public class Boss : MonoBehaviour {
 
     public void Next()
     {
-        UpgradeMessage.SetActive(false);
         UpgradeMessage2.SetActive(true);
 
     }

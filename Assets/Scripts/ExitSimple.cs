@@ -15,7 +15,7 @@ public class ExitSimple : MonoBehaviour
     private Boss bossScript;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         tvPlayer = FindObjectOfType<PlayerController>();
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
@@ -25,12 +25,12 @@ public class ExitSimple : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.tag == "Player")
