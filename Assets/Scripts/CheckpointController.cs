@@ -11,11 +11,13 @@ public class CheckpointController : MonoBehaviour {
 
     private SpriteRenderer theSpriteRenderer;
 
+    public Collider2D theColliderBox;
+
 	// Use this for initialization
 	void Start () {
 
         theSpriteRenderer = GetComponent<SpriteRenderer>();
-		
+        theColliderBox.enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -29,7 +31,7 @@ public class CheckpointController : MonoBehaviour {
         {
             theSpriteRenderer.sprite = Lighton;
             checkpointActive = true;
-
+            theColliderBox.enabled = false;
         }
     }
 }

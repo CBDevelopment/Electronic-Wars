@@ -35,7 +35,7 @@ public class Boss : MonoBehaviour {
     public AudioSource bossMusic;
     public AudioSource levelMusic;
 
-
+    public Collider2D theColliderBox;
     public bool isTriggered;
     public bool bossFlipped;
 
@@ -55,6 +55,9 @@ public class Boss : MonoBehaviour {
     public GameObject UpgradeMessage2;
     public GameObject memoryCardRewards;
 
+    public GameObject damageSplosion;
+    public GameObject destroySplosion;
+
     // Use this for initialization
     void Start () {
 
@@ -63,6 +66,7 @@ public class Boss : MonoBehaviour {
         theLevelManager = FindObjectOfType<LevelManager>();
         TutorialHolder.SetActive(false);
         bossActive = false;
+        theColliderBox.enabled = true;
 
         theUpgradeObject.SetActive(false);
         lightningWallLeft.SetActive(false);
@@ -94,6 +98,7 @@ public class Boss : MonoBehaviour {
         {
             healthBar.gameObject.SetActive(true);
             this.anim.SetBool("Attacking", true);
+            theColliderBox.enabled = false;
 
             if (tvPlayer.currentHealth <= 0)
             {
@@ -134,6 +139,8 @@ public class Boss : MonoBehaviour {
 
             if (takeDamage)
             {
+              
+              Instantiate(damageSplosion, theBoss.transform.position, theBoss.transform.rotation);
 
                 currentHealth -= 1;
 
@@ -157,6 +164,7 @@ public class Boss : MonoBehaviour {
 
             if(currentHealth <= 0)
             {
+                Instantiate(destroySplosion, theBoss.transform.position, theBoss.transform.rotation);
                 theBoss.SetActive(false);
                 bossActive = false;
                 lightningWallLeft.SetActive(false);
@@ -196,8 +204,11 @@ public class Boss : MonoBehaviour {
                 levelMusic.Stop();
                 bossMusic.Play();
             }
-        }      
-}
+        }
+
+        
+
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {

@@ -2880,6 +2880,16 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 472534665153347019, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472534665153347019, guid: e2901f16e8bd4c845842319f4efe2593,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2901f16e8bd4c845842319f4efe2593, type: 3}
 --- !u!82 &965869171 stripped
@@ -4980,6 +4990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 628604284}
+  levelToLoad: 
 --- !u!114 &1552924652
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,15 +7,16 @@ public class playerAttack : MonoBehaviour
 
     public bool attacking = false;
 
-    public float attackTimer = 3;
+    public float attackTimer = 5;
     public float attackCD = .38f;
 
     public Collider2D attackTrigger;
 
     public Animator anim;
 
+    public bool animationPlaying = false;
 
-    private void Start()
+    public void Start()
     {
 
     }
@@ -34,7 +35,9 @@ public class playerAttack : MonoBehaviour
         {
             attacking = true;
             attackTimer = attackCD;
-            attackTrigger.enabled = true;
+            anim.SetTrigger("Attacking");
+            animationPlaying = true;
+
         }
 
         if (attacking)
@@ -43,17 +46,27 @@ public class playerAttack : MonoBehaviour
             if (attackTimer > 0)
             {
                 attackTimer -= Time.deltaTime;
+                if (attackTimer <= 1)
+                {
+
+                    if (animationPlaying)
+                    {
+                        attackTrigger.enabled = true;
+
+                    }
+
+                }
             }
+            
             else
             {
                 attacking = false;
                 attackTrigger.enabled = false;
+                anim.ResetTrigger("Attacking");
             }
-
-            anim.SetBool("Attacking", attacking);
-
-
         }
+
+            
     }
 
 

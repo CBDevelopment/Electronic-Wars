@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
 
     public GameObject destroyEffect;
 
+    public GameObject damageSplosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,8 @@ public class Projectile : MonoBehaviour
         if(other.tag == "AttackTrigger")
         {
             Destroy(gameObject);
+            Instantiate(damageSplosion, this.transform.position, this.transform.rotation);
+
         }
 
         if (other.tag == "Player")

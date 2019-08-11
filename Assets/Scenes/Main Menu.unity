@@ -10101,7 +10101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7eb6f239204176419708bace6d8fba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Level1
+  firstLevel: Level1CutScene
   levelSelect: CityRegion
   levelNames:
   - Level1

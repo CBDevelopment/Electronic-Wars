@@ -10,11 +10,12 @@ public class PlayerController : MonoBehaviour
     //Floats
     public float maxSpeed = 5;
     public float speed = 150f;
-    public float jumpPower = 400f;
+    public float jumpPower;
 
     //Booleans
     public bool grounded;
     public bool canDoubleJump;
+    public bool flipping;
     public bool hovering;
     public bool canMove;
     public bool onWall;
@@ -127,6 +128,7 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = true;
                 jumpSound.Play();
             }
+
             else
             {
                 if (canDoubleJump)
@@ -135,6 +137,8 @@ public class PlayerController : MonoBehaviour
                     rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                     rb2d.AddForce(Vector2.up * jumpPower / 1.25f);
                     jumpSound.Play();
+                    //Still thinking about if i should keep this.
+                    anim.SetTrigger("Flipping");
                 }
             }
         }
@@ -170,6 +174,7 @@ public class PlayerController : MonoBehaviour
             if (grounded)
             {
                 rb2d.velocity = easeVelocity;
+
             }
 
             //Move Player

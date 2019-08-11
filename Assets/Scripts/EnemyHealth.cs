@@ -18,11 +18,15 @@ public class EnemyHealth : MonoBehaviour
     //public Slider healthBar.  
 
     public Sprite[] healthBarSprites;
+    private Shake shakeCamera;
 
+    public GameObject destroySplosion;
+    public GameObject damageSplosion;
 
     // Start is called before the first frame update
     void Start()
     {
+        shakeCamera = FindObjectOfType<Shake>(); 
         fullHealth = startingHealth;
         currentHealth = startingHealth;
     }
@@ -69,8 +73,9 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             this.gameObject.SetActive(false);
+            Instantiate(destroySplosion, this.transform.position, this.transform.rotation);
 
-            if(Random.Range(0,3) == dropRate)
+            if (Random.Range(0,3) == dropRate)
             {
                 Instantiate(itemToDrop, this.transform.position, this.transform.rotation);
             }
@@ -85,13 +90,28 @@ public class EnemyHealth : MonoBehaviour
         if(other.tag == "AttackTrigger")
         {
             currentHealth -= 1;
-            
+            shakeCamera.CamShake();
+
+            if(currentHealth > 0)
+            {
+                Instantiate(damageSplosion, this.transform.position, this.transform.rotation);
+
+            }
+
         }
 
-        if(other.tag == "Bullet")
+        if (other.tag == "Bullet")
         {
             //Destroy(other.gameObject);
             currentHealth -= 1;
+            shakeCamera.CamShake();
+
+            if (currentHealth > 0)
+            {
+                Instantiate(damageSplosion, this.transform.position, this.transform.rotation);
+
+            }
+
         }
     }
 }

@@ -10,7 +10,7 @@ public class attackTrigger : MonoBehaviour {
 
     private EnemyHealth theEnemyHealthScript;
 
-    private void Start()
+    public void Start()
     {
         theEnemyHealthScript = FindObjectOfType<EnemyHealth>();
     }
@@ -19,17 +19,14 @@ public class attackTrigger : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            //Destroy(other.gameObject);
-            //other.gameObject.SetActive(false);
-            //other.transform.parent.GetComponent<EnemyHealth>().takeDamage = true;
-            //theEnemyHealthScript.currentHealth -= 1;
-            Instantiate(destroySplosion, other.transform.position, other.transform.rotation);
+            
+            //Instantiate(destroySplosion, other.transform.position, other.transform.rotation);
         }
 
         if(other.tag == "Boss")
         {
             other.transform.parent.GetComponent<Boss>().takeDamage = true;
-            Instantiate(destroySplosion, other.transform.position, other.transform.rotation);
+            //Instantiate(destroySplosion, other.transform.position, other.transform.rotation);
 
         }
 

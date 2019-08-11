@@ -19,6 +19,7 @@ TagManager:
   - Gun
   - Bullet
   - Shield
+  - ScreenShake
   layers:
   - Default
   - TransparentFX

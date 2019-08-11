@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour {
 
     private LevelManager levelManagerScript;
 
+    public string levelToLoad;
+
     private void Start()
     {
         PauseUI.SetActive(false);
@@ -53,7 +55,7 @@ public class PauseMenu : MonoBehaviour {
     //[System.Obsolete]
     public void GameOverRestart()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(levelToLoad);
         PlayerPrefs.SetInt("PlayerLives", 3);
 
         //SceneManager.GetActiveScene();
