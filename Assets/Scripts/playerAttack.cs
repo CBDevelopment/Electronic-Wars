@@ -7,18 +7,19 @@ public class playerAttack : MonoBehaviour
 
     public bool attacking = false;
 
-    public float attackTimer = 5;
+    public float attackTimer = 20;
     public float attackCD = .38f;
 
     public Collider2D attackTrigger;
 
     public Animator anim;
+    private PlayerController tvPlayer;
 
     public bool animationPlaying = false;
 
     public void Start()
     {
-
+        tvPlayer = FindObjectOfType<PlayerController>();
     }
 
     void Awake()
@@ -36,6 +37,7 @@ public class playerAttack : MonoBehaviour
             attacking = true;
             attackTimer = attackCD;
             anim.SetTrigger("Attacking");
+            tvPlayer.meleeSound.Play();
             animationPlaying = true;
 
         }

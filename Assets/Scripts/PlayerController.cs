@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool hovering;
     public bool canMove;
     public bool onWall;
+    public bool canJump;
 
     //Player Stats
     public int currentHealth;
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
     //References
     private Animator anim;
     private Rigidbody2D rb2d;
+    public Collider2D crouchCollider;
+    public Collider2D playerCollider;
 
     public Vector3 respawnPosition;
     public LevelManager theLevelManager;
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource hurtSound;
     public AudioSource deathSound;
     public AudioSource runSound;
+    public AudioSource meleeSound;
 
     //Special Bools ***********
     public int hasGun = 0;
@@ -44,6 +48,7 @@ public class PlayerController : MonoBehaviour
     public int hasVPN = 0;
     public bool facingRight;
     public bool facingLeft;
+    public bool crouch = false;
 
     //GameObject tv;
     //GameObject plasma;
@@ -59,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        crouchCollider.enabled = false;
+
         //Defaults to facing right.
         facingRight = true;
 
@@ -111,12 +118,22 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        //if (facingLeft)
-        //{
-        //    playerGun.shotPoint.transform.localScale = new Vector3(-1, 1, 1);
-        //}
+        //Crouch
+        if(Input.GetButtonDown("Vertical"))
+        {
+            speed = 100;
+            anim.SetBool("Crouching", true);
+            playerCollider.enabled = false;
+            crouchCollider.enabled = true;
+        }
 
-
+        if (Input.GetButtonUp("Vertical"))
+        {
+            speed = 500;
+            anim.SetBool("Crouching", false);
+            playerCollider.enabled = true;
+            crouchCollider.enabled = false;
+        }
 
         //Jumping
         if (Input.GetButtonDown("Jump"))
@@ -153,6 +170,7 @@ public class PlayerController : MonoBehaviour
 
             theLevelManager.Respawn();
             gameObject.GetComponent<Animation>().Play("Flash");
+            speed = 500;
 
         }
 
@@ -174,7 +192,7 @@ public class PlayerController : MonoBehaviour
             if (grounded)
             {
                 rb2d.velocity = easeVelocity;
-
+                anim.SetBool("Flipping", false);
             }
 
             //Move Player
@@ -232,6 +250,8 @@ public class PlayerController : MonoBehaviour
             //transform.position = respawnPosition;
 
             theLevelManager.Respawn();
+            speed = 500;
+
         }
 
         if (other.tag == "Checkpoint")
@@ -296,5 +316,10 @@ public class PlayerController : MonoBehaviour
     {
         runSound.Play();
     }
+
+    //public void MeleeSound()
+    //{
+    //    meleeSound.Play();
+    //}
 
 }

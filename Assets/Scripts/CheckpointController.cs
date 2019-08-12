@@ -7,6 +7,10 @@ public class CheckpointController : MonoBehaviour {
     public Sprite Lightoff;
     public Sprite Lighton;
 
+    private Evolve evolveScript;
+    private PlayerController tvPlayer;
+    private PlasmaPlayer plasmaPlayer;
+
     public bool checkpointActive;
 
     private SpriteRenderer theSpriteRenderer;
@@ -18,6 +22,9 @@ public class CheckpointController : MonoBehaviour {
 
         theSpriteRenderer = GetComponent<SpriteRenderer>();
         theColliderBox.enabled = true;
+        evolveScript = FindObjectOfType<Evolve>();
+        tvPlayer = FindObjectOfType<PlayerController>();
+        plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +39,9 @@ public class CheckpointController : MonoBehaviour {
             theSpriteRenderer.sprite = Lighton;
             checkpointActive = true;
             theColliderBox.enabled = false;
+            //evolveScript.Transform();
+            tvPlayer.respawnPosition = this.transform.position;
+            plasmaPlayer.respawnPosition = this.transform.position;
         }
     }
 }

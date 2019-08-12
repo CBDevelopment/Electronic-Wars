@@ -18,13 +18,18 @@ public class Boss : MonoBehaviour {
 
     public Transform leftPoint;
     public Transform rightPoint;
+    public Transform rightUpPoint;
+    public Transform leftUpPoint;
     public Transform lightingSpawn;
 
     public GameObject theBoss;
     public GameObject lightningWallRight;
     public GameObject lightningWallLeft;
 
+    public Rigidbody2D rb2d;
+
     public bool bossRight;
+    public bool bossUpRight;
     public bool bossLeft;
 
     public bool takeDamage;
@@ -67,6 +72,7 @@ public class Boss : MonoBehaviour {
         TutorialHolder.SetActive(false);
         bossActive = false;
         theColliderBox.enabled = true;
+        rb2d = theBoss.GetComponent<Rigidbody2D>();
 
         theUpgradeObject.SetActive(false);
         lightningWallLeft.SetActive(false);
@@ -99,18 +105,27 @@ public class Boss : MonoBehaviour {
             healthBar.gameObject.SetActive(true);
             this.anim.SetBool("Attacking", true);
             theColliderBox.enabled = false;
-
-            if (tvPlayer.currentHealth <= 0)
-            {
-                
-                
-                flipScript.theSpriteRenderer.flipX = false;
-                theBoss.transform.position = rightPoint.position;
-            }
-            
             theBoss.SetActive(true);
             lightningWallLeft.SetActive(true);
             lightningWallRight.SetActive(true);
+
+            if (tvPlayer.currentHealth <= 0)
+            {
+                if(currentHealth > 6)
+                {
+                    flipScript.theSpriteRenderer.flipX = false;
+                    theBoss.transform.position = rightPoint.position;
+
+                }
+                else if (currentHealth <= 6)
+                {
+                    flipScript.theSpriteRenderer.flipX = false;
+                    theBoss.transform.position = rightUpPoint.position;
+
+                }
+
+            }
+            
 
             if (dropCount > 0)
             {
@@ -125,29 +140,16 @@ public class Boss : MonoBehaviour {
                 dropCount = timeBetweenDrops;
             }
 
-            //if (bossRight)
-            //{
-            //    //if (openingCount > 0)
-            //    //{
-            //    //    openingCount -= Time.deltaTime;
-            //    //}
-            //    //else
-            //    //{
-            //    //    shield.SetActive(true);
-            //    //}
-            //}
 
-            if (takeDamage)
+            if (takeDamage && currentHealth > 6)
             {
               
               Instantiate(damageSplosion, theBoss.transform.position, theBoss.transform.rotation);
-
                 currentHealth -= 1;
 
                 if (bossRight)
                 {
                     anim.Play("PluggyTeleport");
-
                     flipScript.theSpriteRenderer.flipX = true;
                     theBoss.transform.position = leftPoint.position;
                     
@@ -162,7 +164,41 @@ public class Boss : MonoBehaviour {
                 takeDamage = false;
             }
 
-            if(currentHealth <= 0)
+            if (takeDamage && currentHealth <= 6)
+            {
+
+                Instantiate(damageSplosion, theBoss.transform.position, theBoss.transform.rotation);
+                currentHealth -= 1;
+                anim.SetBool("Attacking", false);
+
+                if (bossUpRight)
+                {
+                    anim.Play("Damaged");
+                    theBoss.transform.position = rightUpPoint.position;
+                    flipScript.theSpriteRenderer.flipX = false;
+
+                }
+                else
+                {
+                    anim.Play("Damaged");
+                    theBoss.transform.position = leftUpPoint.position;
+                    flipScript.theSpriteRenderer.flipX = true;
+
+                }
+
+                bossUpRight = !bossUpRight;
+                takeDamage = false;
+            }
+
+            if(currentHealth <= 6)
+            {
+                rb2d.gravityScale = 0;
+                //theBoss.transform.position = rightUpPoint.position;
+                anim.SetBool("Levitating", true);
+
+            }
+
+            if (currentHealth <= 0)
             {
                 Instantiate(destroySplosion, theBoss.transform.position, theBoss.transform.rotation);
                 theBoss.SetActive(false);

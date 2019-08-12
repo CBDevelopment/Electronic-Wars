@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 9187213363846972275}
   - component: {fileID: -8000142385426774344}
   - component: {fileID: 6590667438030046523}
-  - component: {fileID: 8369640515198149638}
   - component: {fileID: 9126168256228235257}
+  - component: {fileID: 973960119306646468}
   m_Layer: 0
   m_Name: Lightning
   m_TagString: Enemy
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961176711921773478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.28, y: -0.23, z: 0}
-  m_LocalScale: {x: 0.7822726, y: 0.7822726, z: 0.7822726}
+  m_LocalPosition: {x: 4.412, y: -0.23, z: 0}
+  m_LocalScale: {x: 0.41303992, y: 0.7822726, z: 0.7822726}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -131,32 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToGive: 1
---- !u!61 &8369640515198149638
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961176711921773478}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -2.23, y: -10.66}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.7013035, y: 22.869999}
-    newSize: {x: 4.7013035, y: 22.869999}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0280106, y: 1.5926228}
-  m_EdgeRadius: 0
 --- !u!61 &9126168256228235257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,9 +142,9 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.45049858, y: 4.0198317}
+  m_Offset: {x: -1.1545839, y: -2.192484}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,5 +155,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4141598, y: 12.889719}
+  m_Size: {x: 1.077826, y: 16.27212}
   m_EdgeRadius: 0
+--- !u!251 &973960119306646468
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961176711921773478}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

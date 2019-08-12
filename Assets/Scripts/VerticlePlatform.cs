@@ -20,13 +20,19 @@ public class VerticlePlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        //if (Input.GetButtonDown("Vertical"))
+        //{
+        //    //waitTime = 0.1f;
+        //    theEffector.rotationalOffset = 0f;
+        //}
+
+        if (Input.GetButtonUp("Vertical"))
         {
             //waitTime = 0.1f;
             theEffector.rotationalOffset = 0f;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetButtonDown("Vertical"))
         {
             if(waitTime < 0)
             {
