@@ -6,9 +6,10 @@ public class playerAttack : MonoBehaviour
 {
 
     public bool attacking = false;
-
-    public float attackTimer = 20;
-    public float attackCD = .38f;
+    public float attackTimer = .2f;
+    public float attackCD = .2f;
+    public float timeBetweenAttack = .19f;
+    public bool canAttack;
 
     public Collider2D attackTrigger;
 
@@ -31,44 +32,50 @@ public class playerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetButtonDown("Attack") && !attacking)
+        if (timeBetweenAttack <= 0)
         {
-            attacking = true;
-            attackTimer = attackCD;
-            anim.SetTrigger("Attacking");
-            tvPlayer.meleeSound.Play();
-            animationPlaying = true;
-
-        }
-
-        if (attacking)
-        {
-
-            if (attackTimer > 0)
+            if (Input.GetButtonDown("Attack") && !attacking)
             {
-                attackTimer -= Time.deltaTime;
-                if (attackTimer <= 1)
-                {
+                attacking = true;
+                attackTimer = attackCD;
+                anim.SetTrigger("Attacking");
+                tvPlayer.meleeSound.Play();
+                animationPlaying = true;
 
-                    if (animationPlaying)
+            }
+
+            if (attacking)
+            {
+
+                if (attackTimer > 0)
+                {
+                    attackTimer -= Time.deltaTime;
+                    if (attackTimer <= 1)
                     {
-                        attackTrigger.enabled = true;
+
+                        if (animationPlaying)
+                        {
+                            attackTrigger.enabled = true;
+
+                        }
 
                     }
+                }
+
+                else
+                {
+                    attacking = false;
+                    attackTrigger.enabled = false;
+                    anim.ResetTrigger("Attacking");
+                    animationPlaying = false;
+                    timeBetweenAttack = .19f;
 
                 }
             }
-            
-            else
-            {
-                attacking = false;
-                attackTrigger.enabled = false;
-                anim.ResetTrigger("Attacking");
-            }
         }
 
-            
+        timeBetweenAttack -= Time.deltaTime;
+
     }
 
 
