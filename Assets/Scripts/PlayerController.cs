@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
                 rb2d.AddForce(Vector2.up * jumpPower);
                 canDoubleJump = true;
                 jumpSound.Play();
+
             }
 
             else
@@ -154,7 +155,6 @@ public class PlayerController : MonoBehaviour
                     rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                     rb2d.AddForce(Vector2.up * jumpPower / 1.25f);
                     jumpSound.Play();
-                    //Still thinking about if i should keep this.
                     anim.SetTrigger("Flipping");
                 }
             }
@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
             {
                 rb2d.velocity = easeVelocity;
                 anim.SetBool("Flipping", false);
+
             }
 
             //Move Player
