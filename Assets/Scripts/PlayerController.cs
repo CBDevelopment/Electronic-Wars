@@ -28,9 +28,7 @@ public class PlayerController : MonoBehaviour
     //References
     private Animator anim;
     private Rigidbody2D rb2d;
-    public Collider2D crouchTrigger;
     public Collider2D crouchCollider;
-    public Collider2D playerTrigger;
     public Collider2D playerCollider;
 
     public Vector3 respawnPosition;
@@ -67,8 +65,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
-        crouchTrigger.enabled = false;
         crouchCollider.enabled = false;
+        playerCollider.enabled = true;
 
         //Defaults to facing right.
         facingRight = true;
@@ -127,9 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 100;
             anim.SetBool("Crouching", true);
-            playerTrigger.enabled = false;
             playerCollider.enabled = false;
-            crouchTrigger.enabled = true;
             crouchCollider.enabled = true;
         }
 
@@ -137,9 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 500;
             anim.SetBool("Crouching", false);
-            playerTrigger.enabled = true;
             playerCollider.enabled = true;
-            crouchTrigger.enabled = false;
             crouchCollider.enabled = false;
         }
 

@@ -193,6 +193,8 @@ public class LevelManager : MonoBehaviour {
     public IEnumerator RespawnCo()
     {
         tvPlayer.gameObject.SetActive(false);
+        tvPlayer.playerCollider.enabled = false;
+
 
         Instantiate(deathBreak, tvPlayer.transform.position, tvPlayer.transform.rotation);
 
@@ -201,9 +203,11 @@ public class LevelManager : MonoBehaviour {
         tvPlayer.transform.position = tvPlayer.respawnPosition;
 
         tvPlayer.gameObject.SetActive(true);
+        tvPlayer.playerCollider.enabled = true;
+
 
         //reset objects in game.
-        for(int i = 0; i < objectsToReset.Length; i++)
+        for (int i = 0; i < objectsToReset.Length; i++)
         {
             objectsToReset[i].gameObject.SetActive(true);
             objectsToReset[i].ResetObject();
