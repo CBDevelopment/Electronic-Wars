@@ -3646,8 +3646,6 @@ Transform:
   m_Children:
   - {fileID: 1409664518}
   - {fileID: 1723466471}
-  - {fileID: 1368303474}
-  - {fileID: 1705185676}
   - {fileID: 1212236890}
   - {fileID: 487772318}
   - {fileID: 1777753554}
@@ -6035,16 +6033,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8620645469740722580, guid: 34cf8b98453d80a4094b3ee08fd0dabf,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.2568407
-      objectReference: {fileID: 0}
-    - target: {fileID: 8620645469740722580, guid: 34cf8b98453d80a4094b3ee08fd0dabf,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 25.173681
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cf8b98453d80a4094b3ee08fd0dabf, type: 3}
 --- !u!1 &439976551
@@ -6782,7 +6770,7 @@ Transform:
   - {fileID: 37414387}
   - {fileID: 418636711}
   m_Father: {fileID: 345041212}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &488361695
 PrefabInstance:
@@ -17601,7 +17589,7 @@ Transform:
   - {fileID: 2026743189}
   - {fileID: 907758570}
   m_Father: {fileID: 345041212}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1212236891
 MonoBehaviour:
@@ -19119,36 +19107,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1147465675}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1368303473
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1368303474}
-  m_Layer: 8
-  m_Name: LandingSplosion1
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1368303474
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368303473}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.45, y: -2.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 345041212}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1374424525
 GameObject:
   m_ObjectHideFlags: 0
@@ -19635,10 +19593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a8eb3a5c78bef4bac92e8b6771c284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landingSplosion: {fileID: 9209743842345863620, guid: baf85f87f7551fc498569c0e11022622,
-    type: 3}
-  landingPoint: {fileID: 1368303474}
-  landingPoint2: {fileID: 1705185676}
 --- !u!61 &1409664520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23852,36 +23806,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8a2cf09731464c46ba58f9e992bea9c, type: 3}
---- !u!1 &1705185675
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1705185676}
-  m_Layer: 8
-  m_Name: LandingSplosion2
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1705185676
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705185675}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.42, y: -2.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 345041212}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709031720
 GameObject:
   m_ObjectHideFlags: 0
@@ -25062,7 +24986,7 @@ Transform:
   - {fileID: 251795617}
   - {fileID: 1116123822}
   m_Father: {fileID: 345041212}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1783121981
 PrefabInstance:
