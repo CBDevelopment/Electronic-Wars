@@ -10,7 +10,7 @@ public class ResetOnRespawn : MonoBehaviour {
 
     private Rigidbody2D myRigidbody;
 
-    private EnemyHealth theEnemyHealthScript;
+    //private EnemyHealth theEnemyHealthScript;
 
 
 	// Use this for initialization
@@ -19,8 +19,7 @@ public class ResetOnRespawn : MonoBehaviour {
         startPosition = transform.position;
         startRotataion = transform.rotation;
         startLocalScale = transform.localScale;
-
-        theEnemyHealthScript = FindObjectOfType<EnemyHealth>();
+        //theEnemyHealthScript = FindObjectOfType<EnemyHealth>();
 
         if (GetComponent<Rigidbody2D>() != null)
         {

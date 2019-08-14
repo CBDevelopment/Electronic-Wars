@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658605427722468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 310.97, y: -8.5, z: 0}
+  m_LocalPosition: {x: 310.775, y: -8.466, z: 0}
   m_LocalScale: {x: 0.2614284, y: 0.2614284, z: 0.2614284}
   m_Children: []
   m_Father: {fileID: 0}
@@ -123,8 +123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   membreak: {fileID: 1027645770094618, guid: a70c6222e4944da4c9c6d36018cb93f0, type: 3}
-  tvPlayer: {fileID: 0}
-  plasmaPlayer: {fileID: 0}
+  tvPlayer: {fileID: 2058391002847994044, guid: 79acfa272cd72c649a574db720db6c18,
+    type: 3}
+  plasmaPlayer: {fileID: 3488837639721742249, guid: 4013070dd14ffcc49b256ebc713162ff,
+    type: 3}
   memValue: 1
 --- !u!95 &95634113248297384
 Animator:

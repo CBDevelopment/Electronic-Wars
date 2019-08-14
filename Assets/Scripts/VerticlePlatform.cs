@@ -13,7 +13,7 @@ public class VerticlePlatform : MonoBehaviour
     {
         theEffector = GetComponent<PlatformEffector2D>();
         theEffector.rotationalOffset = 0f;
-        waitTime = 0.05f;
+        waitTime = 0.0f;
 
     }
 

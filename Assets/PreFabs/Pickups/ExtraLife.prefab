@@ -246,5 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesToGive: 1
-  theLevelManager: {fileID: 0}
+  theLevelManager: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+    type: 3}
   extraBreak: {fileID: 1762906266411662, guid: 654600fb52e75584f8f9e00caa3e2a7a, type: 3}

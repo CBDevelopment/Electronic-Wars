@@ -193,13 +193,13 @@ public class LevelManager : MonoBehaviour {
     public IEnumerator RespawnCo()
     {
         tvPlayer.gameObject.SetActive(false);
+        tvPlayer.transform.position = tvPlayer.respawnPosition;
 
         Instantiate(deathBreak, tvPlayer.transform.position, tvPlayer.transform.rotation);
 
         yield return new WaitForSeconds(waitToRespawn);
 
         tvPlayer.transform.position = tvPlayer.respawnPosition;
-
         tvPlayer.gameObject.SetActive(true);
 
         //reset objects in game.
