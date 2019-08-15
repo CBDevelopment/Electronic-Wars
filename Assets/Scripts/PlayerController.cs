@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb2d;
     public Collider2D crouchCollider;
-    public Collider2D playerCollider;
+    //public Collider2D playerCollider;
     public Collider2D tvBodyCollider;
 
     public Vector3 respawnPosition;
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         timeBetweenDamage = 0f;
 
         crouchCollider.enabled = false;
-        playerCollider.enabled = true;
+        //playerCollider.enabled = true;
 
         //Defaults to facing right.
         facingRight = true;
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 100;
             anim.SetBool("Crouching", true);
-            playerCollider.enabled = false;
+            //playerCollider.enabled = false;
             tvBodyCollider.enabled = false;
             crouchCollider.enabled = true;
         }
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 500;
             anim.SetBool("Crouching", false);
-            playerCollider.enabled = true;
+            //playerCollider.enabled = true;
             tvBodyCollider.enabled = true;
             crouchCollider.enabled = false;
         }

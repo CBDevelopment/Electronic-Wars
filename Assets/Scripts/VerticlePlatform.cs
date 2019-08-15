@@ -26,13 +26,13 @@ public class VerticlePlatform : MonoBehaviour
         //    theEffector.rotationalOffset = 0f;
         //}
 
-        if (Input.GetButtonUp("Crouch"))
+        if (Input.GetButtonUp("Vertical"))
         {
             //waitTime = 0.1f;
             theEffector.rotationalOffset = 0f;
         }
 
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Vertical"))
         {
             if(waitTime < 0)
             {

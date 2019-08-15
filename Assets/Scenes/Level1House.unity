@@ -1020,7 +1020,6 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 3
   crouchCollider: {fileID: 117528367}
-  playerCollider: {fileID: 117528366}
   tvBodyCollider: {fileID: 117528371}
   respawnPosition: {x: 0, y: 0, z: 0}
   theLevelManager: {fileID: 753208383}
@@ -2676,7 +2675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298323164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -93.13, y: -1.9, z: 0}
+  m_LocalPosition: {x: -101.18, y: -1.9, z: 0}
   m_LocalScale: {x: 0.83025, y: 0.83025, z: 0.83025}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3689,7 +3688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542056083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -102.61, y: -0.72, z: 0}
+  m_LocalPosition: {x: -159.33, y: 2.91, z: 0}
   m_LocalScale: {x: 0.30573666, y: 0.30573666, z: 0.30573666}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4348,7 +4347,7 @@ MonoBehaviour:
   smoothTimeX: 0.2
   player: {fileID: 0}
   bounds: 1
-  minCameraPos: {x: -156.69, y: -0.14, z: -10}
+  minCameraPos: {x: -153, y: -0.14, z: -10}
   maxCameraPos: {x: 117.2, y: 6, z: -10}
 --- !u!81 &681106188
 AudioListener:
@@ -5422,7 +5421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957398098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -169.86, y: -3.61, z: 0}
+  m_LocalPosition: {x: -167.6, y: -3.61, z: 0}
   m_LocalScale: {x: 1.2854, y: 1.2854, z: 1.2854}
   m_Children:
   - {fileID: 52859638}
@@ -8992,7 +8991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566987350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -81.36, y: -1.88, z: 0}
+  m_LocalPosition: {x: -84.52, y: -1.88, z: 0}
   m_LocalScale: {x: 0.81512, y: 0.81512, z: 0.81512}
   m_Children: []
   m_Father: {fileID: 0}

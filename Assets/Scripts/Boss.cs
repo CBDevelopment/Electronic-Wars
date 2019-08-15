@@ -51,6 +51,7 @@ public class Boss : MonoBehaviour {
 
     //public int numberOfBoss1Kills;
     private LevelManager theLevelManager;
+    private PauseMenu pauseScript;
     public GameObject theUpgradeObject;
 
     public Slider healthBar;
@@ -69,6 +70,7 @@ public class Boss : MonoBehaviour {
         tvPlayer = FindObjectOfType<PlayerController>();
         flipScript = FindObjectOfType<FlipOnX>();
         theLevelManager = FindObjectOfType<LevelManager>();
+        pauseScript = FindObjectOfType<PauseMenu>();
         TutorialHolder.SetActive(false);
         bossActive = false;
         theColliderBox.enabled = true;
@@ -98,7 +100,6 @@ public class Boss : MonoBehaviour {
     void Update () {
 
         healthBar.value = currentHealth;
-
 
         if (bossActive)
         {
@@ -219,6 +220,11 @@ public class Boss : MonoBehaviour {
             if (currentHealth <=0 && theLevelManager.upgradeCount < 1)
             {
                 theUpgradeObject.SetActive(true);
+                //always ensure they get one upgrade from this boss.
+                if (theLevelManager.upgradeCount > 1)
+                {
+                    theLevelManager.upgradeCount = 1;
+                }
             }
 
         }
@@ -226,6 +232,7 @@ public class Boss : MonoBehaviour {
         if (Input.GetButtonDown("Transform"))
         {
             TutorialHolder.SetActive(false);
+            //pauseScript.UnPause();
         }
     }
 

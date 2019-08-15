@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour {
         {
             PauseUI.SetActive(true);
             Time.timeScale = 0;
+            //Keeps you from jumping while paused (fixed glitch)
             tvPlayer.grounded = false;
             
         }
@@ -51,6 +52,16 @@ public class PauseMenu : MonoBehaviour {
     {
         paused = false;
     }
+
+    //public void Pause()
+    //{
+        
+    //}
+
+    //public void UnPause()
+    //{
+
+    //}
 
     //[System.Obsolete]
     public void GameOverRestart()

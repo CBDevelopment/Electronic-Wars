@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Upgrade : MonoBehaviour
 {
-
+    private PauseMenu pauseScript;
     private LevelManager theLevelManager;
     private PlayerController tvPlayer;
     private PlasmaPlayer plasmaPlayer;
@@ -19,6 +19,7 @@ public class Upgrade : MonoBehaviour
         theLevelManager = FindObjectOfType<LevelManager>();
         tvPlayer = FindObjectOfType<PlayerController>();
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
+        pauseScript = FindObjectOfType<PauseMenu>();
         boss1 = FindObjectOfType<Boss>();
     }
 
@@ -32,7 +33,9 @@ public class Upgrade : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            theLevelManager.AddUpgrade(upgradeValue);
+            theLevelManager.upgradeCount = 1;
+            //Use the below code in case there are issues with counting the upgrades.
+            //theLevelManager.AddUpgrade(upgradeValue);
             Instantiate(upgradeBreak, this.transform.position, this.transform.rotation);
             gameObject.SetActive(false);
 
@@ -40,6 +43,7 @@ public class Upgrade : MonoBehaviour
             {
                 //This is turned off on the BossScript
                 boss1.TutorialHolder.SetActive(true);
+                //pauseScript.Pause();
             }
         }
 
