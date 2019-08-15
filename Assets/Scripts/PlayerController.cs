@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 5;
     public float speed = 150f;
     public float jumpPower;
+    public float timeBetweenDamage = 2f;
+
 
     //Booleans
     public bool grounded;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     public Collider2D crouchCollider;
     public Collider2D playerCollider;
+    public Collider2D tvBodyCollider;
 
     public Vector3 respawnPosition;
     public LevelManager theLevelManager;
@@ -64,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        timeBetweenDamage = 0f;
 
         crouchCollider.enabled = false;
         playerCollider.enabled = true;
@@ -98,6 +102,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        timeBetweenDamage -= Time.deltaTime;
+
         pos = this.transform.position;
 
         anim.SetBool("Grounded", grounded);
@@ -126,6 +134,7 @@ public class PlayerController : MonoBehaviour
             speed = 100;
             anim.SetBool("Crouching", true);
             playerCollider.enabled = false;
+            tvBodyCollider.enabled = false;
             crouchCollider.enabled = true;
         }
 
@@ -134,6 +143,7 @@ public class PlayerController : MonoBehaviour
             speed = 500;
             anim.SetBool("Crouching", false);
             playerCollider.enabled = true;
+            tvBodyCollider.enabled = true;
             crouchCollider.enabled = false;
         }
 
@@ -173,9 +183,21 @@ public class PlayerController : MonoBehaviour
             theLevelManager.Respawn();
             gameObject.GetComponent<Animation>().Play("Flash");
             speed = 500;
+            timeBetweenDamage = 2f;
+        }
+
+        if(timeBetweenDamage > 0)
+        {
+            //this.gameObject.GetComponent<SpriteRenderer>().color.a = 0f;
+            //anim.SetBool("Flashing", true);
 
         }
 
+        if (timeBetweenDamage <= 0)
+        {
+            //this.gameObject.GetComponent<SpriteRenderer>().color.a = 0f;
+            //anim.SetBool("Flashing", false);
+        }
     }
 
 
@@ -220,7 +242,6 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damageToTake;
         hurtSound.Play();
-        GetComponent<Animation>().Play("Flash");
         GetComponent<Animator>().Play("Damaged");
     }
 

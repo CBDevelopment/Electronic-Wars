@@ -25,10 +25,11 @@ public class HurtPlayer : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && tvPlayer.timeBetweenDamage <= 0)
         {
 
             tvPlayer.HurtPlayer(damageToGive);
+            tvPlayer.timeBetweenDamage = 2f;
 
             StartCoroutine(tvPlayer.Knockback(.11f, 1, tvPlayer.transform.position));
             //StartCoroutine(plasmaPlayer.Knockback(.5f, 1, plasmaPlayer.transform.position));
