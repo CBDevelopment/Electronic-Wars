@@ -3750,8 +3750,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08371162, y: -2.3860536}
-  m_Size: {x: 2.1215556, y: 0.3262029}
+  m_Offset: {x: 0.08371161, y: -2.1783156}
+  m_Size: {x: 2.1215558, y: 0.7416788}
   m_Direction: 1
 --- !u!114 &345041214
 MonoBehaviour:
@@ -3904,6 +3904,7 @@ MonoBehaviour:
   maxSpeed: 3
   speed: 575
   jumpPower: 1785
+  timeBetweenDamage: 3
   grounded: 0
   canDoubleJump: 0
   flipping: 0
@@ -4015,7 +4016,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12825012, y: -0.26815844}
+  m_Offset: {x: 0.12825012, y: -0.3619752}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4026,7 +4027,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1182365, y: 3.05169}
+  m_Size: {x: 2.1182365, y: 3.2393236}
   m_EdgeRadius: 0
 --- !u!1 &357810807
 GameObject:
