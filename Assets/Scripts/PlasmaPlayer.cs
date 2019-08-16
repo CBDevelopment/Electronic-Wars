@@ -39,19 +39,13 @@ public class PlasmaPlayer : MonoBehaviour
 
     private LastPosition lastPositionScript;
     private Evolve evolveScript;
-
     private PlayerController tvPlayer;
-
     private Transform target;
-
     private TransformationCloud transformationCloudScript;
-
 
     void Start()
     {
-
         canMove = true;
-
         //SpawnPoint
         //respawnPosition = transform.position;
 
@@ -61,7 +55,6 @@ public class PlasmaPlayer : MonoBehaviour
         tvPlayer = FindObjectOfType<PlayerController>();
         transformationCloudScript = FindObjectOfType<TransformationCloud>();
         hurtPlayerScript = FindObjectOfType<HurtPlayer>();
-
 
         //Assign variables
         rb2d = gameObject.GetComponent<Rigidbody2D>();
@@ -203,6 +196,9 @@ public class PlasmaPlayer : MonoBehaviour
 
     }
 
-
+    //void Awake()
+    //{
+    //    canMove = true;
+    //}
 
 }

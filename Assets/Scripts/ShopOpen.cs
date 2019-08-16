@@ -25,6 +25,7 @@ public class ShopOpen : MonoBehaviour
     public GameObject shieldChargesScreen;
     public GameObject vpnScreen;
     public GameObject purchaseBreak;
+    public Collider2D registerColliderBox;
 
     public int shopUISelect = 1;
 
@@ -38,7 +39,8 @@ public class ShopOpen : MonoBehaviour
     private PlayerGun playerGunScript;
     private LevelManager levelManagerScript;
     private PlayerRouter playerRouterScript;
-
+    private PlasmaPlayer plasmaPlayer;
+    private TransformationCloud transformationCloudScript;
 
     // Start is called before the first frame update
     void Start()
@@ -52,18 +54,23 @@ public class ShopOpen : MonoBehaviour
         playerGunScript = FindObjectOfType<PlayerGun>();
         levelManagerScript = FindObjectOfType<LevelManager>();
         playerRouterScript = FindObjectOfType<PlayerRouter>();
+        plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
+        transformationCloudScript = FindObjectOfType<TransformationCloud>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         //THE SHOP OPTION SELECT UI
         if (shopOpen)
         {
             shopScreenUI.SetActive(true);
+            //tvPlayer.canMove = false;
+            //plasmaPlayer.canMove = false;
 
-            if(shopUISelect == 1)
+
+            if (shopUISelect == 1)
             {
                 extraLifeScreen.SetActive(true);
 
@@ -169,11 +176,13 @@ public class ShopOpen : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if (Input.GetButtonDown("Attack"))
-            {
-                shopOpen = true;
 
-            }
+            //shopOpen = true;
+            //if (Input.GetButtonDown("Attack"))
+            //{
+            //    shopOpen = true;
+
+            //}
 
         }
     }
@@ -182,17 +191,21 @@ public class ShopOpen : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            //Could also work around this by doing a 
+            //check of TV's position between the position of the register then call the shop UI)
             //shopOpen = true;
-
+            shopOpen = true;
+            tvPlayer.canMove = false;
+            transformationCloudScript.canTransform = false;
+            //registerColliderBox.enabled = false;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            shopOpen = false;
-
+            Close();
         }
     }
 
@@ -299,6 +312,12 @@ public class ShopOpen : MonoBehaviour
     {
         closeSound.Play();
         shopOpen = false;
+        registerColliderBox.enabled = true;
+        tvPlayer.canMove = true;
+        transformationCloudScript.canTransform = true;
+
+        //tvPlayer.canMove = true;
+        //plasmaPlayer.canMove = true;
     }
 
     public void RightArrow()

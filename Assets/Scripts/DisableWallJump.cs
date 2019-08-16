@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class DisableWallJump : MonoBehaviour {
 
+    private PlayerController tvPlayer;
+
 
 	// Use this for initialization
 	void Start () {
 
+        tvPlayer = FindObjectOfType<PlayerController>();
 		
 	}
 	
@@ -19,5 +22,13 @@ public class DisableWallJump : MonoBehaviour {
     void OnCollisionEnter(Collision other)
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            tvPlayer.canJump = false;
+        }
     }
 }

@@ -265,7 +265,6 @@ public class PlayerController : MonoBehaviour
     //Check player entering the kill plane trigger to kill
     void OnTriggerEnter2D(Collider2D other)
     {
-        
 
         if (other.tag == "KillPlane")
         {
