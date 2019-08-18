@@ -113,14 +113,14 @@ public class PlayerController : MonoBehaviour
 
 
         //Move left & right
-        if (Input.GetAxisRaw("Horizontal") < -0.1f)
+        if (Input.GetAxisRaw("Horizontal") < -0.1f && canMove)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             facingLeft = true;
             facingRight = false;
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0.1f)
+        if (Input.GetAxisRaw("Horizontal") > 0.1f && canMove)
         {
             transform.localScale = new Vector3(1, 1, 1);
             facingLeft = false;
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Crouch
-        if(Input.GetButtonDown("Vertical"))
+        if(Input.GetButtonDown("Vertical") && canMove)
         {
             speed = 100;
             anim.SetBool("Crouching", true);
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
             crouchCollider.enabled = true;
         }
 
-        if (Input.GetButtonUp("Vertical"))
+        if (Input.GetButtonUp("Vertical") && canMove)
         {
             speed = 500;
             anim.SetBool("Crouching", false);
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jumping
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && canMove)
 
         {
             if (grounded && !onWall)

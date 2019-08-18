@@ -34,7 +34,7 @@ public class playerAttack : MonoBehaviour
     {
         if (timeBetweenAttack <= 0)
         {
-            if (Input.GetButtonDown("Attack") && !attacking)
+            if (Input.GetButtonDown("Attack") && !attacking && tvPlayer.canMove)
             {
                 attacking = true;
                 attackTimer = attackCD;
