@@ -15,14 +15,12 @@ public class Evolve : MonoBehaviour
     private PlayerController tvPlayer;
     private LevelManager levelManagerScript;
 
-
     // Use this for initialization
     void Start()
     {
         tvPlayer = FindObjectOfType<PlayerController>();
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
         levelManagerScript = FindObjectOfType<LevelManager>();
-
         characterSelect = 1;
         plasmaPlayer.gameObject.SetActive(false);
 
@@ -71,11 +69,6 @@ public class Evolve : MonoBehaviour
                 isTV = false;
 
             }
-        
-    }
-
-     void OnTriggerEnter2D(Collider2D other)
-    {
         
     }
 }

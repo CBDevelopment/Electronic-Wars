@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class StartCutScene : MonoBehaviour
 {
+    private PlayerController tvPlayer;
+    private PlasmaPlayer plasmaPlayer;
+    private LevelManager levelManagerScript;
+
+    public GameObject theCutScene;
+
+    public bool videoActive;
+
+    public GameObject thePlayer;
+
+    public Collider2D theCollider;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        videoActive = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (videoActive)
+        {
+            tvPlayer.canMove = false;
+        }
+
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            theCutScene.SetActive(true);
+            videoActive = true;
+            theCollider.enabled = false;
+        }
     }
 }

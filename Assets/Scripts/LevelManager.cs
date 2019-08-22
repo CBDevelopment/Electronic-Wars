@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
     private LevelEnd levelEndScript;
     private GunPickup gunPickupScript;
     private RouterPickup routerPickupScript;
+    private StartCutScene startcut;
     public GameObject vpnHUDImage;
 
     //Global Things to save on the level.
@@ -53,6 +54,7 @@ public class LevelManager : MonoBehaviour {
         levelEndScript = FindObjectOfType<LevelEnd>();
         gunPickupScript = FindObjectOfType<GunPickup>();
         routerPickupScript = FindObjectOfType<RouterPickup>();
+        startcut = FindObjectOfType<StartCutScene>();
 
         //***********************LOADING SAVE DATA********************************************
 
@@ -144,6 +146,12 @@ public class LevelManager : MonoBehaviour {
 
             routerPickupScript.slot2Image.gameObject.SetActive(true);
 
+        }
+
+        //Checks for if you have beaten the first level, and gotten a update already. If so, don't show the cutscene again.
+        if(upgradeCount >= 1)
+        {
+            startcut.theCollider.enabled = false;
         }
 
     }

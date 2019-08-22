@@ -12,9 +12,11 @@ public class MainMenu : MonoBehaviour {
     private PlayerController tvPlayer;
     private LevelManager levelManagerScript;
     public GameObject blackScreen;
+    public GameObject purchaseBreak;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 
         tvPlayer = FindObjectOfType<PlayerController>();
         levelManagerScript = FindObjectOfType<LevelManager>();
