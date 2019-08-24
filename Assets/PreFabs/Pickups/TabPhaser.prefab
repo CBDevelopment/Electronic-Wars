@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6696882784111596392
+--- !u!1 &7683949010709154488
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6696882784111596375}
-  - component: {fileID: 6696882784111596374}
-  - component: {fileID: 6696882784111596372}
+  - component: {fileID: 7683949010709154439}
+  - component: {fileID: 7683949010709154438}
+  - component: {fileID: 7683949010709154436}
+  - component: {fileID: 7683949010591876511}
   m_Layer: 0
   m_Name: TabPhaser
   m_TagString: Gun
@@ -18,27 +19,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6696882784111596375
+--- !u!4 &7683949010709154439
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6696882784111596392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.08, y: -7.7, z: 0}
+  m_GameObject: {fileID: 7683949010709154488}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.447656, y: -14.030159, z: 11.347218}
   m_LocalScale: {x: 0.48161, y: 0.48161, z: 0.48161}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6696882784111596374
+--- !u!212 &7683949010709154438
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6696882784111596392}
+  m_GameObject: {fileID: 7683949010709154488}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,13 +83,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &6696882784111596372
+--- !u!70 &7683949010709154436
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6696882784111596392}
+  m_GameObject: {fileID: 7683949010709154488}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -98,3 +99,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00000003256968, y: -0.2732143}
   m_Size: {x: 8.000002, y: 4.7214627}
   m_Direction: 1
+--- !u!114 &7683949010591876511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683949010709154488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763f695ef9c1ce54dab27baa7c47d736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot1Image: {fileID: 0}
+  gunPickUp: {fileID: 9052323792853656793, guid: 8ad3d89025597544dadb25fa0e7a8473,
+    type: 3}
