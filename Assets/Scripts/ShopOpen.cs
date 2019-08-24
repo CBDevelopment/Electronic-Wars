@@ -69,6 +69,10 @@ public class ShopOpen : MonoBehaviour
             //tvPlayer.canMove = false;
             //plasmaPlayer.canMove = false;
 
+            if (Input.GetButtonDown("Transform"))
+            {
+                Close();
+            }
 
             if (shopUISelect == 1)
             {
@@ -172,32 +176,39 @@ public class ShopOpen : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
-
-            //shopOpen = true;
-            //if (Input.GetButtonDown("Attack"))
-            //{
-            //    shopOpen = true;
-
-            //}
+            if (Input.GetButtonDown("Attack"))
+            {
+                //Could also work around this by doing a 
+                //check of TV's position between the position of the register then call the shop UI)
+                //shopOpen = true;
+                shopOpen = true;
+                tvPlayer.canMove = false;
+                transformationCloudScript.canTransform = false;
+                //registerColliderBox.enabled = false;
+            }
 
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            //Could also work around this by doing a 
-            //check of TV's position between the position of the register then call the shop UI)
-            //shopOpen = true;
-            shopOpen = true;
-            tvPlayer.canMove = false;
-            transformationCloudScript.canTransform = false;
-            //registerColliderBox.enabled = false;
+            if (Input.GetButtonDown("Attack"))
+            {
+                //Could also work around this by doing a 
+                //check of TV's position between the position of the register then call the shop UI)
+                //shopOpen = true;
+                shopOpen = true;
+                tvPlayer.canMove = false;
+                transformationCloudScript.canTransform = false;
+                //registerColliderBox.enabled = false;
+            }
+
         }
     }
 
