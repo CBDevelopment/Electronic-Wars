@@ -51,6 +51,7 @@ public class Boss : MonoBehaviour {
 
     //public int numberOfBoss1Kills;
     private LevelManager theLevelManager;
+    private PlasmaPlayer plasmaPlayer;
     private PauseMenu pauseScript;
     public GameObject theUpgradeObject;
 
@@ -58,11 +59,15 @@ public class Boss : MonoBehaviour {
 
     public GameObject TutorialHolder;
     public GameObject UpgradeMessage;
+    public bool upgradeMessageActive = false;
     public GameObject UpgradeMessage2;
+    public bool upgradeMessage2Active = false;
     public GameObject memoryCardRewards;
 
     public GameObject damageSplosion;
     public GameObject destroySplosion;
+    public Collider2D levelEndBlocker;
+
 
     // Use this for initialization
     void Start () {
@@ -73,8 +78,10 @@ public class Boss : MonoBehaviour {
         pauseScript = FindObjectOfType<PauseMenu>();
         TutorialHolder.SetActive(false);
         bossActive = false;
+        levelEndBlocker.enabled = false;
         theColliderBox.enabled = true;
         rb2d = theBoss.GetComponent<Rigidbody2D>();
+        plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
 
         theUpgradeObject.SetActive(false);
         lightningWallLeft.SetActive(false);
@@ -207,6 +214,7 @@ public class Boss : MonoBehaviour {
                 lightningWallLeft.SetActive(false);
                 lightningWallRight.SetActive(false);
                 healthBar.gameObject.SetActive(false);
+                levelEndBlocker.enabled = true;
                 //Spawn 50 Mb when destroying the boss.
                 Instantiate(memoryCardRewards, theBoss.gameObject.gameObject.transform.position, theBoss.gameObject.gameObject.transform.rotation);
                 Instantiate(memoryCardRewards, theBoss.gameObject.gameObject.transform.position, theBoss.gameObject.gameObject.transform.rotation);
@@ -229,11 +237,6 @@ public class Boss : MonoBehaviour {
 
         }
 
-        if (Input.GetButtonDown("Transform"))
-        {
-            TutorialHolder.SetActive(false);
-            //pauseScript.UnPause();
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -261,12 +264,13 @@ public class Boss : MonoBehaviour {
     public void Next()
     {
         UpgradeMessage2.SetActive(true);
-
+        upgradeMessageActive = false;
+        upgradeMessage2Active = true;
     }
 
     public void Close()
     {
         //This is turned on by the UpgradeScript.
-        //TutorialHolder.SetActive(false);
+        TutorialHolder.SetActive(false);
     }
 }

@@ -100,6 +100,9 @@ MonoBehaviour:
   Lightoff: {fileID: 21300000, guid: 41b83e58122ffbb48b0c4443985c67a7, type: 3}
   Lighton: {fileID: 21300000, guid: 816fbaa5a83384d418f838e8168da07c, type: 3}
   checkpointActive: 0
+  theColliderBox: {fileID: 61736135167941306}
+  checkPointSplosion: {fileID: 5866807528191175492, guid: 114585ed11b559e44b3092c0646fabef,
+    type: 3}
 --- !u!70 &70111767751946220
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +136,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.6242967, y: 27.359999}
+    oldSize: {x: 18.324423, y: 32.38}
     newSize: {x: 11.04, y: 28.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -159,7 +162,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.6242967, y: 27.359999}
+    oldSize: {x: 18.324423, y: 32.38}
     newSize: {x: 11.04, y: 28.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

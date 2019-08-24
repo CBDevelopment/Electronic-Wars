@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour {
         levelManagerScript = FindObjectOfType<LevelManager>(); 
     }
 
-    private void Update()
+    public void Update()
     {
         if (Input.GetButtonDown("Pause"))
         {
@@ -76,7 +76,7 @@ public class PauseMenu : MonoBehaviour {
     //[System.Obsolete]
     public void Restart()
     {
-        //Application.LoadLevel(Application.loadedLevel);
+        Application.LoadLevel(Application.loadedLevel);
         //levelManagerScript.currentLives = PlayerPrefs.GetInt("PlayerLives");
 
 

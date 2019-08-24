@@ -10,7 +10,6 @@ public class Upgrade : MonoBehaviour
     private Boss boss1;
 
     public GameObject upgradeBreak;
-
     public int upgradeValue;
 
     // Use this for initialization
@@ -33,7 +32,7 @@ public class Upgrade : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            theLevelManager.upgradeCount = 1;
+            theLevelManager.upgradeCount += 1;
             //Use the below code in case there are issues with counting the upgrades.
             //theLevelManager.AddUpgrade(upgradeValue);
             Instantiate(upgradeBreak, this.transform.position, this.transform.rotation);
@@ -43,6 +42,8 @@ public class Upgrade : MonoBehaviour
             {
                 //This is turned off on the BossScript
                 boss1.TutorialHolder.SetActive(true);
+                theLevelManager.tutorialMessageActive = true;
+                boss1.upgradeMessageActive = true;
                 //pauseScript.Pause();
             }
         }

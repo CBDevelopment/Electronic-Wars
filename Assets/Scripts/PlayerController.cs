@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     //Script References
 
     //Floats
-    public float maxSpeed = 5;
-    public float speed = 150f;
+    public float maxSpeed;
+    public float speed;
     public float jumpPower;
     public float timeBetweenDamage = 2f;
 

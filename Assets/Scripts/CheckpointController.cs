@@ -16,6 +16,7 @@ public class CheckpointController : MonoBehaviour {
     private SpriteRenderer theSpriteRenderer;
 
     public Collider2D theColliderBox;
+    public GameObject checkPointSplosion;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +43,8 @@ public class CheckpointController : MonoBehaviour {
             //evolveScript.Transform();
             tvPlayer.respawnPosition = this.transform.position;
             plasmaPlayer.respawnPosition = this.transform.position;
+            Instantiate(checkPointSplosion, this.transform.position, this.transform.rotation);
+
         }
     }
 }

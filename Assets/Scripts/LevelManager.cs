@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour {
     private GunPickup gunPickupScript;
     private RouterPickup routerPickupScript;
     private StartCutScene startcut;
+    private Upgrade upgradeScript;
     public GameObject vpnHUDImage;
 
     //Global Things to save on the level.
@@ -38,6 +39,8 @@ public class LevelManager : MonoBehaviour {
     public AudioSource levelMusic;
     public AudioSource gameOverMusic;
     public AudioSource gameoverMusicAddition;
+    public bool tutorialMessageActive = false;
+
 
     // Use this for initialization
     void Start () {
@@ -55,6 +58,7 @@ public class LevelManager : MonoBehaviour {
         gunPickupScript = FindObjectOfType<GunPickup>();
         routerPickupScript = FindObjectOfType<RouterPickup>();
         startcut = FindObjectOfType<StartCutScene>();
+        upgradeScript = FindObjectOfType<Upgrade>();
 
         //***********************LOADING SAVE DATA********************************************
 
@@ -126,6 +130,7 @@ public class LevelManager : MonoBehaviour {
         //Update the text every frame.
         memText.text = memCount.ToString();
         livesText.text = "x" + currentLives.ToString();
+        upgradeText.text = upgradeCount.ToString();
 
         if (tvPlayer.hasVPN == 1)
         {
@@ -152,6 +157,33 @@ public class LevelManager : MonoBehaviour {
         if(upgradeCount >= 1)
         {
             startcut.theCollider.enabled = false;
+        }
+
+        if (tutorialMessageActive)
+        {
+            tvPlayer.canMove = false;
+            plasmaPlayer.canMove = false;
+            Time.timeScale = 0;
+
+
+            if (Input.GetButtonDown("Transform"))
+            {
+                if(boss1.upgradeMessageActive && !boss1.upgradeMessage2Active)
+                {
+                    boss1.UpgradeMessage.SetActive(false);
+                    boss1.TutorialHolder.SetActive(false);
+                    tutorialMessageActive = false;
+                    Time.timeScale = 1;
+                }
+
+            }
+
+        }
+
+        if (!tutorialMessageActive)
+        {
+            tvPlayer.canMove = true;
+            plasmaPlayer.canMove = true;
         }
 
     }
