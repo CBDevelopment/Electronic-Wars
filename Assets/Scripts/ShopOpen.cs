@@ -188,6 +188,7 @@ public class ShopOpen : MonoBehaviour
                 shopOpen = true;
                 tvPlayer.canMove = false;
                 transformationCloudScript.canTransform = false;
+
                 //registerColliderBox.enabled = false;
             }
 
@@ -198,6 +199,7 @@ public class ShopOpen : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+
             if (Input.GetButtonDown("Attack"))
             {
                 //Could also work around this by doing a 
@@ -216,7 +218,8 @@ public class ShopOpen : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Close();
+
+            //Close();
         }
     }
 
