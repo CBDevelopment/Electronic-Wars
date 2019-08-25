@@ -33,17 +33,18 @@ public class CheckpointController : MonoBehaviour {
 		
 	}
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.tag == "Player")
+        if(other.tag == "Player")
         {
+            Instantiate(checkPointSplosion, this.transform.position, this.transform.rotation);
+
             theSpriteRenderer.sprite = Lighton;
             checkpointActive = true;
             theColliderBox.enabled = false;
             //evolveScript.Transform();
             tvPlayer.respawnPosition = this.transform.position;
             plasmaPlayer.respawnPosition = this.transform.position;
-            Instantiate(checkPointSplosion, this.transform.position, this.transform.rotation);
 
         }
     }

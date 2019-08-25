@@ -15,7 +15,7 @@ public class ShopOpen : MonoBehaviour
     public GameObject vpnBuyButton;
     public GameObject Dialog;
     public GameObject ShieldsMessage;
-    public GameObject VPNMessage;
+    //public GameObject VPNMessage;
     public GameObject SIMCardMessage;
     public GameObject vpnHUDImage;
     //public GameObject ExtraLifeDialog;
@@ -30,6 +30,7 @@ public class ShopOpen : MonoBehaviour
     public int shopUISelect = 1;
 
     public AudioSource purchaseSound;
+    public AudioSource shopOpenSound;
     public AudioSource insufficientSound;
     public AudioSource closeSound;
     public AudioSource arrowSound;
@@ -48,7 +49,7 @@ public class ShopOpen : MonoBehaviour
         shopScreenUI.SetActive(false);
         Dialog.SetActive(false);
         ShieldsMessage.SetActive(false);
-        VPNMessage.SetActive(false);
+        //VPNMessage.SetActive(false);
         vpnHUDImage.SetActive(false);
         tvPlayer = FindObjectOfType<PlayerController>();
         playerGunScript = FindObjectOfType<PlayerGun>();
@@ -132,7 +133,7 @@ public class ShopOpen : MonoBehaviour
             shopScreenUI.SetActive(false);
         }
 
-       
+
 
         //checking for if the player has the phaser gun. If so, they can buy bullets for the phaser gun.
         if (tvPlayer.hasGun == 1)
@@ -161,19 +162,15 @@ public class ShopOpen : MonoBehaviour
         }
 
 
-        //Checking if the player has a VPN.
-        if (tvPlayer.hasVPN == 1)
-        {
-            vpnBuyButton.GetComponent<Button>().interactable = false;
-            vpnHUDImage.SetActive(true);
-
-        }
-
         if(tvPlayer.hasRouter == 0)
         {
             SimBuyButton.GetComponent<Button>().interactable = false;
         }
 
+        if(tvPlayer.hasRouter == 1)
+        {
+            vpnBuyButton.gameObject.SetActive(false);
+        }
     }
 
     public void OnTriggerStay2D(Collider2D other)
@@ -188,6 +185,7 @@ public class ShopOpen : MonoBehaviour
                 shopOpen = true;
                 tvPlayer.canMove = false;
                 transformationCloudScript.canTransform = false;
+                shopOpenSound.Play();
 
                 //registerColliderBox.enabled = false;
             }
@@ -200,16 +198,17 @@ public class ShopOpen : MonoBehaviour
         if (other.tag == "Player")
         {
 
-            if (Input.GetButtonDown("Attack"))
-            {
+            //if (Input.GetButtonDown("Attack"))
+            //{
                 //Could also work around this by doing a 
                 //check of TV's position between the position of the register then call the shop UI)
                 //shopOpen = true;
                 shopOpen = true;
                 tvPlayer.canMove = false;
                 transformationCloudScript.canTransform = false;
-                //registerColliderBox.enabled = false;
-            }
+                shopOpenSound.Play();
+            //registerColliderBox.enabled = false;
+            //}
 
         }
     }
@@ -292,14 +291,16 @@ public class ShopOpen : MonoBehaviour
             levelManagerScript.memCount -= 250;
             tvPlayer.hasVPN = 1;
             Instantiate(purchaseBreak, vpnHUDImage.transform.position, vpnHUDImage.transform.rotation);
-            VPNMessage.SetActive(true);
+            vpnScreen.gameObject.SetActive(false);
+            vpnHUDImage.SetActive(true);
+            //vpnBuyButton.GetComponent<Button>().interactable = false;
+            //VPNMessage.SetActive(true);
         }
 
         else if (levelManagerScript.memCount < 250)
         {
             insufficientSound.Play();
             Dialog.SetActive(true);
-
         }
 
     }
@@ -339,7 +340,7 @@ public class ShopOpen : MonoBehaviour
         arrowSound.Play();
         Dialog.SetActive(false);
         ShieldsMessage.SetActive(false);
-        VPNMessage.SetActive(false);
+        //VPNMessage.SetActive(false);
 
         if(shopUISelect == 1)
         {
@@ -367,7 +368,7 @@ public class ShopOpen : MonoBehaviour
         arrowSound.Play();
         Dialog.SetActive(false);
         ShieldsMessage.SetActive(false);
-        VPNMessage.SetActive(false);
+        //VPNMessage.SetActive(false);
 
         if (shopUISelect == 5)
         {
