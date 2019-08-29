@@ -31,5 +31,23 @@ public class SkipCutScene : MonoBehaviour
             theCutSceneTrigger.enabled = false;
             theLevelMusic.SetActive(true);
         }
+
+        if (Input.GetButtonDown("Cancel") && startCutSceneScript.videoActive)
+        {
+            theCutScene.SetActive(false);
+            thePlayer.SetActive(true);
+            theMainCamera.SetActive(true);
+            theCutSceneTrigger.enabled = false;
+            theLevelMusic.SetActive(true);
+        }
+
+        if (Input.GetButtonDown("Submit") && startCutSceneScript.videoActive)
+        {
+            theCutScene.SetActive(false);
+            thePlayer.SetActive(true);
+            theMainCamera.SetActive(true);
+            theCutSceneTrigger.enabled = false;
+            theLevelMusic.SetActive(true);
+        }
     }
 }
