@@ -9,12 +9,11 @@ public class StartCutScene : MonoBehaviour
     private LevelManager levelManagerScript;
 
     public GameObject theCutScene;
-
     public bool videoActive;
-
     public GameObject thePlayer;
-
     public Collider2D theCollider;
+    public GameObject theMainCamera;
+    public GameObject levelMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +27,14 @@ public class StartCutScene : MonoBehaviour
     {
         if (videoActive)
         {
-            tvPlayer.canMove = false;
+
         }
+
 
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
         {
