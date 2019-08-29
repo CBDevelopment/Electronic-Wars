@@ -10994,6 +10994,7 @@ GameObject:
   - component: {fileID: 492770572}
   - component: {fileID: 492770571}
   - component: {fileID: 492770570}
+  - component: {fileID: 492770574}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -11110,6 +11111,23 @@ Transform:
   m_Father: {fileID: 1922772903}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492770574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492770569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1557cbb5fe17dac4eb0cec9ed7acaf1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePlayer: {fileID: 1641875289}
+  theMainCamera: {fileID: 1092053815}
+  theLevelMusic: {fileID: 1844698926}
+  theCutSceneTrigger: {fileID: 492770571}
+  theCutScene: {fileID: 281821293}
 --- !u!1 &500343003
 GameObject:
   m_ObjectHideFlags: 0
@@ -29603,13 +29621,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1557cbb5fe17dac4eb0cec9ed7acaf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theCutScene: {fileID: 281821293}
-  thePlayer: {fileID: 1641875289}
-  theCollider: {fileID: 0}
-  theMainCamera: {fileID: 1092053815}
-  levelMusic: {fileID: 1844698926}
-  trigger: {fileID: 492770569}
-  startCutSceneScript: {fileID: 0}
+  thePlayer: {fileID: 0}
+  theMainCamera: {fileID: 0}
+  theLevelMusic: {fileID: 0}
+  theCutSceneTrigger: {fileID: 0}
+  theCutScene: {fileID: 0}
 --- !u!4 &1146369041
 Transform:
   m_ObjectHideFlags: 0
