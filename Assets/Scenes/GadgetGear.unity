@@ -1081,8 +1081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
-  m_VerticalAxis: VerticalSecond
-  m_SubmitButton: Jump
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
   m_CancelButton: Fire1
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -3616,6 +3616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4658a9382bd1cf4fb1d7470a01a3a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entirePlayer: {fileID: 896829922}
   shopScreenUI: {fileID: 1295305927}
   PhaserBuyButton: {fileID: 1314185033}
   SimBuyButton: {fileID: 1115401221}
@@ -4929,6 +4930,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: tvPlayer
+      value: 
+      objectReference: {fileID: 1048596685}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: plasmaPlayer
+      value: 
+      objectReference: {fileID: 897996360}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: memText
+      value: 
+      objectReference: {fileID: 7114727488113495587}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: upgradeText
+      value: 
+      objectReference: {fileID: 7114727487862497909}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 7114727487340763154}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 7114727487262039167}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: phaserBulletText
+      value: 
+      objectReference: {fileID: 1732388899}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: vpnHUDImage
+      value: 
+      objectReference: {fileID: 1492608279}
     - target: {fileID: 9022040715454705311, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4984,56 +5030,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: tvPlayer
-      value: 
-      objectReference: {fileID: 1048596685}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: plasmaPlayer
-      value: 
-      objectReference: {fileID: 897996360}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: memText
-      value: 
-      objectReference: {fileID: 7114727488113495587}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: upgradeText
-      value: 
-      objectReference: {fileID: 7114727487862497909}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: livesText
-      value: 
-      objectReference: {fileID: 7114727487340763154}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: gameOverScreen
-      value: 
-      objectReference: {fileID: 7114727487262039167}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: phaserBulletText
-      value: 
-      objectReference: {fileID: 1732388899}
-    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: vpnHUDImage
-      value: 
-      objectReference: {fileID: 1492608279}
-    - target: {fileID: 9022040714917983898, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705309, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: slot1Image
@@ -5059,6 +5055,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: eedf09ba901953645985756803875247, type: 3}
+    - target: {fileID: 9022040714917983898, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelMusic
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64fda7d9c25494b49b04b0f09aace127, type: 3}
 --- !u!1 &1103547487

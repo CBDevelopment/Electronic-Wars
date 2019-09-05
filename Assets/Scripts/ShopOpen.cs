@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShopOpen : MonoBehaviour
 {
-
+    public GameObject entirePlayer;
     public GameObject shopScreenUI;
     //Reference these buttons when you want to programtically toggle the interactions with the buttons
     //under certain contraints.
@@ -62,13 +62,13 @@ public class ShopOpen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         //THE SHOP OPTION SELECT UI
         if (shopOpen)
         {
             shopScreenUI.SetActive(true);
             //tvPlayer.canMove = false;
             //plasmaPlayer.canMove = false;
+            entirePlayer.gameObject.SetActive(false);
 
             if (Input.GetButtonDown("Transform"))
             {
@@ -131,6 +131,7 @@ public class ShopOpen : MonoBehaviour
         if (!shopOpen)
         {
             shopScreenUI.SetActive(false);
+            entirePlayer.gameObject.SetActive(true);
         }
 
 

@@ -21,6 +21,7 @@ TagManager:
   - Shield
   - ScreenShake
   - Update
+  - Dialog
   layers:
   - Default
   - TransparentFX
