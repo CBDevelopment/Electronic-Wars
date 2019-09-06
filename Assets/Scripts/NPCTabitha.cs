@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCTalk : MonoBehaviour
+public class NPCTabitha : MonoBehaviour
 {
     public GameObject[] dialogs;
     private PlayerController tvPlayer;
-    //public bool talking = false;
     public Transform dialogPos;
     public GameObject theNPC;
     public AudioSource talkFX;
