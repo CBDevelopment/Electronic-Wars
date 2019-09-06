@@ -10,6 +10,7 @@ public class NPCTabitha : MonoBehaviour
     public GameObject theNPC;
     public AudioSource talkFX;
     public Animator anim;
+    private LevelManager levelManagerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class NPCTabitha : MonoBehaviour
         tvPlayer = FindObjectOfType<PlayerController>();
         anim = gameObject.GetComponent<Animator>();
         anim = theNPC.gameObject.GetComponent<Animator>();
-
+        levelManagerScript = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class NPCTabitha : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && levelManagerScript.upgradeCount <= 1)
         {
 
             //You may need to create this animation for the NPC game object character.
