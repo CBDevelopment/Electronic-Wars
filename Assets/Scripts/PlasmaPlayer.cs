@@ -104,7 +104,6 @@ public class PlasmaPlayer : MonoBehaviour
             Instantiate(theLevelManager.deathBreak, this.transform.position, this.transform.rotation);
 
         }
-
     }
 
     void FixedUpdate()

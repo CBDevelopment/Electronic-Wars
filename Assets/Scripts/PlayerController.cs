@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
     public bool onWall;
     public bool canJump;
+    public bool canCrouch;
 
     //Player Stats
     public int currentHealth;
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
         //Enables mobility.
         canMove = true;
+        canCrouch = true;
 
         //SpawnPoint
         respawnPosition = transform.position;
@@ -105,7 +107,6 @@ public class PlayerController : MonoBehaviour
 
 
         timeBetweenDamage -= Time.deltaTime;
-
         pos = this.transform.position;
 
         anim.SetBool("Grounded", grounded);
@@ -129,7 +130,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Crouch
-        if(Input.GetButtonDown("Vertical") && canMove)
+        if(Input.GetButtonDown("Vertical") && canMove && canCrouch)
         {
             speed = 100;
             anim.SetBool("Crouching", true);
@@ -138,7 +139,7 @@ public class PlayerController : MonoBehaviour
             crouchCollider.enabled = true;
         }
 
-        if (Input.GetButtonUp("Vertical") && canMove)
+        if (Input.GetButtonUp("Vertical") && canMove && canCrouch)
         {
             speed = 500;
             anim.SetBool("Crouching", false);
