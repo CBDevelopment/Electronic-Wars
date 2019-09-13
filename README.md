@@ -18,7 +18,6 @@ Two electronics named: "TeeV" and "Cell" set off on a perilous journey to find a
 - Multiple venues and shops to spend your hard earned currency!
 - Puzzles and integrated Mazes on each region!
 - Built-in minigames and challenges to test your skills!
-- Play the game as 2 different characters and points of view.
 - 2 Game modes: Simulator Mode & Story Mode.
 
 **[Windows] System Requirements (Subject to change)**
