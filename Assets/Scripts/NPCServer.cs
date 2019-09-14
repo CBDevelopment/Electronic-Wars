@@ -14,13 +14,14 @@ public class NPCServer : MonoBehaviour
     public GameObject dialogUI;
     public GameObject[] serverParts;
     public GameObject[] teevParts;
-    public GameObject nextButton;
-    public GameObject closeButton;
-    public bool hasTalked = false;
-    public int teevPartSelect = 0;
-    public int serverPartSelect = 0;
+    //public GameObject nextButton;
+    //public GameObject closeButton;
+    public int hasTalkedOnce = 0;
+    //public int teevPartSelect = 0;
+    //public int serverPartSelect = 0;
     public GameObject missionMessage;
     public bool hasMission = false;
+    public bool isTalking = false;
     public int talkIndex = 0;
     public BoxCollider2D FirstDialogTrigger;
 
@@ -37,41 +38,88 @@ public class NPCServer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasMission)
+        //if (hasMission)
+        //{
+        //    missionMessage.gameObject.SetActive(true);
+
+        //}
+        //else
+        //{
+        //    missionMessage.gameObject.SetActive(false);
+        //}
+
+        if (hasTalkedOnce == 1)
         {
-            missionMessage.gameObject.SetActive(true);
+            FirstDialogTrigger.enabled = false;
+
+        }
+
+        if (isTalking)
+        {
+            entirePlayer.gameObject.SetActive(false);
+
+            if (Input.GetButtonDown("Jump") && talkIndex == 1)
+            {
+                teevParts[0].gameObject.SetActive(true);
+                StartCoroutine(TeevIE());
+                //teevPartSelect = 1;
+                //nextButton.gameObject.SetActive(true);
+            }
+
+            if (Input.GetButtonDown("Jump") && talkIndex == 2)
+            {
+                serverParts[0].gameObject.SetActive(false);
+                serverParts[1].gameObject.SetActive(true);
+
+                StartCoroutine(ServerIE());
+                //teevPartSelect = 1;
+                //nextButton.gameObject.SetActive(true);
+            }
+
+            if (Input.GetButtonDown("Jump") && talkIndex == 3)
+            {
+                serverParts[1].gameObject.SetActive(false);
+                serverParts[2].gameObject.SetActive(true);
+
+                StartCoroutine(ServerSecondIE());
+                //teevPartSelect = 1;
+                //nextButton.gameObject.SetActive(true);
+            }
+
+            if (Input.GetButtonDown("Jump") && talkIndex == 4)
+            {
+                CloseButton();
+                //teevPartSelect = 1;
+                //nextButton.gameObject.SetActive(true);
+            }
         }
         else
         {
-            missionMessage.gameObject.SetActive(false);
+            entirePlayer.gameObject.SetActive(true);
         }
 
-        if (Input.GetButtonDown("Jump") && teevPartSelect ==0 && serverPartSelect ==1)
-        {
-            teevParts[0].gameObject.SetActive(true);
-            teevPartSelect = 1;
-            nextButton.gameObject.SetActive(true);
-        }
+    }
+    public IEnumerator TeevIE()
+    {
 
-        //-----Press the Next Button------//
-        
-        if (Input.GetButtonDown("Jump") && teevPartSelect ==1 && serverPartSelect == 2)
-        {
-            teevParts[1].gameObject.SetActive(true);
-            teevPartSelect = 2;
-            closeButton.gameObject.SetActive(true);
-        }
+        yield return new WaitForSeconds(.1f);
+        talkIndex = 2;
 
-        //-----Press the Close Button------//
+    }
 
-        if (Input.GetButtonUp("Jump") && teevPartSelect ==2 && serverPartSelect == 2)
-        {//incremented it up to 3 so i can press the same button to close the dialog
-            teevPartSelect = 3;
-        }
-        if (Input.GetButtonDown("Jump") && teevPartSelect == 3 && serverPartSelect == 2)
-        {
-            CloseButton();
-        }
+    public IEnumerator ServerIE()
+    {
+
+        yield return new WaitForSeconds(.1f);
+        talkIndex = 3;
+
+    }
+
+    public IEnumerator ServerSecondIE()
+    {
+
+        yield return new WaitForSeconds(.1f);
+        talkIndex = 4;
 
     }
 
@@ -81,13 +129,13 @@ public class NPCServer : MonoBehaviour
         {
             //Disable the Player
             talkIndex = 1;
-            entirePlayer.gameObject.SetActive(false);
-            serverPartSelect = 1;
-            hasTalked = true;
+            //entirePlayer.gameObject.SetActive(false);
+            //serverPartSelect = 1;
+            hasTalkedOnce = 1;
             dialogUI.gameObject.SetActive(true);
             talkFX.Play();
             serverParts[0].gameObject.SetActive(true);
-            FirstDialogTrigger.enabled = false;
+            isTalking = true;
         }
 
     }
@@ -96,14 +144,15 @@ public class NPCServer : MonoBehaviour
     {
         StartCoroutine(NextIE());
 
-        nextButton.gameObject.SetActive(false);
+        //nextButton.gameObject.SetActive(false);
     }
 
     public void CloseButton()
     {
         StartCoroutine(CloseIE());
 
-        entirePlayer.gameObject.SetActive(true);
+        isTalking = false;
+        //entirePlayer.gameObject.SetActive(true);
 
     }
 
@@ -127,7 +176,7 @@ public class NPCServer : MonoBehaviour
         talkIndex++;
 
         yield return new WaitForSeconds(.3f);
-        serverPartSelect++;
+        //serverPartSelect++;
         serverParts[1].gameObject.SetActive(true);
     }
 
@@ -135,7 +184,7 @@ public class NPCServer : MonoBehaviour
     {
         dialogUI.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.1f);
         hasMission = true;
     }
 }

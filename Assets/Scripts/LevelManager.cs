@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour {
     private StartCutScene startcut;
     private Upgrade upgradeScript;
     public GameObject vpnHUDImage;
+    private NPCServer npcServerScript;
 
     //Global Things to save on the level.
     public int memCount;
@@ -59,8 +60,13 @@ public class LevelManager : MonoBehaviour {
         routerPickupScript = FindObjectOfType<RouterPickup>();
         startcut = FindObjectOfType<StartCutScene>();
         upgradeScript = FindObjectOfType<Upgrade>();
+        npcServerScript = FindObjectOfType<NPCServer>();
 
         //***********************LOADING SAVE DATA********************************************
+        //if (PlayerPrefs.HasKey("HasTalkedToServer"))
+        //{
+        //    npcServerScript.hasTalkedOnce = PlayerPrefs.GetInt("HasTalkedToServer");
+        //}
 
         if (PlayerPrefs.HasKey("ShieldChargeCount"))
         {
