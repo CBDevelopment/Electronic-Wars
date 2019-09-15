@@ -38,15 +38,15 @@ public class NPCServer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (hasMission)
-        //{
-        //    missionMessage.gameObject.SetActive(true);
+        if (hasMission)
+        {
+            missionMessage.gameObject.SetActive(true);
 
-        //}
-        //else
-        //{
-        //    missionMessage.gameObject.SetActive(false);
-        //}
+        }
+        else
+        {
+            missionMessage.gameObject.SetActive(false);
+        }
 
         if (hasTalkedOnce == 1)
         {
@@ -78,10 +78,10 @@ public class NPCServer : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && talkIndex == 3)
             {
-                serverParts[1].gameObject.SetActive(false);
-                serverParts[2].gameObject.SetActive(true);
+                teevParts[0].gameObject.SetActive(false);
+                teevParts[1].gameObject.SetActive(true);
+                StartCoroutine(TeevSecondIE());
 
-                StartCoroutine(ServerSecondIE());
                 //teevPartSelect = 1;
                 //nextButton.gameObject.SetActive(true);
             }
@@ -92,6 +92,7 @@ public class NPCServer : MonoBehaviour
                 //teevPartSelect = 1;
                 //nextButton.gameObject.SetActive(true);
             }
+
         }
         else
         {
@@ -115,13 +116,21 @@ public class NPCServer : MonoBehaviour
 
     }
 
-    public IEnumerator ServerSecondIE()
+    public IEnumerator TeevSecondIE()
     {
 
         yield return new WaitForSeconds(.1f);
         talkIndex = 4;
 
     }
+
+    //public IEnumerator ServerSecondIE()
+    //{
+
+    //    yield return new WaitForSeconds(.1f);
+    //    talkIndex = 5;
+
+    //}
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -149,10 +158,8 @@ public class NPCServer : MonoBehaviour
 
     public void CloseButton()
     {
-        StartCoroutine(CloseIE());
-
         isTalking = false;
-        //entirePlayer.gameObject.SetActive(true);
+        StartCoroutine(CloseIE());
 
     }
 

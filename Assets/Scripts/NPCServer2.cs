@@ -46,10 +46,9 @@ public class NPCServer2 : MonoBehaviour
         {
             entirePlayer.gameObject.SetActive(false);
 
-            if (Input.GetButtonDown("Jump") && levelManagerScript.memCount < 100)
+            if (Input.GetButtonDown("Jump") && levelManagerScript.memCount < 100 && talkIndex == 0)
             {
-                dialogUI.gameObject.SetActive(false);
-                isTalking = false;
+                Close();
             }
 
             if (Input.GetButtonDown("Jump") && levelManagerScript.memCount >= 100 && talkIndex ==0)
@@ -134,13 +133,14 @@ public class NPCServer2 : MonoBehaviour
         serverParts[0].gameObject.SetActive(true);
         isTalking = true;
 
-        if(levelManagerScript.memCount < 200)
+        if (levelManagerScript.memCount < 100)
         {
-           StartCoroutine(TeevIE());
+            StartCoroutine(TeevIE());
         }
 
-        if(levelManagerScript.memCount >= 200)
+        if (levelManagerScript.memCount >= 100)
         {
+            teevParts[0].gameObject.SetActive(false);
             teevParts[1].gameObject.SetActive(true);
             isTalking = true;
         }
@@ -149,8 +149,26 @@ public class NPCServer2 : MonoBehaviour
     public IEnumerator TeevIE()
     {
 
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(.3f);
         teevParts[0].gameObject.SetActive(true);
+
+        //isTalking = false;
+        //Close();
+    }
+
+    public IEnumerator ServerSecondIE()
+    {
+
+        yield return new WaitForSeconds(.1f);
+        talkIndex = 1;
+
+    }
+
+    public IEnumerator ServerThirdIE()
+    {
+
+        yield return new WaitForSeconds(.1f);
+        talkIndex = 2;
 
     }
 
@@ -162,36 +180,6 @@ public class NPCServer2 : MonoBehaviour
         talkIndex = 3;
     }
 
-    public IEnumerator TeevThirdIE()
-    {
-
-        yield return new WaitForSeconds(.1f);
-        teevParts[3].gameObject.SetActive(true);
-        talkIndex = 5;
-    }
-
-    public IEnumerator TeevFourthIE()
-    {
-        yield return new WaitForSeconds(.1f);
-        teevParts[4].gameObject.SetActive(true);
-        talkIndex = 7;
-    }
-
-    public IEnumerator ServerSecondIE()
-    {
-
-        yield return new WaitForSeconds(.1f);
-        talkIndex = 1;
-
-    }
-    public IEnumerator ServerThirdIE()
-    {
-
-        yield return new WaitForSeconds(.1f);
-        talkIndex = 2;
-
-    }
-
     public IEnumerator ServerFourthIE()
     {
 
@@ -200,12 +188,26 @@ public class NPCServer2 : MonoBehaviour
 
     }
 
+    public IEnumerator TeevThirdIE()
+    {
+
+        yield return new WaitForSeconds(.1f);
+        teevParts[3].gameObject.SetActive(true);
+        talkIndex = 5;
+    }
+
     public IEnumerator ServerFithIE()
     {
 
         yield return new WaitForSeconds(.1f);
         talkIndex = 6;
 
+    }
+    public IEnumerator TeevFourthIE()
+    {
+        yield return new WaitForSeconds(.1f);
+        teevParts[4].gameObject.SetActive(true);
+        talkIndex = 7;
     }
 
     public IEnumerator ServerSixthIE()
@@ -227,15 +229,12 @@ public class NPCServer2 : MonoBehaviour
         memoryGiveFX.Play();
         Instantiate(MemorySplosion, dialogUI.transform.position, dialogUI.transform.rotation);
         serverParts[1].gameObject.SetActive(true);
+        StartCoroutine(ServerSecondIE());
     }
 
     public void Close()
     {
-        //teevParts[1].gameObject.SetActive(true);
-        //buttonHighlight1.gameObject.SetActive(true);
-        //buttonHighlight2.gameObject.SetActive(true);
         dialogUI.gameObject.SetActive(false);
-        serverParts[0].gameObject.SetActive(false);
         isTalking = false;
 
     }
