@@ -15,7 +15,7 @@ Two electronics named: "TeeV" and "Cell" set off on a perilous journey to find a
 - Various weapons, items and electronic NPC characters to interact with.
 - Unique story and universe!
 - Play as 2 different characters, with different powers and abilities.
-- Cyberspace travel to various worlds!
+- Travel to various worlds!
 - Cool catchy music!
 - Multiple venues and shops to spend your hard earned currency!
 - Puzzles and integrated Mazes on each region!
