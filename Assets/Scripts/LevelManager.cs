@@ -41,6 +41,7 @@ public class LevelManager : MonoBehaviour {
     public AudioSource gameOverMusic;
     public AudioSource gameoverMusicAddition;
     public bool tutorialMessageActive = false;
+    public int FirstServerMissionCompleted = 0;
 
 
     // Use this for initialization
@@ -63,10 +64,10 @@ public class LevelManager : MonoBehaviour {
         npcServerScript = FindObjectOfType<NPCServer>();
 
         //***********************LOADING SAVE DATA********************************************
-        //if (PlayerPrefs.HasKey("HasTalkedToServer"))
-        //{
-        //    npcServerScript.hasTalkedOnce = PlayerPrefs.GetInt("HasTalkedToServer");
-        //}
+        if (PlayerPrefs.HasKey("HasDoneFirstServerMission"))
+        {
+            FirstServerMissionCompleted = PlayerPrefs.GetInt("HasDoneFirstServerMission");
+        }
 
         if (PlayerPrefs.HasKey("ShieldChargeCount"))
         {

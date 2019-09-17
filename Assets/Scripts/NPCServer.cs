@@ -14,11 +14,7 @@ public class NPCServer : MonoBehaviour
     public GameObject dialogUI;
     public GameObject[] serverParts;
     public GameObject[] teevParts;
-    //public GameObject nextButton;
-    //public GameObject closeButton;
     public int hasTalkedOnce = 0;
-    //public int teevPartSelect = 0;
-    //public int serverPartSelect = 0;
     public GameObject missionMessage;
     public bool hasMission = false;
     public bool isTalking = false;
@@ -38,6 +34,11 @@ public class NPCServer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(levelManagerScript.FirstServerMissionCompleted == 1)
+        {
+            FirstDialogTrigger.enabled = false;
+        }
+
         if (hasMission)
         {
             missionMessage.gameObject.SetActive(true);

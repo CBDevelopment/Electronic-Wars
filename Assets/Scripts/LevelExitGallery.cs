@@ -63,6 +63,8 @@ public class LevelExitGallery : MonoBehaviour
         PlayerPrefs.SetInt("HasGun", tvPlayer.hasGun);
         PlayerPrefs.SetInt("HasVPN", tvPlayer.hasVPN);
         PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
+        PlayerPrefs.SetInt("HasDoneFirstServerMission", theLevelManagerScript.FirstServerMissionCompleted);
+
         //PlayerPrefs.SetInt("HasTalkedToServer", npcServerScript.hasTalkedOnce);
 
 

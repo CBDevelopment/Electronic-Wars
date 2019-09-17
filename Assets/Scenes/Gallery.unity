@@ -3981,6 +3981,7 @@ Transform:
   - {fileID: 1302943392}
   - {fileID: 244612003}
   - {fileID: 1583600479}
+  - {fileID: 933566836}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4527,6 +4528,36 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 1198251758}
   m_sendNavigationEvents: 1
   m_DragThreshold: 1
+--- !u!1 &679694475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679694476}
+  m_Layer: 0
+  m_Name: DialogPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679694476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679694475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.77, y: 6.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 933566836}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &694562049
 GameObject:
   m_ObjectHideFlags: 0
@@ -5853,7 +5884,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 822198834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9641e6d8e8a23c4409125fe3d1511d1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6972efea0fa66bc468df088d124b2482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: CityRegion
@@ -6403,6 +6434,83 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 325341571}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &933566835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933566836}
+  - component: {fileID: 933566837}
+  - component: {fileID: 933566838}
+  m_Layer: 0
+  m_Name: NoMissionIdleTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &933566836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933566835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 679694476}
+  m_Father: {fileID: 614918492}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &933566837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933566835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c030a8dd023efe64c8390ab83fca605c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - {fileID: 5575301399812664670, guid: cf96532b2e6b7e64c98d254cafcf81c1, type: 3}
+  dialogPos: {fileID: 679694476}
+  theNPC: {fileID: 614918490}
+  talkFX: {fileID: 244612002}
+  anim: {fileID: 0}
+--- !u!61 &933566838
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933566835}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -5.6871367, y: -2.7250752}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.105812, y: 1.2369378}
+  m_EdgeRadius: 0
 --- !u!1 &939220827
 GameObject:
   m_ObjectHideFlags: 0
@@ -10218,6 +10326,8 @@ MonoBehaviour:
   MemorySplosion: {fileID: 1059936350530040, guid: f32de8a9837a0eb44a21b5c40773a57a,
     type: 3}
   talkIndex: 0
+  leveltoUnlock: Level2
+  idleTrigger: {fileID: 933566835}
 --- !u!1 &1590090378
 GameObject:
   m_ObjectHideFlags: 0

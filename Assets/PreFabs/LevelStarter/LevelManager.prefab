@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 9022040715454705308}
   - component: {fileID: 9022040715454705309}
   - component: {fileID: 6108682895819671669}
+  - component: {fileID: 3136343441020044849}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -491,6 +492,8 @@ MonoBehaviour:
   levelMusic: {fileID: 9022040714917983896}
   gameOverMusic: {fileID: 9022040715622888956}
   gameoverMusicAddition: {fileID: 9022040714812399341}
+  tutorialMessageActive: 0
+  FirstServerMissionCompleted: 0
 --- !u!114 &9022040715454705309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +522,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot2Image: {fileID: 0}
   routerPickUp: {fileID: 0}
+--- !u!114 &3136343441020044849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022040715454705310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69e02c2f7081e1479196ee17ed7ca13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot3Image: {fileID: 0}
+  powerShoePickup: {fileID: 0}
+  purchaseBreak: {fileID: 0}
 --- !u!1 &9022040715622888958
 GameObject:
   m_ObjectHideFlags: 0

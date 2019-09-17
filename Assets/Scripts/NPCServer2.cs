@@ -15,13 +15,11 @@ public class NPCServer2 : MonoBehaviour
     public GameObject MemorySplosion;
     public int talkIndex = 0;
 
-
-    //Mission Selection Objects
-    //public GameObject buttonHighlight1;
-    //public GameObject buttonHighlight2;
-
     private NPCServer firstNpcServerScript;
     private LevelManager levelManagerScript;
+    public string leveltoUnlock;
+    public GameObject idleTrigger;
+
 
     // Start is called before the first frame update
     void Start()
@@ -115,13 +113,21 @@ public class NPCServer2 : MonoBehaviour
             if (Input.GetButtonDown("Jump") && talkIndex == 8)
             {
                 Close();
+                levelManagerScript.FirstServerMissionCompleted = 1;
+                //unlock level 2
+                PlayerPrefs.SetInt(leveltoUnlock, 1);
             }
+
         }
         else
         {
             entirePlayer.gameObject.SetActive(true);    
         }
 
+        if (levelManagerScript.FirstServerMissionCompleted == 1)
+        {
+            StartCoroutine(TurnOnIdleServerTriggerIE());
+        }
 
     }
 
@@ -215,6 +221,14 @@ public class NPCServer2 : MonoBehaviour
 
         yield return new WaitForSeconds(.1f);
         talkIndex = 8;
+
+    }
+
+    public IEnumerator TurnOnIdleServerTriggerIE()
+    {
+
+        yield return new WaitForSeconds(4f);
+        idleTrigger.SetActive(true);
 
     }
 

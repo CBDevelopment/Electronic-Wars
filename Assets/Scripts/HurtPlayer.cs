@@ -8,6 +8,9 @@ public class HurtPlayer : MonoBehaviour {
     private PlasmaPlayer plasmaPlayer;
     private Evolve evolveScript;
     private LevelManager levelManager;
+    public float knockUpForce;
+    //public float knockBackForce;
+
 
     public int damageToGive;
 
@@ -30,8 +33,10 @@ public class HurtPlayer : MonoBehaviour {
 
             tvPlayer.HurtPlayer(damageToGive);
             tvPlayer.timeBetweenDamage = 2f;
+            tvPlayer.rb2d.velocity = new Vector3(-20f, knockUpForce, 0f);
 
-            StartCoroutine(tvPlayer.Knockback(.11f, 1, tvPlayer.transform.position));
+
+            //StartCoroutine(tvPlayer.Knockback(.11f, 1, tvPlayer.transform.position));
             //StartCoroutine(plasmaPlayer.Knockback(.5f, 1, plasmaPlayer.transform.position));
             //thePlayer.Knockback();
             //thePlayer.HurtPlayer(damageToGive);
@@ -39,7 +44,7 @@ public class HurtPlayer : MonoBehaviour {
             //tvPlayer.Knockback(5f, 5, tvPlayer.transform.position);
             //plasmaPlayer.Knockback(0.5f, 5, plasmaPlayer.transform.position);
 
-            
+
             //tvPlayer.Knockback();
             //plasmaPlayer.HurtPlayer(damageToGive);
         }

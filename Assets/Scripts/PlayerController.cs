@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     //Booleans
     public bool grounded;
     public bool canDoubleJump;
+    //int bool
+    public int doubleJumped = 0;
     public bool flipping;
     public bool hovering;
     public bool canMove;
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     //References
     private Animator anim;
-    private Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
     public Collider2D crouchCollider;
     //public Collider2D playerCollider;
     public Collider2D tvBodyCollider;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
     //Special Bools ***********
     public int hasGun = 0;
     public int hasRouter = 0;
+    public int hasPowerShoe = 0;
     public int hasSIM = 0;
     public int hasVPN = 0;
     public bool facingRight;
@@ -61,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 pos;
 
     private LastPosition lastPositionScript;
+    private PlayerPowerShoe playerPowerShoeScript;
     private PlayerController thePlayerController;
     private Evolve evolveScript;
     private PlayerGun playerGun;
@@ -89,6 +93,7 @@ public class PlayerController : MonoBehaviour
         evolveScript = FindObjectOfType<Evolve>();
         thePlayerController = FindObjectOfType<PlayerController>();
         playerGun = FindObjectOfType<PlayerGun>();
+        playerPowerShoeScript = FindObjectOfType<PlayerPowerShoe>();
 
 
         //Assign variables
@@ -164,11 +169,17 @@ public class PlayerController : MonoBehaviour
             {
                 if (canDoubleJump)
                 {
+                    doubleJumped = 1;
                     canDoubleJump = false;
                     rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                     rb2d.AddForce(Vector2.up * jumpPower / 1.25f);
                     jumpSound.Play();
                     anim.SetTrigger("Flipping");
+
+                    if(hasPowerShoe == 1)
+                    {
+                        playerPowerShoeScript.powering = true;
+                    }
                 }
             }
         }
@@ -218,6 +229,8 @@ public class PlayerController : MonoBehaviour
             {
                 rb2d.velocity = easeVelocity;
                 anim.SetBool("Flipping", false);
+                doubleJumped = 0;
+                playerPowerShoeScript.powering = false;
 
             }
 

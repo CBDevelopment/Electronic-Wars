@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2308191684024435406}
   - component: {fileID: -4562553070061591342}
   - component: {fileID: 4082187616623601827}
-  - component: {fileID: 4082187616623601837}
   - component: {fileID: 7588687712120618655}
   m_Layer: 0
   m_Name: SubDrone
@@ -177,6 +176,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af7e2fb5d68ec824b89df386413d1cea, type: 3}
   - {fileID: 21300000, guid: aee33b895a4e4e640a9e0f6417398a15, type: 3}
   - {fileID: 21300000, guid: cbcab3e150d5373419ae6771768e5b37, type: 3}
+  destroySplosion: {fileID: 0}
+  damageSplosion: {fileID: 0}
 --- !u!61 &4082187616623601827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,32 +204,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5937576, y: 4.073925}
   m_EdgeRadius: 0.5
---- !u!61 &4082187616623601837
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4082187616623601830}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.012565136, y: 0.48661137}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.39, y: 4.51}
-    newSize: {x: 4.39, y: 4.51}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4190216, y: 0.38008976}
-  m_EdgeRadius: 0.3
 --- !u!111 &7588687712120618655
 Animation:
   m_ObjectHideFlags: 0
