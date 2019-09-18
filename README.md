@@ -13,7 +13,7 @@ Two electronics named: "TeeV" and "Cell" set off on a perilous journey to find a
 - Unique Upgrades and character evolutions!
 - Bosses and rewards on each level!
 - Various weapons, items and electronic NPC characters to interact with.
-- Unique story and universe!
+- Unique story, animated cutscenes, and universe!
 - Play as 2 different characters, with different powers and abilities.
 - Travel to various worlds!
 - Cool catchy music!
