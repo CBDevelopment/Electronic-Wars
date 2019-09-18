@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlasmaPlayer : MonoBehaviour
+public class SmartPlayer : MonoBehaviour
 {
     //Script References
 
@@ -13,13 +13,15 @@ public class PlasmaPlayer : MonoBehaviour
 
     //Booleans
     public bool grounded;
-    public bool canDoubleJump;
     public bool canMove;
-    public bool onWall;
+    public bool canBlast;
+    public bool facingRight;
+    public bool facingLeft;
 
     //Player Stats
     public int currentHealth;
-    public int maxHealth = 3;
+    public int maxHealth;
+    public int blastAmount =1;
 
     //References
     private Animator anim;
@@ -29,9 +31,14 @@ public class PlasmaPlayer : MonoBehaviour
     public LevelManager theLevelManager;
     private HurtPlayer hurtPlayerScript;
 
-    //Sound Fx
+    public AudioSource jumpSound;
     public AudioSource hurtSound;
-    public AudioSource deathSound;
+    public AudioSource blastSoundFX;
+
+
+    //Sound Fx
+    //public AudioSource hurtSound;
+    //public AudioSource deathSound;
 
     //private PlayerController tvPlayer;
 
@@ -47,7 +54,7 @@ public class PlasmaPlayer : MonoBehaviour
     {
         canMove = true;
         //SpawnPoint
-        //respawnPosition = transform.position;
+        respawnPosition = transform.position;
 
         theLevelManager = FindObjectOfType<LevelManager>();
         lastPositionScript = FindObjectOfType<LastPosition>();
@@ -61,15 +68,21 @@ public class PlasmaPlayer : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
 
         //Start with full health
+        currentHealth = maxHealth;
 
         //tvPlayer = FindObjectOfType<PlayerController>();
 
         transform.position = lastPositionScript.pos;
+
+        facingRight = true;
+
+        grounded = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
         ////Gets position of the PlasmaPlayer
@@ -87,7 +100,23 @@ public class PlasmaPlayer : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
 
         }
-        //Don't move this or physics could be affected.
+
+        //Jumping
+        if (Input.GetButtonDown("Jump") && grounded)
+
+        {
+            if (grounded)
+            {
+                rb2d.AddForce(Vector3.up * jumpPower);
+                jumpSound.Play();
+                //grounded = false;
+            }
+
+
+                //StartCoroutine(GroundIE());
+            
+        }
+        //Don't move this line or the physics may not work.
         currentHealth = tvPlayer.currentHealth;
 
 
@@ -108,7 +137,7 @@ public class PlasmaPlayer : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         if (canMove)
         {
@@ -126,81 +155,35 @@ public class PlasmaPlayer : MonoBehaviour
             }
 
             //Move Player
-            rb2d.AddForce(Vector2.right * speed * h);
+            rb2d.AddForce(Vector3.right * speed * h);
 
             //Limit Speed of left/right movement
             if (rb2d.velocity.x > maxSpeed)
             {
-                rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+                rb2d.velocity = new Vector3(maxSpeed, rb2d.velocity.y);
+
             }
             if (rb2d.velocity.x < -maxSpeed)
             {
-                rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
+                rb2d.velocity = new Vector3(-maxSpeed, rb2d.velocity.y);
+
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+
+    public void OnEnable()
     {
 
-        if (other.tag == "KillPlane")
-        {
-
-            evolveScript.Transform();
-        }
-
-        //Resets you back to TV player if you hit a checkpoint.
-        if (other.tag == "Checkpoint")
-        {
-            evolveScript.Transform();
-            transformationCloudScript.GetComponent<Animator>().Play("Transforming");
-
-        }
-
-
-        if (other.tag == "Enemy")
-        {
-            //tvPlayer.HurtPlayer(hurtPlayerScript.damageToGive);
-            evolveScript.Transform();
-        }
-
-        if (other.tag == "Boss")
-        {
-            evolveScript.Transform();
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "MovingPlatform")
-        {
-            transform.parent = other.transform;
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "MovingPlatform")
-        {
-            transform.parent = null;
-
-            rb2d.rotation = 0;
-        }
-
-
-
-    }
-    
-    void OnEnable()
-    {
-        
         transform.position = lastPositionScript.pos;
 
     }
 
-    //void Awake()
+    //public IEnumerator GroundIE()
     //{
-    //    canMove = true;
-    //}
 
+    //    yield return new WaitForSeconds(.8f);
+    //    grounded = true;
+
+    //}
 }

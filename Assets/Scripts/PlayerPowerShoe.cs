@@ -112,5 +112,11 @@ public class PlayerPowerShoe : MonoBehaviour
             tvPlayer.rb2d.velocity = new Vector3(tvPlayer.rb2d.velocity.x, bounceForce, 0f);
 
         }
+
+        if(other.tag == "Boss" && powering)
+        {
+            tvPlayer.rb2d.velocity = new Vector3(tvPlayer.rb2d.velocity.x, bounceForce, 0f);
+
+        }
     }
 }

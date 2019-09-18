@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour {
     public float waitToRespawn;
     public PlayerController tvPlayer;
     public PlasmaPlayer plasmaPlayer;
+    public SmartPlayer smartPlayer;
     private PlayerGun playerGunScript;
     private PlayerRouter playerRouterScript;
     private Evolve evolveScript;
@@ -170,6 +171,7 @@ public class LevelManager : MonoBehaviour {
         {
             tvPlayer.canMove = false;
             plasmaPlayer.canMove = false;
+            smartPlayer.canMove = false;
             Time.timeScale = 0;
 
 
@@ -191,6 +193,7 @@ public class LevelManager : MonoBehaviour {
         {
             tvPlayer.canMove = true;
             plasmaPlayer.canMove = true;
+            smartPlayer.canMove = true;
         }
 
     }
@@ -228,6 +231,26 @@ public class LevelManager : MonoBehaviour {
         else
         {
             plasmaPlayer.gameObject.SetActive(false);
+            gameOverScreen.SetActive(true);
+            levelMusic.Stop();
+            gameoverMusicAddition.Play();
+            gameOverMusic.Play();
+        }
+
+    }
+
+    public void SmartRespawn()
+    {
+        currentLives -= 1;
+        livesText.text = "x " + currentLives;
+
+        if (currentLives > 0)
+        {
+            StartCoroutine("SmartRespawnCo");
+        }
+        else
+        {
+            smartPlayer.gameObject.SetActive(false);
             gameOverScreen.SetActive(true);
             levelMusic.Stop();
             gameoverMusicAddition.Play();
@@ -277,6 +300,29 @@ public class LevelManager : MonoBehaviour {
         //evolveScript.Transform();
 
         plasmaPlayer.transform.position = tvPlayer.respawnPosition;
+
+        //tvPlayer.gameObject.SetActive(true);
+
+        //reset objects in game.
+        for (int i = 0; i < objectsToReset.Length; i++)
+        {
+            objectsToReset[i].gameObject.SetActive(true);
+            objectsToReset[i].ResetObject();
+        }
+
+    }
+
+    public IEnumerator SmartRespawnCo()
+    {
+        smartPlayer.gameObject.SetActive(false);
+
+        Instantiate(deathBreak, plasmaPlayer.transform.position, plasmaPlayer.transform.rotation);
+
+        yield return new WaitForSeconds(waitToRespawn);
+
+        //evolveScript.Transform();
+
+        smartPlayer.transform.position = tvPlayer.respawnPosition;
 
         //tvPlayer.gameObject.SetActive(true);
 

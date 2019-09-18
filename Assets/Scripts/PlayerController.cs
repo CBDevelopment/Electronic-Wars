@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float speed;
     public float jumpPower;
-    public float timeBetweenDamage = 2f;
+    public float timeBetweenDamage = 1.4f;
 
 
     //Booleans
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
             theLevelManager.Respawn();
             gameObject.GetComponent<Animation>().Play("Flash");
             speed = 500;
-            timeBetweenDamage = 2f;
+            timeBetweenDamage = 1.4f;
         }
 
         if(timeBetweenDamage > 0)

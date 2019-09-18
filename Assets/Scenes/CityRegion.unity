@@ -1470,12 +1470,12 @@ PrefabInstance:
     - target: {fileID: 7683949010709154439, guid: f05eb9f8898c62f49a9b1d3762de52b5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.6
+      value: 8.43
       objectReference: {fileID: 0}
     - target: {fileID: 7683949010709154439, guid: f05eb9f8898c62f49a9b1d3762de52b5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.7
+      value: -14.29
       objectReference: {fileID: 0}
     - target: {fileID: 7683949010591876511, guid: f05eb9f8898c62f49a9b1d3762de52b5,
         type: 3}
@@ -4669,6 +4669,7 @@ MonoBehaviour:
   timeBetweenDamage: 3
   grounded: 0
   canDoubleJump: 0
+  doubleJumped: 0
   flipping: 0
   hovering: 0
   canMove: 0
@@ -4677,6 +4678,7 @@ MonoBehaviour:
   canCrouch: 0
   currentHealth: 0
   maxHealth: 3
+  rb2d: {fileID: 0}
   crouchCollider: {fileID: 1198804376}
   tvBodyCollider: {fileID: 1198804377}
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -4688,6 +4690,7 @@ MonoBehaviour:
   meleeSound: {fileID: 387467923}
   hasGun: 0
   hasRouter: 0
+  hasPowerShoe: 0
   hasSIM: 0
   hasVPN: 0
   facingRight: 0
@@ -8744,12 +8747,12 @@ PrefabInstance:
     - target: {fileID: 4813839623974779570, guid: d5bf9102b1bf2bb4ea5805a71082caf1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.711666
+      value: 3.3183327
       objectReference: {fileID: 0}
     - target: {fileID: 4813839623974779570, guid: d5bf9102b1bf2bb4ea5805a71082caf1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.419046
+      value: -13.570953
       objectReference: {fileID: 0}
     - target: {fileID: 4813839623974779570, guid: d5bf9102b1bf2bb4ea5805a71082caf1,
         type: 3}
@@ -9189,6 +9192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c6bc55d428f5c4cb1feec6e75bdbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockUpForce: 0
   damageToGive: 100
 --- !u!61 &1904091360
 BoxCollider2D:

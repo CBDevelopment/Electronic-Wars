@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour {
+public class SmartGroundCheck : MonoBehaviour
+{
 
-    private PlayerController tvPlayer;
+    private SmartPlayer smartPlayer;
 
     void Start()
     {
-        tvPlayer = gameObject.GetComponentInParent<PlayerController>();
+        smartPlayer = gameObject.GetComponentInParent<SmartPlayer>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        tvPlayer.grounded = true;
+        smartPlayer.grounded = true;
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        tvPlayer.grounded = true;
+        smartPlayer.grounded = true;
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        tvPlayer.grounded = false;
+        smartPlayer.grounded = false;
 
     }
 }

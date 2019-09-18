@@ -1,13 +1,21 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class TransformationCloud : MonoBehaviour
 {
     private LevelManager levelManagerScript;
     private Evolve evolveScript;
-    public bool canTransform;
-
     public Animator transformationCloudAnimator;
+    public Vector3 pos;
+    private PlayerController tvPlayer;
+    private LastPosition lastPositionScript;
+
+    public Slider TransformCoolDownBar;
+
+    public bool canTransform;
+    public float TimeBetweenTransforms = 1.5f;
 
     // Use this for initialization
     void Start()
@@ -15,17 +23,43 @@ public class TransformationCloud : MonoBehaviour
         canTransform = true;
         levelManagerScript = FindObjectOfType<LevelManager>();
         evolveScript = FindObjectOfType<Evolve>();
+        tvPlayer = FindObjectOfType<PlayerController>();
+        lastPositionScript = FindObjectOfType<LastPosition>();
         //anim = FindObjectOfType<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown ("Transform") && levelManagerScript.upgradeCount >= 1 && canTransform)
+        TransformCoolDownBar.value = TimeBetweenTransforms;
+
+        if (Input.GetButtonDown("Transform") && levelManagerScript.upgradeCount >= 1 && canTransform)
         {
-            evolveScript.Transform();
-            GetComponent<Animator>().Play("Transforming");
-            
+            Invoke("CloudAnimation", 0f);
+            canTransform = false;
+            TransformCoolDownBar.gameObject.SetActive(true);
         }
+
+        if (!canTransform)
+        {
+            //There is now a cooldown time between transforms.
+            TimeBetweenTransforms -= Time.deltaTime;
+
+        }
+
+        if (TimeBetweenTransforms <= 0f)
+        {
+            canTransform = true;
+            TimeBetweenTransforms = 1.5f;
+            TransformCoolDownBar.gameObject.SetActive(false);
+
+        }
+    }
+
+    public void CloudAnimation()
+    {
+        evolveScript.Transform();
+        GetComponent<Animator>().Play("Transforming");
+
     }
 }

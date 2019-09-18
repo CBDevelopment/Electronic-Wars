@@ -9,6 +9,9 @@ public class HurtPlayer : MonoBehaviour {
     private Evolve evolveScript;
     private LevelManager levelManager;
     public float knockUpForce;
+    private bool paused = false;
+    private TransformationCloud transformationCloudScript;
+
     //public float knockBackForce;
 
 
@@ -19,23 +22,23 @@ public class HurtPlayer : MonoBehaviour {
         tvPlayer = FindObjectOfType<PlayerController>();
         evolveScript = gameObject.GetComponent<Evolve>();
         levelManager = FindObjectOfType<LevelManager>();
+        transformationCloudScript = FindObjectOfType<TransformationCloud>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
 
-    void OnTriggerEnter2D(Collider2D other)
+
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player" && tvPlayer.timeBetweenDamage <= 0)
         {
-
             tvPlayer.HurtPlayer(damageToGive);
-            tvPlayer.timeBetweenDamage = 2f;
+            tvPlayer.timeBetweenDamage = 1.4f;
             tvPlayer.rb2d.velocity = new Vector3(-20f, knockUpForce, 0f);
-
-
             //StartCoroutine(tvPlayer.Knockback(.11f, 1, tvPlayer.transform.position));
             //StartCoroutine(plasmaPlayer.Knockback(.5f, 1, plasmaPlayer.transform.position));
             //thePlayer.Knockback();
@@ -48,6 +51,21 @@ public class HurtPlayer : MonoBehaviour {
             //tvPlayer.Knockback();
             //plasmaPlayer.HurtPlayer(damageToGive);
         }
+
+        //if(other.tag == "Player" && evolveScript.isPlasma)
+        //{
+        //    tvPlayer.HurtPlayer(damageToGive);
+        //    tvPlayer.timeBetweenDamage = 2f;
+        //    tvPlayer.rb2d.velocity = new Vector3(-20f, knockUpForce, 0f);
+
+        //}
+
+        //if (other.tag == "Player" && evolveScript.isSmart)
+        //{
+        //    tvPlayer.HurtPlayer(damageToGive);
+        //    tvPlayer.timeBetweenDamage = 2f;
+        //    tvPlayer.rb2d.velocity = new Vector3(-20f, knockUpForce, 0f);
+        //}
     }
 
     //void OnCollisionEnter(Collision other)
@@ -90,4 +108,5 @@ public class HurtPlayer : MonoBehaviour {
     //        plasmaPlayer.HurtPlayer(damageToGive);
     //    }
     //}
+
 }

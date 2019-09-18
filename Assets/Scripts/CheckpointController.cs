@@ -10,6 +10,7 @@ public class CheckpointController : MonoBehaviour {
     private Evolve evolveScript;
     private PlayerController tvPlayer;
     private PlasmaPlayer plasmaPlayer;
+    private SmartPlayer smartPlayer;
 
     public bool checkpointActive;
 
@@ -26,6 +27,7 @@ public class CheckpointController : MonoBehaviour {
         evolveScript = FindObjectOfType<Evolve>();
         tvPlayer = FindObjectOfType<PlayerController>();
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
+        smartPlayer = FindObjectOfType<SmartPlayer>();
 	}
 	
 	// Update is called once per frame
@@ -45,7 +47,7 @@ public class CheckpointController : MonoBehaviour {
             //evolveScript.Transform();
             tvPlayer.respawnPosition = this.transform.position;
             plasmaPlayer.respawnPosition = this.transform.position;
-
+            smartPlayer.respawnPosition = this.transform.position;
         }
     }
 }

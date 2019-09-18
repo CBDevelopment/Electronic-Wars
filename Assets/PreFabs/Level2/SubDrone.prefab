@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c6bc55d428f5c4cb1feec6e75bdbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockUpForce: 30
   damageToGive: 1
 --- !u!114 &4510364392611157201
 MonoBehaviour:
