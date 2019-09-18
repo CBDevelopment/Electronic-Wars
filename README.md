@@ -17,8 +17,9 @@ Two electronics named: "TeeV" and "Cell" set off on a perilous journey to find a
 - Play as 2 different characters, with different powers and abilities.
 - Travel to various worlds!
 - Cool catchy music!
-- Multiple venues and shops to spend your hard earned currency!
-- Puzzles and integrated Mazes on each region!
+- Multiple venues and shops to spend currency!
+- Travel from world to world in various vehicles!
+- Puzzles and Mazes on each world!
 - Built-in minigames and challenges to test your skills!
 - 2 Game modes: Simulator Mode & Story Mode.
 
