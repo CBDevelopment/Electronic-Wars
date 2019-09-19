@@ -15,7 +15,7 @@ public class TransformationCloud : MonoBehaviour
     public Slider TransformCoolDownBar;
 
     public bool canTransform;
-    public float TimeBetweenTransforms = 1.5f;
+    public float TimeBetweenTransforms = .4f;
 
     // Use this for initialization
     void Start()
@@ -50,7 +50,7 @@ public class TransformationCloud : MonoBehaviour
         if (TimeBetweenTransforms <= 0f)
         {
             canTransform = true;
-            TimeBetweenTransforms = 1.5f;
+            TimeBetweenTransforms = .4f;
             TransformCoolDownBar.gameObject.SetActive(false);
 
         }

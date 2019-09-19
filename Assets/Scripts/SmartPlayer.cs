@@ -10,22 +10,26 @@ public class SmartPlayer : MonoBehaviour
     public float maxSpeed;
     public float speed;
     public float jumpPower;
+    public float glideTime = 2.5f;
 
     //Booleans
     public bool grounded;
     public bool canMove;
-    public bool canBlast;
     public bool facingRight;
     public bool facingLeft;
+    public bool gliding;
+    public bool canDoubleJump;
 
     //Player Stats
     public int currentHealth;
     public int maxHealth;
     public int blastAmount =1;
+    public int doubleJumped =0;
 
     //References
     private Animator anim;
-    private Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
+
 
     public Vector3 respawnPosition;
     public LevelManager theLevelManager;
@@ -69,14 +73,12 @@ public class SmartPlayer : MonoBehaviour
 
         //Start with full health
         currentHealth = maxHealth;
-
         //tvPlayer = FindObjectOfType<PlayerController>();
 
         transform.position = lastPositionScript.pos;
-
         facingRight = true;
-
         grounded = true;
+
     }
 
     // Update is called once per frame
@@ -85,6 +87,17 @@ public class SmartPlayer : MonoBehaviour
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
+        if (gliding)
+        {
+            glideTime -= Time.deltaTime;
+        }
+
+        if (glideTime <= 0)
+        {
+            rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+            glideTime = 2.5f;
+        }
+
         ////Gets position of the PlasmaPlayer
         //this.pos = transform.position;
 
@@ -92,33 +105,50 @@ public class SmartPlayer : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < -0.1f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-
+            facingLeft = true;
+            facingRight = false;
         }
 
         if (Input.GetAxisRaw("Horizontal") > 0.1f)
         {
             transform.localScale = new Vector3(1, 1, 1);
-
+            facingRight = true;
+            facingLeft = false;
         }
 
         //Jumping
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && canMove)
 
         {
             if (grounded)
             {
-                rb2d.AddForce(Vector3.up * jumpPower);
+                rb2d.AddForce(Vector2.up * jumpPower);
+                canDoubleJump = true;
                 jumpSound.Play();
-                //grounded = false;
             }
 
-
-                //StartCoroutine(GroundIE());
-            
+            else
+            {
+                if (canDoubleJump)
+                {
+                    doubleJumped = 1;
+                    canDoubleJump = false;
+                    //StartCoroutine(ResetGravity()); //this is where the glide time is handled.
+                    this.rb2d.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                    StartCoroutine(GlidingIE()); //gliding=true;
+                    anim.SetTrigger("Gliding");
+                }
+            }
         }
+
+        if(Input.GetButtonDown("Jump") && gliding)
+        {         
+                rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+                glideTime = 2.5f;
+        }
+
         //Don't move this line or the physics may not work.
         currentHealth = tvPlayer.currentHealth;
-
 
         ////Checks for health and allows death.
         //if (currentHealth > maxHealth)
@@ -128,11 +158,9 @@ public class SmartPlayer : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-
             theLevelManager.PlasmaRespawn();
             //GetComponent<Animation>().Play("Flash");
             Instantiate(theLevelManager.deathBreak, this.transform.position, this.transform.rotation);
-
         }
 
     }
@@ -152,6 +180,10 @@ public class SmartPlayer : MonoBehaviour
             if (grounded)
             {
                 rb2d.velocity = easeVelocity;
+                anim.SetBool("Gliding", false);
+                this.rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+                gliding = false;
+                glideTime = 2.5f;
             }
 
             //Move Player
@@ -174,16 +206,22 @@ public class SmartPlayer : MonoBehaviour
 
     public void OnEnable()
     {
-
         transform.position = lastPositionScript.pos;
+        rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        glideTime = 2.5f;
 
     }
 
-    //public IEnumerator GroundIE()
-    //{
+    public IEnumerator ResetGravity()
+    {
+        yield return new WaitForSeconds(2.5f);
+        //this.GetComponent<Rigidbody2D>().gravityScale = 5;
+        //rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
 
-    //    yield return new WaitForSeconds(.8f);
-    //    grounded = true;
-
-    //}
+    public IEnumerator GlidingIE()
+    {
+        yield return new WaitForSeconds(.1f);
+        gliding = true;
+    }
 }

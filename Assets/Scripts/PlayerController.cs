@@ -155,14 +155,12 @@ public class PlayerController : MonoBehaviour
 
         //Jumping
         if (Input.GetButtonDown("Jump") && canMove)
-
         {
             if (grounded && !onWall)
             {
                 rb2d.AddForce(Vector2.up * jumpPower);
                 canDoubleJump = true;
                 jumpSound.Play();
-
             }
 
             else
