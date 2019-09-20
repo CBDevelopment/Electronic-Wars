@@ -100,7 +100,7 @@ public class PlasmaPlayer : MonoBehaviour
         if (currentHealth <= 0)
         {
 
-            theLevelManager.PlasmaRespawn();
+            theLevelManager.PlasmaRespawnCo();
             //GetComponent<Animation>().Play("Flash");
             Instantiate(theLevelManager.deathBreak, this.transform.position, this.transform.rotation);
 
@@ -152,16 +152,18 @@ public class PlasmaPlayer : MonoBehaviour
         //Resets you back to TV player if you hit a checkpoint.
         if (other.tag == "Checkpoint")
         {
-            evolveScript.Transform();
-            transformationCloudScript.GetComponent<Animator>().Play("Transforming");
+            //evolveScript.Transform();
+            //transformationCloudScript.GetComponent<Animator>().Play("Transforming");
 
         }
 
 
         if (other.tag == "Enemy")
         {
-            //tvPlayer.HurtPlayer(hurtPlayerScript.damageToGive);
-            evolveScript.Transform();
+            //evolveScript.Transform();
+            evolveScript.TransformToTeev();
+            tvPlayer.HurtPlayer(hurtPlayerScript.damageToGive);
+
         }
 
         if (other.tag == "Boss")
@@ -186,9 +188,6 @@ public class PlasmaPlayer : MonoBehaviour
 
             rb2d.rotation = 0;
         }
-
-
-
     }
     
     void OnEnable()

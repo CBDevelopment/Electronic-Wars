@@ -113,4 +113,15 @@ public class Evolve : MonoBehaviour
 
             }
     }
+
+    public void TransformToTeev()
+    {
+        characterSelect = 1;
+        tv.SetActive(true);
+        isTV = true;
+        isPlasma = false;
+        plasma.SetActive(false);
+        isSmart = false;
+        smart.SetActive(false);
+    }
 }

@@ -158,7 +158,7 @@ public class SmartPlayer : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            theLevelManager.PlasmaRespawn();
+            theLevelManager.SmartRespawnCo();
             //GetComponent<Animation>().Play("Flash");
             Instantiate(theLevelManager.deathBreak, this.transform.position, this.transform.rotation);
         }
@@ -203,7 +203,6 @@ public class SmartPlayer : MonoBehaviour
         }
     }
 
-
     public void OnEnable()
     {
         transform.position = lastPositionScript.pos;
@@ -223,5 +222,15 @@ public class SmartPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(.1f);
         gliding = true;
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            //evolveScript.Transform();
+            evolveScript.TransformToTeev();
+            tvPlayer.HurtPlayer(hurtPlayerScript.damageToGive);
+        }
     }
 }
