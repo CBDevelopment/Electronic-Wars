@@ -233,4 +233,14 @@ public class SmartPlayer : MonoBehaviour
             tvPlayer.HurtPlayer(hurtPlayerScript.damageToGive);
         }
     }
+
+    //public void OnCollisionEnter(Collision other)
+    //{
+    //    if(other.gameObject.tag == "Enemy")
+    //    {
+    //        evolveScript.TransformToTeev();
+
+    //    }
+
+    //}
 }

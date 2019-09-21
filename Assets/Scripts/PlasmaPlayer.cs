@@ -161,14 +161,14 @@ public class PlasmaPlayer : MonoBehaviour
         if (other.tag == "Enemy")
         {
             //evolveScript.Transform();
-            evolveScript.TransformToTeev();
-            tvPlayer.HurtPlayer(hurtPlayerScript.damageToGive);
+            //evolveScript.TransformToTeev();
+            //tvPlayer.HurtPlayer(hurtPlayerScript.damageToGive);
 
         }
 
         if (other.tag == "Boss")
         {
-            evolveScript.Transform();
+            //evolveScript.Transform();
         }
     }
 

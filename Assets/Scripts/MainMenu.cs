@@ -12,7 +12,9 @@ public class MainMenu : MonoBehaviour {
     private PlayerController tvPlayer;
     private LevelManager levelManagerScript;
     public GameObject blackScreen;
-    public GameObject purchaseBreak;
+    //public GameObject purchaseBreak;
+    //public Transform newGameButtonPos;
+    //public Transform continueButtonPos;
 
 
     // Use this for initialization

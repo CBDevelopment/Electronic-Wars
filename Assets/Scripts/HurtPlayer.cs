@@ -52,39 +52,12 @@ public class HurtPlayer : MonoBehaviour {
             //plasmaPlayer.HurtPlayer(damageToGive);
         }
 
-        //if(other.tag == "Player" && evolveScript.isPlasma)
-        //{
-        //    tvPlayer.HurtPlayer(damageToGive);
-        //    tvPlayer.timeBetweenDamage = 2f;
-        //    tvPlayer.rb2d.velocity = new Vector3(-20f, knockUpForce, 0f);
-
-        //}
-
-        //if (other.tag == "Player" && evolveScript.isSmart)
-        //{
-        //    tvPlayer.HurtPlayer(damageToGive);
-        //    tvPlayer.timeBetweenDamage = 2f;
-        //    tvPlayer.rb2d.velocity = new Vector3(-20f, knockUpForce, 0f);
-        //}
     }
 
-    //void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        StartCoroutine(tvPlayer.Knockback(.5f, 1, tvPlayer.transform.position));
-    //        //thePlayer.Knockback();
-    //        //thePlayer.HurtPlayer(damageToGive);
+    void OnCollisionEnter(Collision other)
+    {
 
-    //        //tvPlayer.Knockback(0.5f, 5, tvPlayer.transform.position);
-    //        //plasmaPlayer.Knockback(0.5f, 5, plasmaPlayer.transform.position);
-
-    //        tvPlayer.HurtPlayer(damageToGive);
-    //        plasmaPlayer.HurtPlayer(damageToGive);
-
-
-    //    }
-    //}
+    }
 
     //void OnTriggerExit2D(Collider2D other)
     //{

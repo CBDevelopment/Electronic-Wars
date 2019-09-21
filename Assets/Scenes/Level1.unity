@@ -56988,16 +56988,16 @@ PrefabInstance:
       propertyPath: theLevelManager
       value: 
       objectReference: {fileID: 1093569800}
-    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: theLevelManager
-      value: 
-      objectReference: {fileID: 1093569800}
     - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: theLevelManager
+      value: 
+      objectReference: {fileID: 1093569800}
     - target: {fileID: 4844156947550980330, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57056,12 +57056,12 @@ PrefabInstance:
     - target: {fileID: 4844156947942146546, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4844156947493342393, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4844156947493342398, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
@@ -57572,6 +57572,11 @@ PrefabInstance:
       propertyPath: smartPlayer
       value: 
       objectReference: {fileID: 1699578636}
+    - target: {fileID: 9022040715454705308, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: upgradeCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_Name
