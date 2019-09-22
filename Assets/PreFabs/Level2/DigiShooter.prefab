@@ -156,8 +156,10 @@ MonoBehaviour:
   healthBarSprites:
   - {fileID: 21300000, guid: 65ce3310bc8c76744b71df060e88eb98, type: 3}
   - {fileID: 21300000, guid: d320fa9227d6e1040985310903024015, type: 3}
-  destroySplosion: {fileID: 0}
-  damageSplosion: {fileID: 0}
+  destroySplosion: {fileID: 1389454015052970, guid: 2f7d9c291b3673c479970e18e28c2ad7,
+    type: 3}
+  damageSplosion: {fileID: 7910944286874077832, guid: c43456bed5790294f9e2593a7a64cfe0,
+    type: 3}
 --- !u!50 &2505141703434918612
 Rigidbody2D:
   serializedVersion: 4

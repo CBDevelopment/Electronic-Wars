@@ -85,7 +85,7 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-     void OnTriggerEnter2D(Collider2D other)
+     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "AttackTrigger")
         {
@@ -95,7 +95,6 @@ public class EnemyHealth : MonoBehaviour
             if(currentHealth > 0)
             {
                 Instantiate(damageSplosion, this.transform.position, this.transform.rotation);
-
             }
 
         }
@@ -109,7 +108,6 @@ public class EnemyHealth : MonoBehaviour
             if (currentHealth > 0)
             {
                 Instantiate(damageSplosion, this.transform.position, this.transform.rotation);
-
             }
 
         }

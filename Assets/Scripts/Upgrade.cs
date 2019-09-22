@@ -32,7 +32,7 @@ public class Upgrade : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            theLevelManager.upgradeCount += 1;
+            theLevelManager.upgradeCount = upgradeValue;
             //Use the below code in case there are issues with counting the upgrades.
             //theLevelManager.AddUpgrade(upgradeValue);
             Instantiate(upgradeBreak, this.transform.position, this.transform.rotation);

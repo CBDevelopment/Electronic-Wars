@@ -6,7 +6,7 @@ public class attackTrigger : MonoBehaviour {
 
     public int dmg;
 
-    public GameObject destroySplosion;
+    public GameObject damageSplosion;
 
     private EnemyHealth theEnemyHealthScript;
 
@@ -15,12 +15,15 @@ public class attackTrigger : MonoBehaviour {
         theEnemyHealthScript = FindObjectOfType<EnemyHealth>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+   public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
         {
-            
-            //Instantiate(destroySplosion, other.transform.position, other.transform.rotation);
+            if(theEnemyHealthScript.currentHealth > 0)
+            {
+                Instantiate(damageSplosion, other.transform.position, other.transform.rotation);
+
+            }
         }
 
         if(other.tag == "Boss")

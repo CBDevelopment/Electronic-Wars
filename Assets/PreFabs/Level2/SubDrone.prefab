@@ -177,8 +177,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af7e2fb5d68ec824b89df386413d1cea, type: 3}
   - {fileID: 21300000, guid: aee33b895a4e4e640a9e0f6417398a15, type: 3}
   - {fileID: 21300000, guid: cbcab3e150d5373419ae6771768e5b37, type: 3}
-  destroySplosion: {fileID: 0}
-  damageSplosion: {fileID: 0}
+  destroySplosion: {fileID: 1389454015052970, guid: 2f7d9c291b3673c479970e18e28c2ad7,
+    type: 3}
+  damageSplosion: {fileID: 7910944286874077832, guid: c43456bed5790294f9e2593a7a64cfe0,
+    type: 3}
 --- !u!61 &4082187616623601827
 BoxCollider2D:
   m_ObjectHideFlags: 0

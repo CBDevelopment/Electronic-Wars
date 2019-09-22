@@ -713,10 +713,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1658605427722468, guid: f5ef0234917ce53499838db95cb55b5b, type: 3}
-      propertyPath: m_Name
-      value: Mem Card 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4362380018815728, guid: f5ef0234917ce53499838db95cb55b5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -138.77005
@@ -760,6 +756,10 @@ PrefabInstance:
     - target: {fileID: 4362380018815728, guid: f5ef0234917ce53499838db95cb55b5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658605427722468, guid: f5ef0234917ce53499838db95cb55b5b, type: 3}
+      propertyPath: m_Name
+      value: Mem Card 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5ef0234917ce53499838db95cb55b5b, type: 3}
@@ -981,7 +981,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.413421, y: -1.2833533}
+  m_Offset: {x: -8.29, y: -6.74}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -992,7 +992,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.5554113, y: 1.2103844}
+  m_Size: {x: 8.380913, y: 1.2103844}
   m_EdgeRadius: 0
 --- !u!1 &224700325
 GameObject:
@@ -2335,6 +2335,16 @@ PrefabInstance:
       propertyPath: rb2d
       value: 
       objectReference: {fileID: 1150740604}
+    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: theLevelManager
+      value: 
+      objectReference: {fileID: 753208383}
+    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: rb2d
+      value: 
+      objectReference: {fileID: 1471508800}
     - target: {fileID: 4844156947879982124, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: theLevelManager
@@ -2350,16 +2360,6 @@ PrefabInstance:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 1811581235}
-    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: theLevelManager
-      value: 
-      objectReference: {fileID: 753208383}
-    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: rb2d
-      value: 
-      objectReference: {fileID: 1471508800}
     - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_Name
@@ -2420,6 +2420,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4844156947942146550, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: phaserBulletText
+      value: 
+      objectReference: {fileID: 1099339040}
+    - target: {fileID: 4844156947942146551, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: shieldChargeText
+      value: 
+      objectReference: {fileID: 1513234869}
     - target: {fileID: 4844156947942146558, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_Material
@@ -2460,16 +2470,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.226984
       objectReference: {fileID: 0}
-    - target: {fileID: 4844156947942146550, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: phaserBulletText
-      value: 
-      objectReference: {fileID: 1099339040}
-    - target: {fileID: 4844156947942146551, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: shieldChargeText
-      value: 
-      objectReference: {fileID: 1513234869}
     - target: {fileID: 4844156947942146548, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_Material
@@ -3512,6 +3512,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705311, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3617,11 +3622,6 @@ PrefabInstance:
       propertyPath: smartPlayer
       value: 
       objectReference: {fileID: 1471508799}
-    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705309, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: slot1Image
