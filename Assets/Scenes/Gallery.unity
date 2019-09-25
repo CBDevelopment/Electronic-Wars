@@ -245,6 +245,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.12
@@ -288,10 +292,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (8)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
@@ -1513,6 +1513,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.25
@@ -1556,10 +1560,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
@@ -1920,6 +1920,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705311, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2024,11 +2029,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705309, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
@@ -2713,10 +2713,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2751,6 +2751,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.25
@@ -2794,10 +2798,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
@@ -3426,11 +3426,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - {fileID: 7925364119198190191, guid: 110ad278319720242af7fa64b131251a, type: 3}
-  entirePlayer: {fileID: 0}
+  entirePlayer: {fileID: 887568284}
   dialogPos: {fileID: 1302943392}
   theNPC: {fileID: 614918490}
   talkFX: {fileID: 244612002}
-  anim: {fileID: 0}
+  anim: {fileID: 614918493}
   dialogUI: {fileID: 30053052}
   serverParts:
   - {fileID: 634589815}
@@ -4176,6 +4176,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.25
@@ -4219,10 +4223,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
@@ -4559,6 +4559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.12
@@ -4602,10 +4606,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
@@ -5174,6 +5174,12 @@ RectTransform:
   m_AnchoredPosition: {x: 80, y: 80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &887568284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1881225792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &888297922
 GameObject:
   m_ObjectHideFlags: 0
@@ -5998,11 +6004,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7683949010709154488, guid: f05eb9f8898c62f49a9b1d3762de52b5,
-        type: 3}
-      propertyPath: m_Name
-      value: TabPhaser
-      objectReference: {fileID: 0}
     - target: {fileID: 7683949010709154439, guid: f05eb9f8898c62f49a9b1d3762de52b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6057,6 +6058,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683949010709154488, guid: f05eb9f8898c62f49a9b1d3762de52b5,
+        type: 3}
+      propertyPath: m_Name
+      value: TabPhaser
       objectReference: {fileID: 0}
     - target: {fileID: 7683949010591876511, guid: f05eb9f8898c62f49a9b1d3762de52b5,
         type: 3}
@@ -6838,6 +6844,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.25
@@ -6881,10 +6891,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
@@ -7096,7 +7102,7 @@ RectTransform:
   m_GameObject: {fileID: 1285321261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.51133317, y: 0.5113333, z: 0.5113333}
+  m_LocalScale: {x: 0.3993563, y: 0.3993563, z: 0.3993563}
   m_Children:
   - {fileID: 2011269085}
   m_Father: {fileID: 463704342}
@@ -7104,7 +7110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -126.400024, y: 26.200016}
+  m_AnchoredPosition: {x: -117, y: 26.200016}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1302943391
@@ -7572,7 +7578,7 @@ RectTransform:
   m_GameObject: {fileID: 1406003151}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.51133317, y: 0.5113333, z: 0.5113333}
+  m_LocalScale: {x: 0.3993563, y: 0.3993564, z: 0.3993564}
   m_Children:
   - {fileID: 30053053}
   m_Father: {fileID: 463704342}
@@ -7580,7 +7586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -126.400024, y: 26.200016}
+  m_AnchoredPosition: {x: -89.103, y: 10.859}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1459229817
@@ -8454,7 +8460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 2011269084}
   SecondDialogTrigger: {fileID: 1583600480}
-  entirePlayer: {fileID: 0}
+  entirePlayer: {fileID: 887568284}
   talkFX: {fileID: 244612002}
   serverParts:
   - {fileID: 886929638}
@@ -9074,7 +9080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -86.620026, y: -26.059998}
+  m_AnchoredPosition: {x: -86.619995, y: -26.059998}
   m_SizeDelta: {x: 929.34, y: 294.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1676698361 stripped
@@ -9680,6 +9686,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.25
@@ -9724,10 +9734,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (3)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
 --- !u!1001 &1881225792
@@ -9747,6 +9753,11 @@ PrefabInstance:
       propertyPath: theLevelManager
       value: 
       objectReference: {fileID: 1166505277}
+    - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerController
+      objectReference: {fileID: 0}
     - target: {fileID: 4844156947879982124, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: theLevelManager
@@ -9772,11 +9783,6 @@ PrefabInstance:
       propertyPath: theLevelManager
       value: 
       objectReference: {fileID: 1166505277}
-    - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerController
-      objectReference: {fileID: 0}
     - target: {fileID: 4844156947550980330, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10034,6 +10040,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.12
@@ -10077,10 +10087,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
@@ -10138,7 +10144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 236, y: -137}
+  m_AnchoredPosition: {x: 290, y: -137}
   m_SizeDelta: {x: 93.99994, y: 53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2052112322
@@ -10223,6 +10229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
+      propertyPath: m_Name
+      value: Mem Card10 (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.12
@@ -10266,10 +10276,6 @@ PrefabInstance:
     - target: {fileID: 4597923476131966, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901170726937640, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}
-      propertyPath: m_Name
-      value: Mem Card10 (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ecf7d489ab4d3428f1e47821a23056, type: 3}

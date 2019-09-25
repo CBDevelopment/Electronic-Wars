@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour {
     private PlayerController tvPlayer;
     private LevelManager levelManagerScript;
     public GameObject blackScreen;
+    public GameObject continueButton;
     //public GameObject purchaseBreak;
     //public Transform newGameButtonPos;
     //public Transform continueButtonPos;
@@ -22,12 +23,35 @@ public class MainMenu : MonoBehaviour {
 
         tvPlayer = FindObjectOfType<PlayerController>();
         levelManagerScript = FindObjectOfType<LevelManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+        //Load If Game Has Been Played Before
+        if (PlayerPrefs.HasKey("GameHasBeenPlayed"))
+        {
+
+            levelManagerScript.GameHasBeenPlayed = PlayerPrefs.GetInt("GameHasBeenPlayed");
+            continueButton.gameObject.SetActive(true);
+        }
+        //else
+        //{
+        //    continueButton.gameObject.SetActive(false);
+
+        //}
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+        if (levelManagerScript.GameHasBeenPlayed == 0)
+        {
+            continueButton.gameObject.SetActive(false);
+        }
+
+        if (levelManagerScript.GameHasBeenPlayed == 1)
+        {
+            continueButton.gameObject.SetActive(true);
+        }
+    }
 
     public void NewGame()
     {
@@ -50,7 +74,8 @@ public class MainMenu : MonoBehaviour {
         PlayerPrefs.SetInt("HasRouter", 0);
         PlayerPrefs.SetInt("HasVPN", 0);
         PlayerPrefs.SetInt("ShieldChargeCount", 0);
-
+        PlayerPrefs.SetInt("HasDoneFirstServerMission", 0);
+        PlayerPrefs.SetInt("GameHasBeenPlayed", 0); //sets the value after the tutorial has been completed.
     }
 
     public void Continue()

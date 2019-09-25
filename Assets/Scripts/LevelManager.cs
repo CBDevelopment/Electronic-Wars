@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour {
     public AudioSource gameoverMusicAddition;
     public bool tutorialMessageActive = false;
     public int FirstServerMissionCompleted = 0;
+    public int GameHasBeenPlayed;//track if the game has been played. If = 1, enable continue button on mainmenu.
 
 
     // Use this for initialization
@@ -65,6 +66,11 @@ public class LevelManager : MonoBehaviour {
         npcServerScript = FindObjectOfType<NPCServer>();
 
         //***********************LOADING SAVE DATA********************************************
+        if (PlayerPrefs.HasKey("GameHasBeenPlayed"))
+        {
+            GameHasBeenPlayed = PlayerPrefs.GetInt("GameHasBeenPlayed");
+        }
+
         if (PlayerPrefs.HasKey("HasDoneFirstServerMission"))
         {
             FirstServerMissionCompleted = PlayerPrefs.GetInt("HasDoneFirstServerMission");
@@ -169,9 +175,7 @@ public class LevelManager : MonoBehaviour {
 
         if (tutorialMessageActive)
         {
-            tvPlayer.canMove = false;
-            plasmaPlayer.canMove = false;
-            smartPlayer.canMove = false;
+            tvPlayer.gameObject.SetActive(false);
             Time.timeScale = 0;
 
 
@@ -182,6 +186,7 @@ public class LevelManager : MonoBehaviour {
                     boss1.UpgradeMessage.SetActive(false);
                     boss1.TutorialHolder.SetActive(false);
                     tutorialMessageActive = false;
+                    tvPlayer.gameObject.SetActive(true);
                     Time.timeScale = 1;
                 }
 

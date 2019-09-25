@@ -38,7 +38,7 @@ public class NPCServer : MonoBehaviour
         {
             FirstDialogTrigger.enabled = false;
         }
-
+        //Display the little mission popout from side of screen.
         if (hasMission)
         {
             missionMessage.gameObject.SetActive(true);
@@ -48,7 +48,7 @@ public class NPCServer : MonoBehaviour
         {
             missionMessage.gameObject.SetActive(false);
         }
-
+        //------------------------------------------------------
         if (hasTalkedOnce == 1)
         {
             FirstDialogTrigger.enabled = false;
@@ -135,7 +135,7 @@ public class NPCServer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && levelManagerScript.upgradeCount <= 1)
+        if (other.tag == "Player" && levelManagerScript.upgradeCount <= 2)
         {
             //Disable the Player
             talkIndex = 1;

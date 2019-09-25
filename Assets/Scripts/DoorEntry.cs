@@ -47,8 +47,6 @@ public class DoorEntry : MonoBehaviour
             if (Input.GetButtonDown("Attack"))
             {
                 SceneManager.LoadScene(levelToLoad);
-
-
             }
         }
     }

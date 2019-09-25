@@ -15,6 +15,8 @@ public class LevelEnd : MonoBehaviour {
     public AudioSource levelExitMusic;
     public GameObject levelCompleteImage;
     private Boss bossScript;
+    public GameObject EntirePlayer;
+
 
     // Use this for initialization
     void Start () {
@@ -40,7 +42,7 @@ public class LevelEnd : MonoBehaviour {
         if (other.tag == "Player")
         {
             StartCoroutine("LevelEndCo");
-            tvPlayer.canMove = false;
+            EntirePlayer.gameObject.SetActive(false);
         }
     }
 
@@ -67,6 +69,7 @@ public class LevelEnd : MonoBehaviour {
         PlayerPrefs.SetInt("HasVPN", tvPlayer.hasVPN);
         PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
         PlayerPrefs.SetInt(leveltoUnlock, 1);
+        PlayerPrefs.SetInt("GameHasBeenPlayed", 1);
         
         yield return new WaitForSeconds(2.5f);
 

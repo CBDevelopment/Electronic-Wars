@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  destroySplosion: {fileID: 1389454015052970, guid: 2f7d9c291b3673c479970e18e28c2ad7,
+  damageSplosion: {fileID: 7910944286874077832, guid: c43456bed5790294f9e2593a7a64cfe0,
     type: 3}
 --- !u!60 &2322384578188179901
 PolygonCollider2D:
