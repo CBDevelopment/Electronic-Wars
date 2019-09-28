@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour {
     void Start () {
 
         //currentLives = startingLives;
+        Cursor.visible = false;
 
         vpnHUDImage.SetActive(false);
         tvPlayer = FindObjectOfType<PlayerController>();

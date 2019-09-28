@@ -12,7 +12,7 @@ public class HeadphoneGun : MonoBehaviour
 
     private float timeBetweenShots;
     public float startTimeBetweenShots;
-    //public AudioSource shotFX;
+    public AudioSource shotFX;
 
     //private Animator anim;
 
@@ -39,13 +39,13 @@ public class HeadphoneGun : MonoBehaviour
     public void Update()
     {
 
-        if (Input.GetButton("Fire")) //&& theLevelManager.phaserBulletCount < 0)
+        if (Input.GetButtonDown("Attack")) //&& theLevelManager.phaserBulletCount < 0)
         {
             if (timeBetweenShots <= 0)
             {
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 timeBetweenShots = startTimeBetweenShots;
-                //shotFX.Play();
+                shotFX.Play();
             }
             else
             {
