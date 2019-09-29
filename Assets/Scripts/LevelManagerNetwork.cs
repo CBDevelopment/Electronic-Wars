@@ -24,6 +24,7 @@ public class LevelManagerNetwork : MonoBehaviour
     public float levelTime;
 
     private Network1Boss theNetworkBoss;
+    private ShipMotionController headphoneShipPlayer;
 
     public GameObject theBoss;
 
@@ -37,6 +38,7 @@ public class LevelManagerNetwork : MonoBehaviour
         //Set Cursor to not be visible
         Cursor.visible = false;
         theNetworkBoss = FindObjectOfType<Network1Boss>();
+        headphoneShipPlayer = FindObjectOfType<ShipMotionController>();
     }
 
     // Update is called once per frame
@@ -47,8 +49,8 @@ public class LevelManagerNetwork : MonoBehaviour
         {
             theBoss.gameObject.SetActive(true);
             //theNetworkBoss.bossActive = true;
-            networkWorld.gameObject.SetActive(true);
         }
+
     }
 
     public IEnumerator RespawnIE()

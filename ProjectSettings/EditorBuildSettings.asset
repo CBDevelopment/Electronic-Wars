@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GadgetGear.unity
     guid: c08218efa7cf27a42946250e2e0fbefe
+  - enabled: 1
+    path: Assets/Scenes/Network1.unity
+    guid: 53626208aa2f70445a7ff9b9e752edaf
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

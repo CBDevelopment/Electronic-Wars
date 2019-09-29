@@ -10,10 +10,15 @@ public class ShipMotionController : MonoBehaviour
 
     public LevelManagerNetwork levelManagerNetworkScript;
 
+    public bool canMove;
+
+    public Transform landingPoint;
+
     public void Start() // Upper case because in C# casing counts!
     {
         //rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
+        canMove = true;
     }
 
     public void FixedUpdate()
@@ -34,36 +39,45 @@ public class ShipMotionController : MonoBehaviour
 
     public void MovePlayerY()
     {
-        if(Input.GetAxisRaw("Vertical") > 0f)
+        if (canMove)
         {
-            Vector3 temp = transform.position;
-            temp.y += speed * Time.deltaTime;
+            if (Input.GetAxisRaw("Vertical") > 0f)
+            {
+                Vector3 temp = transform.position;
+                temp.y += speed * Time.deltaTime;
 
-            transform.position = temp;
-        }else if(Input.GetAxisRaw("Vertical") < 0f)
-        {
-            Vector3 temp = transform.position;
-            temp.y -= speed * Time.deltaTime;
+                transform.position = temp;
+            }
+            else if (Input.GetAxisRaw("Vertical") < 0f)
+            {
+                Vector3 temp = transform.position;
+                temp.y -= speed * Time.deltaTime;
 
-            transform.position = temp;
+                transform.position = temp;
+            }
         }
     }
 
     public void MovePlayerX()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0f)
+        if (canMove)
         {
-            Vector3 temp = transform.position;
-            temp.x += speed * Time.deltaTime;
 
-            transform.position = temp;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0f)
-        {
-            Vector3 temp = transform.position;
-            temp.x -= speed * Time.deltaTime;
 
-            transform.position = temp;
+            if (Input.GetAxisRaw("Horizontal") > 0f)
+            {
+                Vector3 temp = transform.position;
+                temp.x += speed * Time.deltaTime;
+
+                transform.position = temp;
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0f)
+            {
+                Vector3 temp = transform.position;
+                temp.x -= speed * Time.deltaTime;
+
+                transform.position = temp;
+            }
         }
     }
 

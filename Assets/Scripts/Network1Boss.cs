@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 
 public class Network1Boss : MonoBehaviour
@@ -42,6 +44,12 @@ public class Network1Boss : MonoBehaviour
 
     public bool bossDied = false;
 
+    public GameObject world2;
+
+    private ShipMotionController headPhonePlayer;
+
+    public string levelToLoad;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +57,7 @@ public class Network1Boss : MonoBehaviour
         currentTarget = endPoint.position;
         healthBar.gameObject.SetActive(false);
         objectToMove.gameObject.SetActive(false);
-
+        headPhonePlayer = FindObjectOfType<ShipMotionController>();
     }
 
     // Update is called once per frame
@@ -88,16 +96,6 @@ public class Network1Boss : MonoBehaviour
 
         }
 
-        if(currentHealth <= 0)
-        {
-            //objectToMove.SetActive(false);
-            bossActive = false;
-            healthBar.gameObject.SetActive(false);
-            objectToMove.GetComponent<SpriteRenderer>().enabled = false;
-            bossDied = true;
-            objectToMove.gameObject.SetActive(false);
-        }
-
     }
 
     //momvement
@@ -129,9 +127,19 @@ public class Network1Boss : MonoBehaviour
             DamageFX.Play();
             StartCoroutine(ResetAnimation());
 
+            //Death of the boss handled down below.
             if(currentHealth == 1)
             {
                 Instantiate(deathSplosion, objectToMove.transform.position, objectToMove.transform.rotation);
+                //objectToMove.SetActive(false);
+                bossActive = false;
+                healthBar.gameObject.SetActive(false);
+                objectToMove.GetComponent<SpriteRenderer>().enabled = false;
+                bossDied = true;
+                objectToMove.gameObject.SetActive(false);
+                //stop the player from moving & enable the new world.
+                world2.gameObject.SetActive(true);
+                Invoke("LoadLevelIE", 6f);
             }
             //DestroyProjectile();
         }
@@ -142,5 +150,10 @@ public class Network1Boss : MonoBehaviour
         anim.SetBool("Damaged", true);
         yield return new WaitForSeconds(.1f);
         anim.SetBool("Damaged", false);
+    }
+
+    public void LoadLevelIE()
+    {
+        SceneManager.LoadScene(levelToLoad);
     }
 }
