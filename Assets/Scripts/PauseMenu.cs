@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour {
 
     public string levelToLoad;
 
+    public string lastLevelToLoad;
+
     private void Start()
     {
         PauseUI.SetActive(false);
@@ -76,7 +78,7 @@ public class PauseMenu : MonoBehaviour {
     //[System.Obsolete]
     public void Restart()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(levelToLoad);
         //levelManagerScript.currentLives = PlayerPrefs.GetInt("PlayerLives");
 
 
@@ -88,5 +90,10 @@ public class PauseMenu : MonoBehaviour {
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene(lastLevelToLoad);
     }
 }

@@ -89,14 +89,14 @@ public class ShipMotionController : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision other)
-    {
-        if(other.gameObject.tag == "Enemy")
-        {
-            levelManagerNetworkScript.StartCoroutine("RespawnIE");
+    //public void OnCollisionEnter2D(Collision other)
+    //{
+    //    if(other.gameObject.tag == "Enemy")
+    //    {
+    //        levelManagerNetworkScript.StartCoroutine("RespawnIE");
 
-        }
-    }
+    //    }
+    //}
 
     public void OnTriggerStay2D(Collider2D other)
     {

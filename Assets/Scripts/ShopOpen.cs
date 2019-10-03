@@ -128,7 +128,7 @@ public class ShopOpen : MonoBehaviour
 
         }
 
-        if (!shopOpen)
+        else
         {
             shopScreenUI.SetActive(false);
             entirePlayer.gameObject.SetActive(true);
@@ -194,25 +194,25 @@ public class ShopOpen : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
+    //public void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.tag == "Player")
+    //    {
 
-            //if (Input.GetButtonDown("Attack"))
-            //{
-                //Could also work around this by doing a 
-                //check of TV's position between the position of the register then call the shop UI)
-                //shopOpen = true;
-                shopOpen = true;
-                tvPlayer.canMove = false;
-                transformationCloudScript.canTransform = false;
-                shopOpenSound.Play();
-            //registerColliderBox.enabled = false;
-            //}
+    //        //if (Input.GetButtonDown("Attack"))
+    //        //{
+    //            //Could also work around this by doing a 
+    //            //check of TV's position between the position of the register then call the shop UI)
+    //            //shopOpen = true;
+    //            shopOpen = true;
+    //            tvPlayer.canMove = false;
+    //            transformationCloudScript.canTransform = false;
+    //            shopOpenSound.Play();
+    //        //registerColliderBox.enabled = false;
+    //        //}
 
-        }
-    }
+    //    }
+    //}
 
     public void OnTriggerExit2D(Collider2D other)
     {

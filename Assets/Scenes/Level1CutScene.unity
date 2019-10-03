@@ -591,8 +591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f948b47f678c8474182433444d927396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTransform: 0
   transformationCloudAnimator: {fileID: 38093876}
+  pos: {x: 0, y: 0, z: 0}
+  TransformCoolDownBar: {fileID: 0}
+  canTransform: 0
+  TimeBetweenTransforms: 0.4
 --- !u!114 &38093879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3392,13 +3395,16 @@ MonoBehaviour:
   timeBetweenDamage: 2
   grounded: 0
   canDoubleJump: 0
+  doubleJumped: 0
   flipping: 0
   hovering: 0
   canMove: 0
   onWall: 0
   canJump: 0
+  canCrouch: 0
   currentHealth: 0
   maxHealth: 3
+  rb2d: {fileID: 0}
   crouchCollider: {fileID: 0}
   tvBodyCollider: {fileID: 0}
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -3410,6 +3416,7 @@ MonoBehaviour:
   meleeSound: {fileID: 0}
   hasGun: 0
   hasRouter: 0
+  hasPowerShoe: 0
   hasSIM: 0
   hasVPN: 0
   facingRight: 0
@@ -4303,6 +4310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 1058546948}
   levelToLoad: 
+  lastLevelToLoad: 
 --- !u!114 &681106187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5661,10 +5669,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5774,6 +5782,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705311, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5878,11 +5891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705309, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
@@ -7131,9 +7139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tv: {fileID: 568577753}
   plasma: {fileID: 732999959}
+  smart: {fileID: 0}
   characterSelect: 0
   isTV: 0
   isPlasma: 0
+  isSmart: 0
 --- !u!4 &1091590939
 Transform:
   m_ObjectHideFlags: 0
@@ -9884,8 +9894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  destroySplosion: {fileID: 1389454015052970, guid: 2f7d9c291b3673c479970e18e28c2ad7,
-    type: 3}
+  damageSplosion: {fileID: 0}
 --- !u!61 &1737416243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10048,6 +10057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c6bc55d428f5c4cb1feec6e75bdbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockUpForce: 0
   damageToGive: 100
 --- !u!61 &1759018852
 BoxCollider2D:
