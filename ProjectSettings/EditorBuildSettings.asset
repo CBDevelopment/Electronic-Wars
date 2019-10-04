@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: e5ccf6a57428f6245a679e74af6f54fe
   - enabled: 1
-    path: Assets/Scenes/CityRegion.unity
-    guid: 92d4699aed7a0de4da61d7fa18ca374d
-  - enabled: 1
     path: Assets/Scenes/Gallery.unity
     guid: 2a31e84ba1f2f124f90d89d4383f7afe
   - enabled: 1
@@ -36,11 +33,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: a83fece674043b84bac55f6078ffb33d
   - enabled: 1
+    path: Assets/Scenes/CityRegion.unity
+    guid: 92d4699aed7a0de4da61d7fa18ca374d
+  - enabled: 1
     path: Assets/Scenes/GadgetGear.unity
     guid: c08218efa7cf27a42946250e2e0fbefe
   - enabled: 1
     path: Assets/Scenes/Network1.unity
     guid: 53626208aa2f70445a7ff9b9e752edaf
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 9801736d59b68c348be60abc7ef28279
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

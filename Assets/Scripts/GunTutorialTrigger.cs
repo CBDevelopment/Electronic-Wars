@@ -4,39 +4,53 @@ using UnityEngine;
 
 public class GunTutorialTrigger : MonoBehaviour
 {
-    public BoxCollider2D gunTriggerBox;
     public GameObject gunTutorial;
     public bool messageActive;
+    private PlayerController tvPlayer;
+    public bool triggered =false;
+
+    public GameObject entirePlayer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tvPlayer = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (messageActive)
         {
+            entirePlayer.gameObject.SetActive(false);
             if (Input.GetButtonDown("Jump"))
             {
                 gunTutorial.gameObject.SetActive(false);
+                messageActive = false;
+                entirePlayer.gameObject.SetActive(true);
+
             }
 
-            if (Input.GetButtonDown("Fire"))
+            else if (Input.GetButtonDown("Fire"))
             {
                 gunTutorial.gameObject.SetActive(false);
+                messageActive = false;
+                entirePlayer.gameObject.SetActive(true);
+
             }
         }
+
+        if(tvPlayer.hasGun ==1 && !triggered)
+        {
+            gunTutorial.gameObject.SetActive(true);
+            messageActive = true;
+            triggered = true;
+        }
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
-        {
-            gunTutorial.gameObject.SetActive(true);
-            gunTriggerBox.enabled = false;
-            messageActive = true;
-        }
+
     }
 }

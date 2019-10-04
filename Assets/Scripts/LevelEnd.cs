@@ -19,7 +19,7 @@ public class LevelEnd : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
 
         tvPlayer = FindObjectOfType<PlayerController>();
         plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
@@ -27,7 +27,6 @@ public class LevelEnd : MonoBehaviour {
         playerGunScript = FindObjectOfType<PlayerGun>();
         playerRouterScript = FindObjectOfType<PlayerRouter>();
         bossScript = FindObjectOfType<Boss>();
-        levelCompleteImage.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -36,13 +35,12 @@ public class LevelEnd : MonoBehaviour {
         
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
             StartCoroutine("LevelEndCo");
-            EntirePlayer.gameObject.SetActive(false);
         }
     }
 
@@ -50,10 +48,11 @@ public class LevelEnd : MonoBehaviour {
     {
 
         theLevelManagerScript.levelMusic.Stop();
-        
+
 
         levelExitMusic.Play();
         levelCompleteImage.SetActive(true);
+        EntirePlayer.gameObject.SetActive(false);
         bossScript.bossMusic.Stop();
 
 
@@ -70,9 +69,10 @@ public class LevelEnd : MonoBehaviour {
         PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
         PlayerPrefs.SetInt(leveltoUnlock, 1);
         PlayerPrefs.SetInt("GameHasBeenPlayed", 1);
-        
-        yield return new WaitForSeconds(2.5f);
+
+        yield return new WaitForSeconds(2.4f);
 
         SceneManager.LoadScene(levelToLoad);
     }
+
 }

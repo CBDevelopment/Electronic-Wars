@@ -52,7 +52,7 @@ public class SewerWheel : MonoBehaviour
         {
             //this.transform.position = startPoint.position;
             anim.SetBool("Turned", false);
-            closeOffScript.ResetBlockOff();
+            //closeOffScript.ResetBlockOff(); //Don't open the blockage back. Keep it blocked after attempting boss.
             canMove = false;
             upArrow.gameObject.SetActive(false);
             platformToEnable.gameObject.SetActive(false);
@@ -64,6 +64,25 @@ public class SewerWheel : MonoBehaviour
     public void OnTriggerStay2D(Collider2D other)
     {
         if(other.tag == "Player")
+        {
+            if (Input.GetButtonDown("Attack"))
+            {
+                //oil will start to move after the sewer wheel is triggered
+                Invoke("OilCanFill", 2f);
+                closeOffScript.BlockOff();
+                anim.SetBool("Turned", true);
+                platformToEnable.gameObject.SetActive(true);
+                upArrow.gameObject.SetActive(true);
+                sewerFX.Play();
+            }
+        }
+
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "AttackTrigger")
         {
             if (Input.GetButtonDown("Attack"))
             {

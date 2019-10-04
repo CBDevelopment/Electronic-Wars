@@ -1387,16 +1387,6 @@ PrefabInstance:
       propertyPath: slot1Image
       value: 
       objectReference: {fileID: 1701047354}
-    - target: {fileID: 7683949010709154438, guid: f05eb9f8898c62f49a9b1d3762de52b5,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 81232891
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683949010709154438, guid: f05eb9f8898c62f49a9b1d3762de52b5,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6696882784111596392, guid: f05eb9f8898c62f49a9b1d3762de52b5,
         type: 3}
       propertyPath: m_Name
@@ -1456,6 +1446,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683949010709154438, guid: f05eb9f8898c62f49a9b1d3762de52b5,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 81232891
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683949010709154438, guid: f05eb9f8898c62f49a9b1d3762de52b5,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05eb9f8898c62f49a9b1d3762de52b5, type: 3}
@@ -4455,6 +4455,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerController
+      objectReference: {fileID: 0}
     - target: {fileID: 4844156947942146559, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: rb2d
@@ -4465,11 +4470,6 @@ PrefabInstance:
       propertyPath: theLevelManager
       value: 
       objectReference: {fileID: 2014440297}
-    - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerController
-      objectReference: {fileID: 0}
     - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: theLevelManager
@@ -5228,7 +5228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 2085956918}
-  levelToLoad: Network1
+  levelToLoad: CityRegion
+  lastLevelToLoad: 
 --- !u!114 &1552924652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5272,6 +5273,7 @@ MonoBehaviour:
   bounds: 1
   minCameraPos: {x: 5, y: -2, z: -10}
   maxCameraPos: {x: 115, y: 100, z: -10}
+  canFollow: 0
 --- !u!81 &1552924654
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6854,11 +6856,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.9533997
       objectReference: {fileID: 0}
-    - target: {fileID: 7116189851865064565, guid: 2b676094a25be264187b7961f62a1916,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -158
-      objectReference: {fileID: 0}
     - target: {fileID: 7116189851788067796, guid: 2b676094a25be264187b7961f62a1916,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6888,6 +6885,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116189851865064565, guid: 2b676094a25be264187b7961f62a1916,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -158
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116189851788067794, guid: 2b676094a25be264187b7961f62a1916,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b676094a25be264187b7961f62a1916, type: 3}

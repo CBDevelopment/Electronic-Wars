@@ -44,9 +44,7 @@ public class MadTab : MonoBehaviour
     public GameObject bossMusic;
     private LevelManager levelManagerScript;
     public GameObject wallToRemove;
-    public GameObject gunTrigger;
-
-    //public GameObject henchMen;//summon little plugs on the bottom of the platform when he shoots from up top.
+    private GunTutorialTrigger gunTriggerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +55,7 @@ public class MadTab : MonoBehaviour
         tvPlayer = FindObjectOfType<PlayerController>();
         bossDialogScript = FindObjectOfType<BossDialog>();
         levelManagerScript = FindObjectOfType<LevelManager>();
+        gunTriggerScript = FindObjectOfType<GunTutorialTrigger>();
     }
 
     // Update is called once per frame
@@ -125,16 +124,14 @@ public class MadTab : MonoBehaviour
                 anim.SetBool("Teleporting", true);
                 theBoss.transform.position = midPoint.position;
                 shieldObject.gameObject.SetActive(false);
-
                 //SpriteRenderer.flipX = true;
             }
 
             if (behaviorTimer <= -16.5)
-            {//reloading. Time to attack him here.
+            {//reloading for first time. Time to attack him here. Tested.
                 anim.SetBool("Reloading", true);
                 canTakeDamage = true;
                 damageTriggerBox.enabled = true;
-
             }
 
             if (behaviorTimer <= -20)
@@ -144,21 +141,18 @@ public class MadTab : MonoBehaviour
                 anim.SetBool("Teleporting", true);
                 theBoss.transform.position = leftPointDown.position;
                 damageTriggerBox.enabled = false;
-
             }
 
             if (behaviorTimer <= -21)
             {
                 anim.SetBool("Teleporting", false);
                 shieldObject.gameObject.SetActive(true);
-
             }
 
             if (behaviorTimer <= -22)
             {
                 anim.SetBool("Attacking", true);
                 canShootRight = true;
-
             }
 
             if (behaviorTimer <= -26)
@@ -174,14 +168,12 @@ public class MadTab : MonoBehaviour
                 theBoss.transform.position = rightPointUp.position;
                 SpriteRenderer.flipX = false;
                 shieldObject.gameObject.SetActive(false);
-
             }
 
             if (behaviorTimer <= -28)
             {
                 anim.SetBool("Teleporting", false);
                 shieldObject.gameObject.SetActive(true);
-
             }
 
             if (behaviorTimer <= -29)
@@ -201,27 +193,30 @@ public class MadTab : MonoBehaviour
 
             if (behaviorTimer <= -35)
             {
-                //anim.SetBool("Reloading", true);
-                shieldObject.gameObject.SetActive(false);
+                anim.SetBool("Teleporting", false);
+                shieldObject.gameObject.SetActive(true);
+
+
+            }
+
+            if (behaviorTimer <= -38)
+            {
+                canShootLeft = true;
+                anim.SetBool("Attacking", true);
                 //canTakeDamage = true;
                 //damageTriggerBox.enabled = true;
 
-                //SpriteRenderer.flipX = true;
             }
 
-            if(behaviorTimer <= -36)
+            if (behaviorTimer <= -39)
             {
-                anim.SetBool("Reloading", true);
-                shieldObject.gameObject.SetActive(false);
-                canTakeDamage = true;
-                damageTriggerBox.enabled = true;
-                SpriteRenderer.flipX = false;
+                canShootLeft = false;
             }
 
             if (behaviorTimer <= -40)
             {
                 canTakeDamage = false;
-                anim.SetBool("Reloading", false);
+                anim.SetBool("Attacking", false);
                 anim.SetBool("Teleporting", true);
                 theBoss.transform.position = rightPointDown.position;
                 damageTriggerBox.enabled = false;
@@ -240,7 +235,7 @@ public class MadTab : MonoBehaviour
                 SpawnerTimer = 8.5f;
             }
 
-            /////////////////////////Reset the boss on death.
+            /////////////////////////Reset the boss and all other objects upon death.
             if (tvPlayer.currentHealth <= 0)
             {
                 bossActive = false;
@@ -254,7 +249,6 @@ public class MadTab : MonoBehaviour
                 canShootLeft = false;
                 canShootRight = false;
                 healthBar.gameObject.SetActive(false);
-                gunTrigger.gameObject.SetActive(true);
             }
         }
 
