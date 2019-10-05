@@ -23,15 +23,15 @@ public class GunTutorialTrigger : MonoBehaviour
         if (messageActive)
         {
             entirePlayer.gameObject.SetActive(false);
-            if (Input.GetButtonDown("Jump"))
-            {
-                gunTutorial.gameObject.SetActive(false);
-                messageActive = false;
-                entirePlayer.gameObject.SetActive(true);
+            //if (Input.GetButtonDown("Jump"))
+            //{
+            //    gunTutorial.gameObject.SetActive(false);
+            //    messageActive = false;
+            //    entirePlayer.gameObject.SetActive(true);
 
-            }
+            //}
 
-            else if (Input.GetButtonDown("Fire"))
+             if (Input.GetButtonDown("Fire"))
             {
                 gunTutorial.gameObject.SetActive(false);
                 messageActive = false;
@@ -49,8 +49,4 @@ public class GunTutorialTrigger : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-
-    }
 }

@@ -208,6 +208,38 @@ public class PlayerController : MonoBehaviour
             //this.gameObject.GetComponent<SpriteRenderer>().color.a = 0f;
             //anim.SetBool("Flashing", false);
         }
+
+        //Handle the upgrade and expandable Health.
+        if(theLevelManager.upgradeCount == 2)
+        {
+            maxHealth = 4;
+        }
+
+        if (theLevelManager.upgradeCount == 3)
+        {
+            maxHealth = 5;
+        }
+        if (theLevelManager.upgradeCount == 4)
+        {
+            maxHealth = 6;
+        }
+        if (theLevelManager.upgradeCount == 5)
+        {
+            maxHealth = 7;
+        }
+        if (theLevelManager.upgradeCount == 6)
+        {
+            maxHealth = 8;
+        }
+        if (theLevelManager.upgradeCount == 7)
+        {
+            maxHealth = 9;
+        }
+        if (theLevelManager.upgradeCount == 8)
+        {
+            maxHealth = 10;
+        }
+
     }
 
 

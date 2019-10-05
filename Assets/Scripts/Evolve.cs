@@ -71,7 +71,7 @@ public class Evolve : MonoBehaviour
 
         }
         //Be sure to increase the upgrade to 6-8 so you get this form toward mid-game.
-        else if (characterSelect == 2 && levelManagerScript.upgradeCount >= 2)
+        else if (characterSelect == 2 && levelManagerScript.upgradeCount >= 8)
         {
             characterSelect = 3;
 

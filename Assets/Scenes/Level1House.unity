@@ -2245,11 +2245,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4844156947942146558, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+    - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 4f114faa661691a4cb7494985f0dccae, type: 2}
+      propertyPath: m_Name
+      value: PlayerController
+      objectReference: {fileID: 0}
     - target: {fileID: 4844156947942146559, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: theLevelManager
@@ -2260,11 +2260,11 @@ PrefabInstance:
       propertyPath: rb2d
       value: 
       objectReference: {fileID: 1150740604}
-    - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+    - target: {fileID: 4844156947942146559, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
-      propertyPath: m_Name
-      value: PlayerController
-      objectReference: {fileID: 0}
+      propertyPath: tvBodyCollider
+      value: 
+      objectReference: {fileID: 2133533078}
     - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: theLevelManager
@@ -2355,11 +2355,6 @@ PrefabInstance:
       propertyPath: shieldChargeText
       value: 
       objectReference: {fileID: 1513234869}
-    - target: {fileID: 4844156947942146554, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4844156947942146556, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_Material
@@ -2374,6 +2369,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.8982487
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844156947942146558, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4f114faa661691a4cb7494985f0dccae, type: 2}
+    - target: {fileID: 4844156947942146554, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4844156947942146557, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
@@ -2837,6 +2842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 1014383063}
   levelToLoad: Level1
+  lastLevelToLoad: 
 --- !u!114 &681106187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2855,6 +2861,7 @@ MonoBehaviour:
   bounds: 1
   minCameraPos: {x: -157, y: -0.14, z: -10}
   maxCameraPos: {x: 117.2, y: 6, z: -10}
+  canFollow: 0
 --- !u!81 &681106188
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3432,11 +3439,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705311, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3542,6 +3544,11 @@ PrefabInstance:
       propertyPath: smartPlayer
       value: 
       objectReference: {fileID: 1471508799}
+    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705309, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: slot1Image
@@ -10215,6 +10222,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111209380}
   m_CullTransparentMesh: 0
+--- !u!70 &2133533078 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4844156947942146554, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 507534002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6077508511723561077
 MonoBehaviour:
   m_ObjectHideFlags: 0

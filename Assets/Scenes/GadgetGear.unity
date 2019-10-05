@@ -360,6 +360,16 @@ PrefabInstance:
       propertyPath: slot2Image
       value: 
       objectReference: {fileID: 796981617}
+    - target: {fileID: 4813839623974779573, guid: d5bf9102b1bf2bb4ea5805a71082caf1,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1849696635
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813839623974779573, guid: d5bf9102b1bf2bb4ea5805a71082caf1,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4813839623974779571, guid: d5bf9102b1bf2bb4ea5805a71082caf1,
         type: 3}
       propertyPath: m_Enabled
@@ -2411,16 +2421,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4844156947942146559, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: theLevelManager
-      value: 
-      objectReference: {fileID: 1210836956}
     - target: {fileID: 4844156947550980328, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 4844156947942146559, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: theLevelManager
+      value: 
+      objectReference: {fileID: 1210836956}
     - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: theLevelManager
@@ -3229,11 +3239,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705311, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3334,10 +3339,10 @@ PrefabInstance:
       propertyPath: smartPlayer
       value: 
       objectReference: {fileID: 1293455750}
-    - target: {fileID: 9022040714917983898, guid: 64fda7d9c25494b49b04b0f09aace127,
+    - target: {fileID: 9022040715454705310, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: m_Name
-      value: LevelMusic
+      value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705309, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
@@ -3389,6 +3394,11 @@ PrefabInstance:
       propertyPath: slot3Image
       value: 
       objectReference: {fileID: 1844910896}
+    - target: {fileID: 9022040714917983898, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelMusic
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64fda7d9c25494b49b04b0f09aace127, type: 3}
 --- !u!1 &1103547487
@@ -7707,6 +7717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 531130273}
   levelToLoad: GadgetGear
+  lastLevelToLoad: 
 --- !u!1 &7114727487380336011
 GameObject:
   m_ObjectHideFlags: 0
@@ -7747,6 +7758,7 @@ MonoBehaviour:
   bounds: 1
   minCameraPos: {x: 8, y: 4, z: -10}
   maxCameraPos: {x: 8, y: 100, z: -10}
+  canFollow: 0
 --- !u!114 &7114727487380336013
 MonoBehaviour:
   m_ObjectHideFlags: 0

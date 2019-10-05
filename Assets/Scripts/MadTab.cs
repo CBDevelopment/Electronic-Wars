@@ -45,6 +45,7 @@ public class MadTab : MonoBehaviour
     private LevelManager levelManagerScript;
     public GameObject wallToRemove;
     private GunTutorialTrigger gunTriggerScript;
+    public GameObject updateObject;
 
     // Start is called before the first frame update
     void Start()
