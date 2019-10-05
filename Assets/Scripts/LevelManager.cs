@@ -142,7 +142,8 @@ public class LevelManager : MonoBehaviour {
         tvPlayer.currentHealth = tvPlayer.maxHealth;
         livesText.text = "x " + currentLives;
         objectsToReset = FindObjectsOfType<ResetOnRespawn>();
-	}
+
+    }
 
     //// Update is called once per frame
     void Update()

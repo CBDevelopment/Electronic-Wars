@@ -62,6 +62,9 @@ public class ShopOpen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerGunScript.phaserBulletText.text = playerGunScript.phaserBulletCount.ToString();
+        playerRouterScript.shieldChargeText.text = playerRouterScript.shieldChargeCount.ToString();
+
         //THE SHOP OPTION SELECT UI
         if (shopOpen)
         {
