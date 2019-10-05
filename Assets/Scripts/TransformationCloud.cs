@@ -38,6 +38,7 @@ public class TransformationCloud : MonoBehaviour
             Invoke("CloudAnimation", 0f);
             canTransform = false;
             TransformCoolDownBar.gameObject.SetActive(true);
+            tvPlayer.speed = 500;
         }
 
         if (!canTransform)

@@ -65,6 +65,7 @@ public class LevelEnd : MonoBehaviour {
         PlayerPrefs.SetInt("PhaserBulletCount", playerGunScript.phaserBulletCount);
         PlayerPrefs.SetInt("ShieldChargeCount", playerRouterScript.shieldChargeCount);
         PlayerPrefs.SetInt("HasGun", tvPlayer.hasGun);
+        PlayerPrefs.SetInt("MaxHealth", tvPlayer.maxHealth);
         PlayerPrefs.SetInt("HasVPN", tvPlayer.hasVPN);
         PlayerPrefs.SetInt("HasRouter", tvPlayer.hasRouter);
         PlayerPrefs.SetInt(leveltoUnlock, 1);

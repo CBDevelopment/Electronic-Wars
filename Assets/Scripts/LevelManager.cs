@@ -94,6 +94,11 @@ public class LevelManager : MonoBehaviour {
             tvPlayer.hasVPN = PlayerPrefs.GetInt("HasVPN");
         }
 
+        if (PlayerPrefs.HasKey("MaxHealth"))
+        {
+            tvPlayer.maxHealth = PlayerPrefs.GetInt("MaxHealth");
+        }
+
         if (PlayerPrefs.HasKey("HasGun"))
         {
             tvPlayer.hasGun = PlayerPrefs.GetInt("HasGun");
@@ -134,7 +139,7 @@ public class LevelManager : MonoBehaviour {
             currentLives = startingLives;
         }
 
-        //currentLives = startingLives;
+        tvPlayer.currentHealth = tvPlayer.maxHealth;
         livesText.text = "x " + currentLives;
         objectsToReset = FindObjectsOfType<ResetOnRespawn>();
 	}

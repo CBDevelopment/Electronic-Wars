@@ -32,6 +32,7 @@ public class Evolve : MonoBehaviour
         lastPositionScript = FindObjectOfType<LastPosition>();
         characterSelect = 1;
         plasmaPlayer.gameObject.SetActive(false);
+        isTV = true;
     }
 
     // Update is called once per frame
@@ -65,7 +66,7 @@ public class Evolve : MonoBehaviour
         {
             characterSelect = 2;
         }
-        else if (characterSelect == 2 && levelManagerScript.upgradeCount < 2)
+        else if (characterSelect == 2 && levelManagerScript.upgradeCount < 8)
         {
             characterSelect = 1;
 

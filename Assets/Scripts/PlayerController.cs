@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     //Player Stats
     public int currentHealth;
-    public int maxHealth = 3;
+    public int maxHealth;
 
     //References
     private Animator anim;
@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
     private Evolve evolveScript;
     private PlayerGun playerGun;
     private LevelEnd levelEndScript;
+    private GunTutorialTrigger gunTutorialScript;
 
     void Start()
     {
@@ -94,13 +95,13 @@ public class PlayerController : MonoBehaviour
         thePlayerController = FindObjectOfType<PlayerController>();
         playerGun = FindObjectOfType<PlayerGun>();
         playerPowerShoeScript = FindObjectOfType<PlayerPowerShoe>();
-
+        gunTutorialScript = FindObjectOfType<GunTutorialTrigger>(); 
 
         //Assign variables
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
 
-        //Start with full health
+        //Start with full health 
         currentHealth = maxHealth;
 
         transform.position = lastPositionScript.pos;
@@ -134,8 +135,13 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        //Crouch
-        if(Input.GetButtonDown("Vertical") && canMove && canCrouch)
+        //Crouching
+        //change this later to the following:
+        //if (Input.GetAxisRaw("Vertical") < 0f)
+        //{
+        //    
+        //}
+        if (Input.GetButtonDown("Vertical") && canMove && canCrouch)
         {
             speed = 100;
             anim.SetBool("Crouching", true);
@@ -334,6 +340,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+
+        }
+
+        if (other.tag == "Gun")
+        {
+            gunTutorialScript.messageActive = true;
 
         }
 

@@ -22,7 +22,7 @@ public class BossDialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTalking && talkIndex <3)
+        if (isTalking && talkIndex < 3)
         {
             //talkIndex = 1;
             theDialogUI.gameObject.SetActive(true);
@@ -43,7 +43,7 @@ public class BossDialog : MonoBehaviour
             StartCoroutine(TalkIndex2());
         }
 
-        if (Input.GetButtonDown("Jump") && talkIndex == 3 && isTalking)
+        if (Input.GetButtonDown("Jump") && talkIndex >= 3 && isTalking)
         {
             isTalking = false;
             theDialogUI.gameObject.SetActive(false);

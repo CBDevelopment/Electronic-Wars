@@ -46,6 +46,7 @@ public class MadTab : MonoBehaviour
     public GameObject wallToRemove;
     private GunTutorialTrigger gunTriggerScript;
     public GameObject updateObject;
+    public GameObject gunTriggerObject;
 
     // Start is called before the first frame update
     void Start()
@@ -296,6 +297,7 @@ public class MadTab : MonoBehaviour
                 timeBetweenShots -= Time.deltaTime;
             }
         }
+
     }
 
     public void OnTriggerExit2D(Collider2D other)
@@ -313,6 +315,7 @@ public class MadTab : MonoBehaviour
                 healthBar.gameObject.SetActive(false);
                 bossMusic.gameObject.SetActive(false);
                 wallToRemove.gameObject.SetActive(false);
+                updateObject.gameObject.SetActive(true);
             }
         }
     }

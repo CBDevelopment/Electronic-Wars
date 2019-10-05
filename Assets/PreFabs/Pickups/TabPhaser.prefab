@@ -114,3 +114,5 @@ MonoBehaviour:
   slot1Image: {fileID: 0}
   gunPickUp: {fileID: 9052323792853656793, guid: 8ad3d89025597544dadb25fa0e7a8473,
     type: 3}
+  tutorialScript: {fileID: 7596501155011358669, guid: ddfa6fc5b4f7e3c4f872e641aa8a8ac8,
+    type: 3}

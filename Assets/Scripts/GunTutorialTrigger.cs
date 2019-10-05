@@ -23,13 +23,7 @@ public class GunTutorialTrigger : MonoBehaviour
         if (messageActive)
         {
             entirePlayer.gameObject.SetActive(false);
-            //if (Input.GetButtonDown("Jump"))
-            //{
-            //    gunTutorial.gameObject.SetActive(false);
-            //    messageActive = false;
-            //    entirePlayer.gameObject.SetActive(true);
-
-            //}
+            gunTutorial.gameObject.SetActive(true);
 
              if (Input.GetButtonDown("Fire"))
             {
@@ -40,12 +34,12 @@ public class GunTutorialTrigger : MonoBehaviour
             }
         }
 
-        if(tvPlayer.hasGun ==1 && !triggered)
-        {
-            gunTutorial.gameObject.SetActive(true);
-            messageActive = true;
-            triggered = true;
-        }
+        //if(tvPlayer.hasGun ==1 && !triggered)
+        //{
+        //    gunTutorial.gameObject.SetActive(true);
+        //    messageActive = true;
+        //    triggered = true;
+        //}
 
     }
 

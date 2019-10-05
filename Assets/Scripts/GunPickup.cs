@@ -26,13 +26,15 @@ public class GunPickup : MonoBehaviour
         if (other.tag == "Player" | other.tag == "AttackTrigger" && tvPlayerScript.hasGun == 0)
         {
             tvPlayerScript.hasGun = 1; //Sets to True using int value of 1.
-            playerGunScript.phaserBulletCount = 5;
+            playerGunScript.phaserBulletCount = 10;
 
             Instantiate(gunPickUp, this.transform.position, this.transform.rotation);
+
 
             slot1Image.gameObject.SetActive(true);
 
             Destroy(gameObject);
+
         }
     }
 }
