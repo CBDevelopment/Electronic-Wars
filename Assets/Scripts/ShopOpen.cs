@@ -95,7 +95,6 @@ public class ShopOpen : MonoBehaviour
                 simCardScreen.SetActive(false);
                 shieldChargesScreen.SetActive(false);
                 vpnScreen.SetActive(false);
-
             }
             if (shopUISelect == 3)
             {
@@ -105,7 +104,6 @@ public class ShopOpen : MonoBehaviour
                 phaserScreen.SetActive(false);
                 shieldChargesScreen.SetActive(false);
                 vpnScreen.SetActive(false);
-
             }
 
             if (shopUISelect == 4)
@@ -116,7 +114,6 @@ public class ShopOpen : MonoBehaviour
                 extraLifeScreen.SetActive(false);
                 phaserScreen.SetActive(false);
                 vpnScreen.SetActive(false);
-
             }
 
             if (shopUISelect == 5)
@@ -162,7 +159,6 @@ public class ShopOpen : MonoBehaviour
             SIMCardMessage.SetActive(true);
             SimBuyButton.GetComponent<Button>().interactable = true;
             ShieldBuyButton.GetComponent<Button>().interactable = false;
-
         }
 
 
@@ -190,10 +186,8 @@ public class ShopOpen : MonoBehaviour
                 tvPlayer.canMove = false;
                 transformationCloudScript.canTransform = false;
                 shopOpenSound.Play();
-
                 //registerColliderBox.enabled = false;
             }
-
         }
     }
 
@@ -235,15 +229,12 @@ public class ShopOpen : MonoBehaviour
             levelManagerScript.memCount -= 100;
             playerGunScript.phaserBulletCount += 5;
             Instantiate(purchaseBreak, playerGunScript.phaserBulletText.transform.position, playerGunScript.phaserBulletText.transform.rotation);
-
-
         }
 
         else if(levelManagerScript.memCount < 100)
         {
             insufficientSound.Play();
             Dialog.SetActive(true);
-
         }
     }
 
@@ -261,7 +252,6 @@ public class ShopOpen : MonoBehaviour
         {
             insufficientSound.Play();
             Dialog.SetActive(true);
-
         }
     }
 
@@ -281,7 +271,6 @@ public class ShopOpen : MonoBehaviour
         {
             insufficientSound.Play();
             Dialog.SetActive(true);
-
         }
 
     }
@@ -323,7 +312,6 @@ public class ShopOpen : MonoBehaviour
         {
             insufficientSound.Play();
             Dialog.SetActive(true);
-
         }
     }
 

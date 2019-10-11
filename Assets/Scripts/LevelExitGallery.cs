@@ -15,6 +15,7 @@ public class LevelExitGallery : MonoBehaviour
     private NPCServer npcServerScript;
     private Boss bossScript;
 
+
     // Start is called before the first frame update
     public void Start()
     {

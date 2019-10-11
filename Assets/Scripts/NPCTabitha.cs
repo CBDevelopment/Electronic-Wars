@@ -30,7 +30,7 @@ public class NPCTabitha : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && levelManagerScript.upgradeCount <= 1)
+        if (other.tag == "Player" && levelManagerScript.upgradeCount == 1)
         {
 
             //You may need to create this animation for the NPC game object character.

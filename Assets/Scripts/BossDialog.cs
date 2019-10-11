@@ -11,23 +11,25 @@ public class BossDialog : MonoBehaviour
     public GameObject theDialogUI;
     public GameObject entirePlayer;
     private MadTab madTabScript;
+    private PlayerController tvPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
         talkIndex = 1;
         madTabScript = FindObjectOfType<MadTab>();
+        tvPlayer = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isTalking && talkIndex < 3)
-        {
-            //talkIndex = 1;
-            theDialogUI.gameObject.SetActive(true);
-            entirePlayer.gameObject.SetActive(false);
-        }
+        //if (isTalking)
+        //{
+        //    //talkIndex = 1;
+        //    theDialogUI.gameObject.SetActive(true);
+        //    //entirePlayer.gameObject.SetActive(false);
+        //}
 
         if (Input.GetButtonDown("Jump") && talkIndex ==1 && isTalking)
         {
@@ -47,8 +49,21 @@ public class BossDialog : MonoBehaviour
         {
             isTalking = false;
             theDialogUI.gameObject.SetActive(false);
-            entirePlayer.gameObject.SetActive(true);
+            //entirePlayer.gameObject.SetActive(true);
             madTabScript.bossActive = true;
+        }
+
+        if (isTalking)
+        {
+            entirePlayer.gameObject.SetActive(false);
+            theDialogUI.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            entirePlayer.gameObject.SetActive(true);
+            theDialogUI.gameObject.SetActive(false);
+
         }
 
     }

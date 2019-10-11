@@ -137,11 +137,7 @@ public class PlayerController : MonoBehaviour
 
         //Crouching
         //change this later to the following:
-        //if (Input.GetAxisRaw("Vertical") < 0f)
-        //{
-        //    
-        //}
-        if (Input.GetButtonDown("Vertical") && canMove && canCrouch)
+        if (Input.GetAxisRaw("Vertical") < 0f && canMove && canCrouch)
         {
             speed = 100;
             anim.SetBool("Crouching", true);
@@ -149,6 +145,24 @@ public class PlayerController : MonoBehaviour
             tvBodyCollider.enabled = false;
             crouchCollider.enabled = true;
         }
+
+        else if (Input.GetAxis("Vertical") > 0f && canMove && canCrouch)
+        {
+            speed = 500;
+            anim.SetBool("Crouching", false);
+            //playerCollider.enabled = true;
+            tvBodyCollider.enabled = true;
+            crouchCollider.enabled = false;
+        }
+
+        //if (Input.GetButtonDown("Vertical") && canMove && canCrouch)
+        //{
+        //    speed = 100;
+        //    anim.SetBool("Crouching", true);
+        //    //playerCollider.enabled = false;
+        //    tvBodyCollider.enabled = false;
+        //    crouchCollider.enabled = true;
+        //}
 
         if (Input.GetButtonUp("Vertical") && canMove && canCrouch)
         {

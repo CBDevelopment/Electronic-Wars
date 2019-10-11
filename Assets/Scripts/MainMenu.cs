@@ -74,6 +74,7 @@ public class MainMenu : MonoBehaviour {
         PlayerPrefs.SetInt("HasRouter", 0);
         PlayerPrefs.SetInt("HasVPN", 0);
         PlayerPrefs.SetInt("ShieldChargeCount", 0);
+        PlayerPrefs.SetInt("MaxHealth", 3);
         PlayerPrefs.SetInt("HasDoneFirstServerMission", 0);
         PlayerPrefs.SetInt("GameHasBeenPlayed", 0); //sets the value after the tutorial has been completed.
     }

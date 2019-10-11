@@ -751,6 +751,7 @@ MonoBehaviour:
   bounds: 1
   minCameraPos: {x: 9.21, y: 1.83, z: -10}
   maxCameraPos: {x: 74.61, y: 8.35, z: -10}
+  canFollow: 0
 --- !u!81 &119507957
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2041,11 +2042,6 @@ PrefabInstance:
       propertyPath: smartPlayer
       value: 
       objectReference: {fileID: 1676698361}
-    - target: {fileID: 9022040714917983898, guid: 64fda7d9c25494b49b04b0f09aace127,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelMusic
-      objectReference: {fileID: 0}
     - target: {fileID: 9022040715454705309, guid: 64fda7d9c25494b49b04b0f09aace127,
         type: 3}
       propertyPath: slot1Image
@@ -2091,6 +2087,11 @@ PrefabInstance:
       propertyPath: slot3Image
       value: 
       objectReference: {fileID: 1790866433}
+    - target: {fileID: 9022040714917983898, guid: 64fda7d9c25494b49b04b0f09aace127,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelMusic
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64fda7d9c25494b49b04b0f09aace127, type: 3}
 --- !u!1001 &350881313
@@ -2713,11 +2714,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7116189851865064565, guid: 2b676094a25be264187b7961f62a1916,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -117
-      objectReference: {fileID: 0}
     - target: {fileID: 7116189851788067796, guid: 2b676094a25be264187b7961f62a1916,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2747,6 +2743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116189851865064565, guid: 2b676094a25be264187b7961f62a1916,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b676094a25be264187b7961f62a1916, type: 3}
@@ -5098,7 +5099,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.16, y: 4.733013}
+  m_Offset: {x: -2.19507, y: -1.4175731}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5109,7 +5110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 19.233185}
+  m_Size: {x: 2.9298606, y: 6.9320126}
   m_EdgeRadius: 0
 --- !u!114 &822198836
 MonoBehaviour:
@@ -5580,7 +5581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909240193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4, y: -2.64675, z: 0}
+  m_LocalPosition: {x: -3.55, y: -2.64675, z: 0}
   m_LocalScale: {x: 1.2854, y: 1.2854, z: 1.2854}
   m_Children:
   - {fileID: 674177851}
@@ -9561,7 +9562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712626229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.771, y: 5.148325, z: 97.2168}
+  m_LocalPosition: {x: -82.72, y: 5.39, z: 97.2168}
   m_LocalScale: {x: 0.583, y: 1.757, z: 1}
   m_Children: []
   m_Father: {fileID: 2110641370}
@@ -9946,16 +9947,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
-    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: rb2d
-      value: 
-      objectReference: {fileID: 2003410827}
-    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
-        type: 3}
-      propertyPath: theLevelManager
-      value: 
-      objectReference: {fileID: 1166505277}
     - target: {fileID: 4844156947879982124, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: theLevelManager
@@ -9971,6 +9962,16 @@ PrefabInstance:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 720650568}
+    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: rb2d
+      value: 
+      objectReference: {fileID: 2003410827}
+    - target: {fileID: 4844156947493342397, guid: 59db8fdc3dd470f4d8680f31a09638f3,
+        type: 3}
+      propertyPath: theLevelManager
+      value: 
+      objectReference: {fileID: 1166505277}
     - target: {fileID: 4844156947550980330, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9979,7 +9980,7 @@ PrefabInstance:
     - target: {fileID: 4844156947550980330, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.7117949
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 4844156947550980330, guid: 59db8fdc3dd470f4d8680f31a09638f3,
         type: 3}
@@ -10636,7 +10637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 58.600037, y: -30.950012}
+  m_AnchoredPosition: {x: 58.600098, y: -30.950012}
   m_SizeDelta: {x: 100, y: 52.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2141774703
