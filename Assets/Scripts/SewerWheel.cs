@@ -22,6 +22,7 @@ public class SewerWheel : MonoBehaviour
     public GameObject platformToEnable;
 
     public GameObject upArrow;
+    public GameObject notification;
 
     public AudioSource sewerFX;
 
@@ -55,6 +56,7 @@ public class SewerWheel : MonoBehaviour
             //closeOffScript.ResetBlockOff(); //Don't open the blockage back. Keep it blocked after attempting boss.
             canMove = false;
             upArrow.gameObject.SetActive(false);
+            notification.gameObject.SetActive(true);
             platformToEnable.gameObject.SetActive(false);
 
         }
@@ -73,10 +75,10 @@ public class SewerWheel : MonoBehaviour
                 anim.SetBool("Turned", true);
                 platformToEnable.gameObject.SetActive(true);
                 upArrow.gameObject.SetActive(true);
+                notification.gameObject.SetActive(false);
                 sewerFX.Play();
             }
         }
-
 
     }
 
@@ -92,6 +94,7 @@ public class SewerWheel : MonoBehaviour
                 anim.SetBool("Turned", true);
                 platformToEnable.gameObject.SetActive(true);
                 upArrow.gameObject.SetActive(true);
+                notification.gameObject.SetActive(false);
                 sewerFX.Play();
             }
         }

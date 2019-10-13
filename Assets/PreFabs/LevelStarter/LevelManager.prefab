@@ -476,6 +476,7 @@ MonoBehaviour:
   waitToRespawn: 2
   tvPlayer: {fileID: 0}
   plasmaPlayer: {fileID: 0}
+  smartPlayer: {fileID: 0}
   deathBreak: {fileID: 1613780871564384, guid: 5b635c82257c61c49a4690f7e20aa685, type: 3}
   vpnHUDImage: {fileID: 0}
   memCount: 0
@@ -488,12 +489,14 @@ MonoBehaviour:
   currentLives: 0
   startingLives: 3
   livesText: {fileID: 0}
-  gameOverScreen: {fileID: 0}
+  gameOverScreen: {fileID: 4341246391687897887, guid: 100be965b41ab084db22aaadba81333c,
+    type: 3}
   levelMusic: {fileID: 9022040714917983896}
   gameOverMusic: {fileID: 9022040715622888956}
   gameoverMusicAddition: {fileID: 9022040714812399341}
   tutorialMessageActive: 0
   FirstServerMissionCompleted: 0
+  GameHasBeenPlayed: 0
 --- !u!114 &9022040715454705309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,7 +539,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot3Image: {fileID: 0}
   powerShoePickup: {fileID: 0}
-  purchaseBreak: {fileID: 0}
 --- !u!1 &9022040715622888958
 GameObject:
   m_ObjectHideFlags: 0
