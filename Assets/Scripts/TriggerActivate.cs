@@ -9,6 +9,7 @@ public class TriggerActivate : MonoBehaviour
     private BossDialog bossDialogScript;
     private LevelManager levelManagerScript;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +33,21 @@ public class TriggerActivate : MonoBehaviour
             ////Test to make sure the boss activates after you have landed on the top level.
             levelManagerScript.levelMusic.Stop();
             StartCoroutine(bossActivate());
+            StartCoroutine(FXTurnOff());
         }
     }
 
     public IEnumerator bossActivate()
     {
         yield return new WaitForSeconds(1f);
+        bossDialogScript.DialogFX.Play();
         bossDialogScript.isTalking = true;
+    }
+
+    public IEnumerator FXTurnOff()
+    {
+        yield return new WaitForSeconds(3.5f);
+        bossDialogScript.DialogFX.gameObject.SetActive(false);
+
     }
 }

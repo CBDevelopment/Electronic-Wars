@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8731858438039197172}
   - component: {fileID: 1080139476540782146}
   - component: {fileID: 2048112769160477623}
+  - component: {fileID: -4073217799537502487}
   m_Layer: 0
   m_Name: WebCamBullet
   m_TagString: Untagged
@@ -171,3 +172,16 @@ CircleCollider2D:
   m_Offset: {x: 0.06420834, y: 0.074936755}
   serializedVersion: 2
   m_Radius: 2.6769502
+--- !u!114 &-4073217799537502487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337608826337039603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a21c498e438f54f975b00c28352c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 8

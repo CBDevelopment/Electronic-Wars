@@ -12,6 +12,9 @@ public class BossDialog : MonoBehaviour
     public GameObject entirePlayer;
     private MadTab madTabScript;
     private PlayerController tvPlayer;
+    public AudioSource DialogFX;
+
+
 
     // Start is called before the first frame update
     void Start()
