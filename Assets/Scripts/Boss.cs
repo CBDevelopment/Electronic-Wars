@@ -50,6 +50,7 @@ public class Boss : MonoBehaviour {
     public Animator anim;
 
     //public int numberOfBoss1Kills;
+    //Test
     private LevelManager theLevelManager;
     public GameObject theUpgradeObject;
 
