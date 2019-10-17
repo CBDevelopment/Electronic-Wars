@@ -14,8 +14,12 @@ public class RegionDoor : MonoBehaviour {
 
     public bool locked;
 
+    private PlayerController tvPlayer;
+
     // Use this for initialization
     void Start() {
+
+        tvPlayer = FindObjectOfType<PlayerController>();
 
         //Sets level 1 to always be a value of 1/true.
         PlayerPrefs.SetInt("Level1", 1);
@@ -66,16 +70,27 @@ public class RegionDoor : MonoBehaviour {
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
         anim.SetBool("Open", true);
 
         if (other.tag == "Player")
         {
-            if (Input.GetButtonDown("Attack") && !locked)
+            if (Input.GetAxisRaw("Vertical") > 0f && !locked)
             {
-                SceneManager.LoadScene(levelToLoad);
+                //SceneManager.LoadScene(levelToLoad);
+                StartCoroutine(StartLevel());
             }
         }
+    }
+
+    public IEnumerator StartLevel()
+    {
+        tvPlayer.anim.SetBool("EnteringDoor", true);
+        tvPlayer.transform.position = this.transform.position;
+
+        yield return new WaitForSeconds(1.26f);
+        tvPlayer.anim.SetBool("EnteringDoor", false);
+        SceneManager.LoadScene(levelToLoad);
     }
 }

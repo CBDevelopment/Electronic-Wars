@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Draw : MonoBehaviour
 {
     public GameObject theBoss;
     public GameObject theStylus;
+    public Transform target;
     public Transform throwPos;
     public Animator anim;
     public Rigidbody2D myBody;
@@ -15,13 +18,32 @@ public class Draw : MonoBehaviour
     public bool bossActive;
     public bool canTakeDamage;
     public SpriteRenderer SpriteRenderer;
+    public bool canStylusAttack;
+    public float rotationSpeed;
+
+    Quaternion rotateToTarget;
+    Vector3 dir;
+    //public Slider healthBar;
+    //public AudioSource bossMusic;
 
     public Transform startPoint;
     public Transform endPoint;
     public float moveSpeed;
+    public float secondaryMoveSpeed;
     public Vector3 currentTarget;
     public bool canMove;
+    public Collider2D ramCollider;
+    public Collider2D myBodyCollider;
+    public Collider2D stylusFormCollider;
+    public Collider2D myBodyTrigger;
 
+    public float SpawnerTimer;
+    public GameObject enemySpawn;
+    public Transform eSpawnPos;
+    public Transform eSpawnPos2;
+    public Transform eSpawnPos3;
+    public AudioSource ramSoundFX;
+    public GameObject destroySplosion;
 
     // Start is called before the first frame update
     void Start()
@@ -29,58 +51,130 @@ public class Draw : MonoBehaviour
         currentHealth = maxHealth;
         currentTarget = endPoint.position;
         canMove = false;
+        bossActive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        behaviorTimer -= Time.deltaTime;
+        //healthBar.value = currentHealth;
 
-        if(behaviorTimer <= 0)
+        if (bossActive)
         {
-            anim.SetBool("Attacking", true);
+            behaviorTimer -= Time.deltaTime;
+            SpawnerTimer -= Time.deltaTime;
+            //SpawnerTimer -= Time.deltaTime;
+            //healthBar.gameObject.SetActive(true);
+            //bossMusic.gameObject.SetActive(true);
 
-        }
-        if(behaviorTimer <= -9)
-        {
-            anim.SetBool("Attacking", false);
-        }
-        if (behaviorTimer <= -10)
-        {
-            anim.SetBool("Ramming", true);
-            canMove = true;
-        }
-        if(behaviorTimer <= -14)
-        {
-            anim.SetBool("Ramming", true);
-            SpriteRenderer.flipX = true;
-
-        }
-        if(behaviorTimer <= -17)
-        {
-            canMove = false;
-            anim.SetBool("Ramming", false);
-            SpriteRenderer.flipX = false;
-        }
-
-
-        //Ram Movement
-        if (canMove)
-        {
-            theBoss.transform.position = Vector3.MoveTowards(theBoss.transform.position, currentTarget, moveSpeed * Time.deltaTime);
-
-            if (theBoss.transform.position == endPoint.transform.position)
+            if (behaviorTimer <= 0)
             {
-                currentTarget = startPoint.position;
+                anim.SetBool("Attacking", true);
+
+            }
+
+            if (behaviorTimer <= -9)
+            {
+                anim.SetBool("Attacking", false);
+            }
+            if (behaviorTimer <= -10)
+            {
+                anim.SetBool("Ramming", true);
+                canMove = true;
+                stylusFormCollider.enabled = true;
+            }
+            if (behaviorTimer <= -14)
+            {
+                //rotate and go back
                 SpriteRenderer.flipX = true;
-
             }
-
-            if (theBoss.transform.position == startPoint.transform.position)
+            if (behaviorTimer <= -17f)
             {
-                currentTarget = endPoint.position;
+                //put the boss in the original position, 
+                //stop him from charging across and 
+                //turn him around back to idle.
+                theBoss.transform.position = startPoint.position;
+                canMove = false;
+                anim.SetBool("Ramming", false);
+                SpriteRenderer.flipX = false;
+                ramCollider.enabled = false;
             }
+
+            if (behaviorTimer <= -19)
+            {
+                //Transform into the EnlargedStylus
+                anim.SetBool("Transforming", true);
+                myBodyCollider.enabled = false;
+                myBodyTrigger.enabled = false;
+                //stylusFormCollider.enabled = true;
+            }
+
+            if (behaviorTimer <= -28)
+            {//reset boss
+                anim.SetBool("Reverting", true);
+
+                //anim.SetBool("Transforming", false);
+                //canStylusAttack = true;
+            }
+
+            if (behaviorTimer <= -30)
+            {//reset boss
+                anim.SetBool("Transforming", false);
+                anim.SetBool("Reverting", false);
+                behaviorTimer = 4;
+                myBodyCollider.enabled = true;
+                myBodyTrigger.enabled = true;
+            }
+            if (SpawnerTimer <= -19 && behaviorTimer <= -20.9)
+            {
+                DestroyEnemySpawns();
+            }
+
+            if (SpawnerTimer <= -19 && behaviorTimer <= -21)
+            {
+
+                Instantiate(enemySpawn, eSpawnPos2.position, eSpawnPos2.rotation);
+                //Instantiate(enemySpawn, eSpawnPos3.position, eSpawnPos3.rotation);
+                SpawnerTimer = 4f;
+            }
+
+            //if(behaviorTimer <= -28)
+            //{
+            //    canStylusAttack = false;
+            //    
+            //}
+
+            //Stylus Mode
+            //if (canStylusAttack)
+            //{
+            //    //dir = (target.transform.position - transform.position).normalized;
+            //    //float angle = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
+            //    //rotateToTarget = Quaternion.AngleAxis(angle, Vector3.forward);
+            //    //transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * rotationSpeed);
+            //    //myBody.velocity = new Vector2(dir.x * 2, dir.y * 2);
+            //}
+
+            //Ram Movement
+            if (canMove)
+            {
+                theBoss.transform.position = Vector3.MoveTowards(theBoss.transform.position, currentTarget, moveSpeed * Time.deltaTime);
+
+                if (theBoss.transform.position == endPoint.transform.position)
+                {
+                    currentTarget = startPoint.position;
+                    SpriteRenderer.flipX = true;
+
+                }
+
+                if (theBoss.transform.position == startPoint.transform.position)
+                {
+                    currentTarget = endPoint.position;
+                }
+            }
+
         }
+
+
     }
 
     void FixedUpdate()
@@ -89,12 +183,21 @@ public class Draw : MonoBehaviour
 
     }
 
-        public void ThrowStylus()
+    public void ThrowStylus()
     {
-        //instantiate this instead.
-        //theStylus.gameObject.SetActive(true);
-
         Instantiate(theStylus, throwPos.position, throwPos.rotation);
+    }
+
+    public void PlayRamSound()
+    {
+        ramSoundFX.Play();
+
+    }
+
+    public void DestroyEnemySpawns()
+    {
+        //Instantiate(destroySplosion, eSpawnPos2.position, eSpawnPos2.rotation);
+        Destroy(GameObject.FindGameObjectWithTag("Enemy"));
     }
 
     public void OnTriggerExit2D(Collider2D other)

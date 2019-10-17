@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public int maxHealth;
 
     //References
-    private Animator anim;
+    public Animator anim;
     public Rigidbody2D rb2d;
     public Collider2D crouchCollider;
     //public Collider2D playerCollider;
@@ -120,18 +120,29 @@ public class PlayerController : MonoBehaviour
 
 
         //Move left & right
-        if (Input.GetAxisRaw("Horizontal") < -0.1f && canMove)
+        if (Input.GetAxisRaw("Horizontal") < -0f && canMove)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             facingLeft = true;
             facingRight = false;
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0.1f && canMove)
+        if (Input.GetAxisRaw("Horizontal") > 0f && canMove)
         {
             transform.localScale = new Vector3(1, 1, 1);
             facingLeft = false;
             facingRight = true;
+
+        }
+
+        if (facingRight)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
 
         }
 
