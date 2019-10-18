@@ -23,7 +23,7 @@ public class Draw : MonoBehaviour
 
     Quaternion rotateToTarget;
     Vector3 dir;
-    //public Slider healthBar;
+    public Slider healthBar;
     //public AudioSource bossMusic;
 
     public Transform startPoint;
@@ -32,9 +32,9 @@ public class Draw : MonoBehaviour
     public float secondaryMoveSpeed;
     public Vector3 currentTarget;
     public bool canMove;
-    public Collider2D ramCollider;
+    //public Collider2D ramCollider;
     public Collider2D myBodyCollider;
-    public Collider2D stylusFormCollider;
+    //public Collider2D stylusFormCollider;
     public Collider2D myBodyTrigger;
 
     public float SpawnerTimer;
@@ -45,24 +45,36 @@ public class Draw : MonoBehaviour
     public AudioSource ramSoundFX;
     public GameObject destroySplosion;
 
+    public GameObject wallToRemove;
+    public GameObject updateObject;
+    private CameraFollow theCameraFollowScript;
+    public GameObject ActivateTriggerBox;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        theCameraFollowScript = FindObjectOfType<CameraFollow>();
+
         currentHealth = maxHealth;
         currentTarget = endPoint.position;
         canMove = false;
-        bossActive = true;
+        bossActive = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //healthBar.value = currentHealth;
+        healthBar.value = currentHealth;
 
         if (bossActive)
         {
+            healthBar.gameObject.SetActive(true);
             behaviorTimer -= Time.deltaTime;
             SpawnerTimer -= Time.deltaTime;
+            canTakeDamage = true;
+
             //SpawnerTimer -= Time.deltaTime;
             //healthBar.gameObject.SetActive(true);
             //bossMusic.gameObject.SetActive(true);
@@ -70,7 +82,6 @@ public class Draw : MonoBehaviour
             if (behaviorTimer <= 0)
             {
                 anim.SetBool("Attacking", true);
-
             }
 
             if (behaviorTimer <= -9)
@@ -81,7 +92,7 @@ public class Draw : MonoBehaviour
             {
                 anim.SetBool("Ramming", true);
                 canMove = true;
-                stylusFormCollider.enabled = true;
+                //stylusFormCollider.enabled = true;
             }
             if (behaviorTimer <= -14)
             {
@@ -97,13 +108,14 @@ public class Draw : MonoBehaviour
                 canMove = false;
                 anim.SetBool("Ramming", false);
                 SpriteRenderer.flipX = false;
-                ramCollider.enabled = false;
+                //ramCollider.enabled = false;
             }
 
             if (behaviorTimer <= -19)
             {
                 //Transform into the EnlargedStylus
                 anim.SetBool("Transforming", true);
+                canTakeDamage = false;
                 myBodyCollider.enabled = false;
                 myBodyTrigger.enabled = false;
                 //stylusFormCollider.enabled = true;
@@ -136,6 +148,18 @@ public class Draw : MonoBehaviour
                 Instantiate(enemySpawn, eSpawnPos2.position, eSpawnPos2.rotation);
                 //Instantiate(enemySpawn, eSpawnPos3.position, eSpawnPos3.rotation);
                 SpawnerTimer = 4f;
+            }
+
+            if (bossActive)
+            {
+                ActivateTriggerBox.gameObject.SetActive(false);
+                theCameraFollowScript.GetComponent<Camera>().orthographicSize = 17;
+            }
+            else
+            {
+                ActivateTriggerBox.gameObject.SetActive(true);
+                theCameraFollowScript.GetComponent<Camera>().orthographicSize = 14;
+
             }
 
             //if(behaviorTimer <= -28)
@@ -210,12 +234,12 @@ public class Draw : MonoBehaviour
             if (currentHealth <= 0)
             {
                 theBoss.gameObject.SetActive(false);
-                //Instantiate(deathSplosion, theBoss.transform.position, theBoss.transform.rotation);
+                Instantiate(destroySplosion, theBoss.transform.position, theBoss.transform.rotation);
                 //tabPhaser.gameObject.SetActive(true);
-                //healthBar.gameObject.SetActive(false);
+                healthBar.gameObject.SetActive(false);
                 //bossMusic.gameObject.SetActive(false);
-                //wallToRemove.gameObject.SetActive(false);
-                //updateObject.gameObject.SetActive(true);
+                wallToRemove.gameObject.SetActive(false);
+                updateObject.gameObject.SetActive(true);
             }
         }
     }

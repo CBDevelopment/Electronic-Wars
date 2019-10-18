@@ -13,7 +13,7 @@ public class BossDialog : MonoBehaviour
     private MadTab madTabScript;
     private PlayerController tvPlayer;
     public AudioSource DialogFX;
-
+    private Draw drawScript;
 
 
     // Start is called before the first frame update
@@ -22,6 +22,7 @@ public class BossDialog : MonoBehaviour
         talkIndex = 1;
         madTabScript = FindObjectOfType<MadTab>();
         tvPlayer = FindObjectOfType<PlayerController>();
+        drawScript = FindObjectOfType<Draw>();
     }
 
     // Update is called once per frame
@@ -52,8 +53,17 @@ public class BossDialog : MonoBehaviour
         {
             isTalking = false;
             theDialogUI.gameObject.SetActive(false);
-            //entirePlayer.gameObject.SetActive(true);
+            //
+            //
+            //
+            //
+            //ADD ADDITIONAL BOSS SCRIPTS HERE.
             madTabScript.bossActive = true;
+            drawScript.bossActive = true;
+            //next boss here
+            //next boss here
+            //next boss here
+            //etc.
         }
 
         if (isTalking)
