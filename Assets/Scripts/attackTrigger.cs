@@ -5,9 +5,7 @@ using UnityEngine;
 public class attackTrigger : MonoBehaviour {
 
     public int dmg;
-
     public GameObject damageSplosion;
-
     private EnemyHealth theEnemyHealthScript;
 
     public void Start()
@@ -22,7 +20,6 @@ public class attackTrigger : MonoBehaviour {
             if(theEnemyHealthScript.currentHealth > 0)
             {
                 Instantiate(damageSplosion, other.transform.position, other.transform.rotation);
-
             }
         }
 

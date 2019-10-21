@@ -119,32 +119,36 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
 
-        //Move left & right
-        if (Input.GetAxisRaw("Horizontal") < -0f && canMove)
+        if (Input.GetAxisRaw("Horizontal") < -0.1f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector3(-1, 1, 1);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+
             facingLeft = true;
             facingRight = false;
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0f && canMove)
+        if (Input.GetAxisRaw("Horizontal") > 0.1f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            //transform.localScale = new Vector3(1, 1, 1);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+
             facingLeft = false;
             facingRight = true;
 
         }
 
-        if (facingRight)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+        //if (facingRight)
+        //{
+        //    //transform.localScale = new Vector3(1, 1, 1);
 
-        }
-        else
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
+        //}
+        //else if (facingLeft)
+        //{
+        //    //transform.localScale = new Vector3(-1, 1, 1);
 
-        }
+        //}
+
 
         //Crouching
         //change this later to the following:

@@ -90,7 +90,7 @@ public class EnemyHealth : MonoBehaviour
         if(other.tag == "AttackTrigger")
         {
             currentHealth -= 1;
-            shakeCamera.CamShake();
+            //shakeCamera.CamShake();
 
             if(currentHealth > 0)
             {

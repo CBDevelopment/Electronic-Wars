@@ -8,7 +8,6 @@ public class GunTutorialTrigger : MonoBehaviour
     public bool messageActive;
     private PlayerController tvPlayer;
     public bool triggered =false;
-
     public GameObject entirePlayer;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +31,11 @@ public class GunTutorialTrigger : MonoBehaviour
                 entirePlayer.gameObject.SetActive(true);
 
             }
+        }
+
+        if(tvPlayer.hasGun == 1)
+        {
+            gunTutorial.gameObject.SetActive(false);
         }
 
         //if(tvPlayer.hasGun ==1 && !triggered)

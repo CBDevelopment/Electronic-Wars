@@ -21,17 +21,19 @@ public class PlayerProjectile : MonoBehaviour
         Invoke("DestroyProjectile", lifeTime);
         tvPlayer = FindObjectOfType<PlayerController>();
 
-        if (tvPlayer.facingLeft)
-        {
-            rb.velocity = -transform.right * speed;
+        //if (tvPlayer.facingLeft)
+        //{
+        //    rb.velocity = -transform.right * speed;
 
-        }
+        //}
 
-        if (tvPlayer.facingRight)
-        {
-            rb.velocity = transform.right * speed;
+        //if (tvPlayer.facingRight)
+        //{
+        //    rb.velocity = transform.right * speed;
 
-        }
+        //}
+        rb.velocity = transform.right * speed;
+
     }
 
     // Update is called once per frame

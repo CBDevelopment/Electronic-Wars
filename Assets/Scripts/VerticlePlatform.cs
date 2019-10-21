@@ -26,24 +26,31 @@ public class VerticlePlatform : MonoBehaviour
         //    theEffector.rotationalOffset = 0f;
         //}
 
-        if (Input.GetButtonUp("Vertical"))
-        {
-            //waitTime = 0.1f;
-            theEffector.rotationalOffset = 0f;
-        }
+        //WAS USING THIS BEFORE TO DROP THROUGH PLATFORMS
+        ///
 
-        if (Input.GetButtonDown("Vertical"))
-        {
-            if(waitTime < 0)
-            {
-                theEffector.rotationalOffset = 180f;
-                //waitTime = 0.1f;
-            }
-            else
-            {
-                waitTime -= Time.deltaTime;
-            }
-        }
+        //if (Input.GetButtonUp("Vertical"))
+        //{
+        //    //waitTime = 0.1f;
+        //    theEffector.rotationalOffset = 0f;
+        //}
+
+        //if (Input.GetButtonDown("Vertical"))
+        //{
+        //    if(waitTime < 0)
+        //    {
+        //        theEffector.rotationalOffset = 180f;
+        //        //waitTime = 0.1f;
+        //    }
+        //    else
+        //    {
+        //        waitTime -= Time.deltaTime;
+        //    }
+        //}
+
+        /////////////////////////////////////////////
+        ///
+
 
         //if (Input.GetKey(KeyCode.UpArrow))
         //{

@@ -11,6 +11,9 @@ public class Upgrade : MonoBehaviour
 
     public GameObject upgradeBreak;
     public int upgradeValue;
+    //when you get an update, the route to leave the level should open up.
+    public GameObject wallToRemove;
+
 
     // Use this for initialization
     void Start()
@@ -46,8 +49,9 @@ public class Upgrade : MonoBehaviour
                 boss1.upgradeMessageActive = true;
                 //pauseScript.Pause();
             }
+            //when you get an update, the route to leave the level should open up.
+            //Cannot leave the level until you have collected the update.
+            wallToRemove.gameObject.SetActive(false);
         }
-
-        
     }
 }

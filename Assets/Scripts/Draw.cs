@@ -38,7 +38,8 @@ public class Draw : MonoBehaviour
     public Collider2D myBodyTrigger;
 
     public float SpawnerTimer;
-    public GameObject enemySpawn;
+    public GameObject enemyToSpawn;
+    public GameObject enemyToSpawn2;
     public Transform eSpawnPos;
     public Transform eSpawnPos2;
     public Transform eSpawnPos3;
@@ -49,14 +50,17 @@ public class Draw : MonoBehaviour
     public GameObject updateObject;
     private CameraFollow theCameraFollowScript;
     public GameObject ActivateTriggerBox;
+    public GameObject bossMusic;
+    public Collider2D bossDialogCollider;
 
-
-
+    private LevelManager levelManagerScript;
+    private PlayerController tvPlayer;
     // Start is called before the first frame update
     void Start()
     {
         theCameraFollowScript = FindObjectOfType<CameraFollow>();
-
+        tvPlayer = FindObjectOfType<PlayerController>();
+        levelManagerScript = FindObjectOfType<LevelManager>();
         currentHealth = maxHealth;
         currentTarget = endPoint.position;
         canMove = false;
@@ -71,6 +75,7 @@ public class Draw : MonoBehaviour
         if (bossActive)
         {
             healthBar.gameObject.SetActive(true);
+            bossMusic.gameObject.SetActive(true);
             behaviorTimer -= Time.deltaTime;
             SpawnerTimer -= Time.deltaTime;
             canTakeDamage = true;
@@ -83,7 +88,11 @@ public class Draw : MonoBehaviour
             {
                 anim.SetBool("Attacking", true);
             }
+            if(SpawnerTimer < 3 && SpawnerTimer > 2.99f)
+            {
+                //Instantiate(enemyToSpawn2, eSpawnPos.position, eSpawnPos.rotation);
 
+            }
             if (behaviorTimer <= -9)
             {
                 anim.SetBool("Attacking", false);
@@ -108,6 +117,7 @@ public class Draw : MonoBehaviour
                 canMove = false;
                 anim.SetBool("Ramming", false);
                 SpriteRenderer.flipX = false;
+
                 //ramCollider.enabled = false;
             }
 
@@ -129,11 +139,11 @@ public class Draw : MonoBehaviour
                 //canStylusAttack = true;
             }
 
-            if (behaviorTimer <= -30)
+            if (behaviorTimer <= -29)
             {//reset boss
                 anim.SetBool("Transforming", false);
                 anim.SetBool("Reverting", false);
-                behaviorTimer = 4;
+                behaviorTimer = 1;
                 myBodyCollider.enabled = true;
                 myBodyTrigger.enabled = true;
             }
@@ -145,38 +155,52 @@ public class Draw : MonoBehaviour
             if (SpawnerTimer <= -19 && behaviorTimer <= -21)
             {
 
-                Instantiate(enemySpawn, eSpawnPos2.position, eSpawnPos2.rotation);
+                Instantiate(enemyToSpawn, eSpawnPos2.position, eSpawnPos2.rotation);
+                //Instantiate(enemyToSpawn2, eSpawnPos.position, eSpawnPos.rotation);
                 //Instantiate(enemySpawn, eSpawnPos3.position, eSpawnPos3.rotation);
-                SpawnerTimer = 4f;
+                SpawnerTimer = 1f;
             }
 
-            if (bossActive)
-            {
-                ActivateTriggerBox.gameObject.SetActive(false);
-                theCameraFollowScript.GetComponent<Camera>().orthographicSize = 17;
-            }
-            else
-            {
-                ActivateTriggerBox.gameObject.SetActive(true);
-                theCameraFollowScript.GetComponent<Camera>().orthographicSize = 14;
-
-            }
-
-            //if(behaviorTimer <= -28)
+            //if (bossActive)
             //{
-            //    canStylusAttack = false;
-            //    
+            //    ActivateTriggerBox.gameObject.SetActive(false);
+            //    theCameraFollowScript.GetComponent<Camera>().orthographicSize = 17;
+            //}
+            //else
+            //{
+            //    ActivateTriggerBox.gameObject.SetActive(true);
+            //    theCameraFollowScript.GetComponent<Camera>().orthographicSize = 14;
+
             //}
 
-            //Stylus Mode
-            //if (canStylusAttack)
-            //{
-            //    //dir = (target.transform.position - transform.position).normalized;
-            //    //float angle = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
-            //    //rotateToTarget = Quaternion.AngleAxis(angle, Vector3.forward);
-            //    //transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * rotationSpeed);
-            //    //myBody.velocity = new Vector2(dir.x * 2, dir.y * 2);
-            //}
+            /////////////////////////Reset the boss and all other objects upon death.
+            if (tvPlayer.currentHealth <= 0)
+            {
+                //bossActive = false;
+                //healthBar.gameObject.SetActive(false);
+                //theBoss.transform.position = startPoint.position;
+                //SpriteRenderer.flipX = false;
+                //myBodyTrigger.enabled = false;
+                //behaviorTimer = 1f;
+                //SpawnerTimer = 1f;
+                //anim.SetBool("Transforming", false);
+                //anim.SetBool("Reverting", false);
+                //anim.SetBool("Ramming", false);
+                //anim.SetBool("Attacking", false);
+                ////anim.SetBool("Attacking", false);
+                ////anim.SetBool("Teleporting", false);
+                ////anim.SetBool("Reloading", false);
+                ////canShootLeft = false;
+                ////canShootRight = false;
+                //myBodyTrigger.enabled = false;
+                StartCoroutine(ResetBodyTrigger());
+                DestroyEnemySpawns();
+                //StartCoroutine(levelManagerScript.RespawnCo());
+                //StartCoroutine(ResetPlayer());
+                
+
+            }
+
 
             //Ram Movement
             if (canMove)
@@ -218,10 +242,28 @@ public class Draw : MonoBehaviour
 
     }
 
+    public IEnumerator ResetBodyTrigger()
+    {
+        yield return new WaitForSeconds(2.5f);
+        myBodyTrigger.enabled = true;
+        bossDialogCollider.enabled = true;
+
+
+    }
+
+    public IEnumerator ResetPlayer()
+    {
+        yield return new WaitForSeconds(2f);
+
+        tvPlayer.currentHealth = tvPlayer.maxHealth;
+        tvPlayer.transform.position = tvPlayer.respawnPosition;
+
+    }
+
     public void DestroyEnemySpawns()
     {
         //Instantiate(destroySplosion, eSpawnPos2.position, eSpawnPos2.rotation);
-        Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+        Destroy(GameObject.Find("PodGuard(Clone)"));
     }
 
     public void OnTriggerExit2D(Collider2D other)
@@ -237,8 +279,7 @@ public class Draw : MonoBehaviour
                 Instantiate(destroySplosion, theBoss.transform.position, theBoss.transform.rotation);
                 //tabPhaser.gameObject.SetActive(true);
                 healthBar.gameObject.SetActive(false);
-                //bossMusic.gameObject.SetActive(false);
-                wallToRemove.gameObject.SetActive(false);
+                bossMusic.gameObject.SetActive(false);
                 updateObject.gameObject.SetActive(true);
             }
         }

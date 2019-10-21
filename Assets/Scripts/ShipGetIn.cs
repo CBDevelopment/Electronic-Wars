@@ -26,7 +26,7 @@ public class ShipGetIn : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if (Input.GetButtonDown("Attack"))
+            if (Input.GetAxisRaw("Vertical") > 0f)
             {
                 entirePlayer.gameObject.SetActive(false);
                 anim.SetBool("Flying", true);

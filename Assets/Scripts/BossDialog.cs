@@ -28,12 +28,12 @@ public class BossDialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (isTalking)
-        //{
-        //    //talkIndex = 1;
-        //    theDialogUI.gameObject.SetActive(true);
-        //    //entirePlayer.gameObject.SetActive(false);
-        //}
+        if (isTalking)
+        {
+            entirePlayer.gameObject.SetActive(false);
+            theDialogUI.gameObject.SetActive(true);
+
+        }
 
         if (Input.GetButtonDown("Jump") && talkIndex ==1 && isTalking)
         {
@@ -53,30 +53,19 @@ public class BossDialog : MonoBehaviour
         {
             isTalking = false;
             theDialogUI.gameObject.SetActive(false);
+            entirePlayer.gameObject.SetActive(true);
+
             //
             //
             //
             //
             //ADD ADDITIONAL BOSS SCRIPTS HERE.
             madTabScript.bossActive = true;
-            drawScript.bossActive = true;
+            //drawScript.bossActive = true;
             //next boss here
             //next boss here
             //next boss here
             //etc.
-        }
-
-        if (isTalking)
-        {
-            entirePlayer.gameObject.SetActive(false);
-            theDialogUI.gameObject.SetActive(true);
-
-        }
-        else
-        {
-            entirePlayer.gameObject.SetActive(true);
-            theDialogUI.gameObject.SetActive(false);
-
         }
 
     }

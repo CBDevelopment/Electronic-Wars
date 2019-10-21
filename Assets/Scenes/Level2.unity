@@ -6829,6 +6829,11 @@ PrefabInstance:
       propertyPath: upgradeValue
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3497211077301579126, guid: ebad8bc88c931a340b5f4953b841c0a3,
+        type: 3}
+      propertyPath: wallToRemove
+      value: 
+      objectReference: {fileID: 565413022}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebad8bc88c931a340b5f4953b841c0a3, type: 3}
 --- !u!1001 &398881235
@@ -9448,7 +9453,6 @@ MonoBehaviour:
   eSpawnPos3: {fileID: 2054402877}
   SpawnerTimer: 7
   bossMusic: {fileID: 543869814}
-  wallToRemove: {fileID: 565413022}
   updateObject: {fileID: 1599140744}
   gunTriggerObject: {fileID: 745591738}
 --- !u!95 &489597155
@@ -18266,10 +18270,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 84994360}
     m_Modifications:
-    - target: {fileID: 1981872827084236, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
-      propertyPath: m_Name
-      value: Mem Card5 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 4291068789558736, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 388.7367
@@ -18313,6 +18313,10 @@ PrefabInstance:
     - target: {fileID: 4291068789558736, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981872827084236, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
+      propertyPath: m_Name
+      value: Mem Card5 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
@@ -22461,10 +22465,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 553690521}
     m_Modifications:
-    - target: {fileID: 1981872827084236, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
-      propertyPath: m_Name
-      value: Mem Card5 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 4291068789558736, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -146.7
@@ -22496,6 +22496,10 @@ PrefabInstance:
     - target: {fileID: 4291068789558736, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981872827084236, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
+      propertyPath: m_Name
+      value: Mem Card5 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b7a53a26e8ad444b1ac32ff2afdfb9, type: 3}
@@ -38920,6 +38924,7 @@ MonoBehaviour:
   upgradeBreak: {fileID: 4169370369904706985, guid: 2dbd6681288862449886b25ca7a8033f,
     type: 3}
   upgradeValue: 1
+  wallToRemove: {fileID: 0}
 --- !u!95 &2093124983
 Animator:
   serializedVersion: 3

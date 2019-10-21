@@ -43,7 +43,7 @@ public class MadTab : MonoBehaviour
     public float SpawnerTimer;
     public GameObject bossMusic;
     private LevelManager levelManagerScript;
-    public GameObject wallToRemove;
+    //public GameObject wallToRemove;
     private GunTutorialTrigger gunTriggerScript;
     public GameObject updateObject;
     public GameObject gunTriggerObject;
@@ -311,11 +311,15 @@ public class MadTab : MonoBehaviour
             {
                 theBoss.gameObject.SetActive(false);
                 Instantiate(deathSplosion, theBoss.transform.position, theBoss.transform.rotation);
-                tabPhaser.gameObject.SetActive(true);
                 healthBar.gameObject.SetActive(false);
                 bossMusic.gameObject.SetActive(false);
-                wallToRemove.gameObject.SetActive(false);
+                //wallToRemove.gameObject.SetActive(false);
                 updateObject.gameObject.SetActive(true);
+                
+                if(tvPlayer.hasGun == 0)
+                {
+                    tabPhaser.gameObject.SetActive(true);
+                }
             }
         }
     }

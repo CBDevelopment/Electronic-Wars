@@ -30,12 +30,30 @@ public class NPCBlue : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && levelManagerScript.upgradeCount >= 0)
+        if (other.tag == "Player" && levelManagerScript.upgradeCount < 3)
         {
 
             //You may need to create this animation for the NPC game object character.
             anim.SetBool("Talking", true);
             Instantiate(dialogs[0], dialogPos.position, dialogPos.rotation);
+            talkFX.Play();
+        }
+
+        if (other.tag == "Player" && levelManagerScript.upgradeCount == 3 && tvPlayer.hasVPN == 0)
+        {
+
+            //You may need to create this animation for the NPC game object character.
+            anim.SetBool("Talking", true);
+            Instantiate(dialogs[1], dialogPos.position, dialogPos.rotation);
+            talkFX.Play();
+        }
+
+        if (other.tag == "Player" && levelManagerScript.upgradeCount == 3 && tvPlayer.hasVPN == 1)
+        {
+
+            //You may need to create this animation for the NPC game object character.
+            anim.SetBool("Talking", true);
+            Instantiate(dialogs[2], dialogPos.position, dialogPos.rotation);
             talkFX.Play();
         }
 

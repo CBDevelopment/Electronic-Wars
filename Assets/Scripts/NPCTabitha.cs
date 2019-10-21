@@ -11,6 +11,7 @@ public class NPCTabitha : MonoBehaviour
     public AudioSource talkFX;
     public Animator anim;
     private LevelManager levelManagerScript;
+    public GameObject notification;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,11 @@ public class NPCTabitha : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         anim = theNPC.gameObject.GetComponent<Animator>();
         levelManagerScript = FindObjectOfType<LevelManager>();
+
+        if(levelManagerScript.upgradeCount == 1)
+        {
+            notification.gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
