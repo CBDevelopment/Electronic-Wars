@@ -12,6 +12,9 @@ public class NPCBlue : MonoBehaviour
     public Animator anim;
     private LevelManager levelManagerScript;
 
+    public GameObject notification;
+    private bool triggered;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +22,20 @@ public class NPCBlue : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         anim = theNPC.gameObject.GetComponent<Animator>();
         levelManagerScript = FindObjectOfType<LevelManager>();
+        //triggered = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(!triggered)
+        {
+            if (levelManagerScript.upgradeCount == 3)
+            {
+                notification.gameObject.SetActive(true);
+                triggered = true;
+            }
+        }
 
     }
 
@@ -32,7 +43,6 @@ public class NPCBlue : MonoBehaviour
     {
         if (other.tag == "Player" && levelManagerScript.upgradeCount < 3)
         {
-
             //You may need to create this animation for the NPC game object character.
             anim.SetBool("Talking", true);
             Instantiate(dialogs[0], dialogPos.position, dialogPos.rotation);
@@ -41,20 +51,20 @@ public class NPCBlue : MonoBehaviour
 
         if (other.tag == "Player" && levelManagerScript.upgradeCount == 3 && tvPlayer.hasVPN == 0)
         {
-
             //You may need to create this animation for the NPC game object character.
             anim.SetBool("Talking", true);
             Instantiate(dialogs[1], dialogPos.position, dialogPos.rotation);
             talkFX.Play();
+            notification.gameObject.SetActive(false);
         }
 
         if (other.tag == "Player" && levelManagerScript.upgradeCount == 3 && tvPlayer.hasVPN == 1)
         {
-
             //You may need to create this animation for the NPC game object character.
             anim.SetBool("Talking", true);
             Instantiate(dialogs[2], dialogPos.position, dialogPos.rotation);
             talkFX.Play();
+            notification.gameObject.SetActive(false);
         }
 
         //if (other.tag == "Player" && levelManagerScript.upgradeCount <= 3 && tvPlayer.hasVPN ==0)

@@ -47,7 +47,7 @@ public class MadTab : MonoBehaviour
     private GunTutorialTrigger gunTriggerScript;
     public GameObject updateObject;
     public GameObject gunTriggerObject;
-
+    public Collider2D bossDialogTrigger;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +58,7 @@ public class MadTab : MonoBehaviour
         bossDialogScript = FindObjectOfType<BossDialog>();
         levelManagerScript = FindObjectOfType<LevelManager>();
         gunTriggerScript = FindObjectOfType<GunTutorialTrigger>();
+
     }
 
     // Update is called once per frame
@@ -251,6 +252,10 @@ public class MadTab : MonoBehaviour
                 canShootLeft = false;
                 canShootRight = false;
                 healthBar.gameObject.SetActive(false);
+                Destroy(GameObject.Find("SubDrone(Clone)"));
+                bossDialogTrigger.enabled = false;
+                //add a counter for how many times you have faced the boss. and if the amount is more than 1, don't show the dialog stuff. just activate the boss. 
+
             }
         }
 
@@ -315,10 +320,13 @@ public class MadTab : MonoBehaviour
                 bossMusic.gameObject.SetActive(false);
                 //wallToRemove.gameObject.SetActive(false);
                 updateObject.gameObject.SetActive(true);
-                
-                if(tvPlayer.hasGun == 0)
+                tabPhaser.gameObject.SetActive(true);
+
+
+                if (tvPlayer.hasGun == 1)
                 {
-                    tabPhaser.gameObject.SetActive(true);
+                    tabPhaser.gameObject.SetActive(false);
+                    gunTriggerScript.gameObject.SetActive(false);
                 }
             }
         }

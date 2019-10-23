@@ -14,7 +14,7 @@ public class BossDialog : MonoBehaviour
     private PlayerController tvPlayer;
     public AudioSource DialogFX;
     private Draw drawScript;
-
+    private PlasmaPlayer plasmaPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class BossDialog : MonoBehaviour
         madTabScript = FindObjectOfType<MadTab>();
         tvPlayer = FindObjectOfType<PlayerController>();
         drawScript = FindObjectOfType<Draw>();
+        plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class BossDialog : MonoBehaviour
         {
             entirePlayer.gameObject.SetActive(false);
             theDialogUI.gameObject.SetActive(true);
-
+            tvPlayer.canMove = false;
         }
 
         if (Input.GetButtonDown("Jump") && talkIndex ==1 && isTalking)
@@ -54,7 +55,7 @@ public class BossDialog : MonoBehaviour
             isTalking = false;
             theDialogUI.gameObject.SetActive(false);
             entirePlayer.gameObject.SetActive(true);
-
+            tvPlayer.canMove = true;
             //
             //
             //
