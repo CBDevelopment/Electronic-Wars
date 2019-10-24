@@ -253,7 +253,7 @@ public class MadTab : MonoBehaviour
                 canShootRight = false;
                 healthBar.gameObject.SetActive(false);
                 Destroy(GameObject.Find("SubDrone(Clone)"));
-                bossDialogTrigger.enabled = false;
+                //bossDialogTrigger.enabled = false;
                 //add a counter for how many times you have faced the boss. and if the amount is more than 1, don't show the dialog stuff. just activate the boss. 
 
             }
@@ -268,7 +268,6 @@ public class MadTab : MonoBehaviour
         {
             ActivateTriggerBox.gameObject.SetActive(true);
             theCameraFollowScript.GetComponent<Camera>().orthographicSize = 14;
-
         }
 
         if (canShootRight)
@@ -279,7 +278,6 @@ public class MadTab : MonoBehaviour
                 Instantiate(bulletRight, shotPointRight.position, transform.rotation);
 
                 timeBetweenShots = startTimeBetweenShots;
-
             }
             else
             {
@@ -295,7 +293,6 @@ public class MadTab : MonoBehaviour
                 Instantiate(bulletLeft, shotPointLeft.position, transform.rotation);
 
                 timeBetweenShots = startTimeBetweenShots;
-
             }
             else
             {
@@ -310,7 +307,6 @@ public class MadTab : MonoBehaviour
         if (other.tag == "AttackTrigger" && canTakeDamage)
         {
                 currentHealth--;
-
 
             if (currentHealth <= 0)
             {

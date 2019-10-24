@@ -7919,7 +7919,7 @@ MonoBehaviour:
     type: 3}
   bossDied: 0
   world2: {fileID: 1180588866}
-  levelToLoad: CityRegion
+  levelToLoad: DemoComplete
 --- !u!212 &1459619168
 SpriteRenderer:
   m_ObjectHideFlags: 0

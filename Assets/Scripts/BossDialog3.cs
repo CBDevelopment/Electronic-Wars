@@ -32,6 +32,7 @@ public class BossDialog3 : MonoBehaviour
         {
             entirePlayer.gameObject.SetActive(false);
             theDialogUI.gameObject.SetActive(true);
+            tvPlayer.canMove = false;
 
         }
 
@@ -54,7 +55,7 @@ public class BossDialog3 : MonoBehaviour
             isTalking = false;
             theDialogUI.gameObject.SetActive(false);
             entirePlayer.gameObject.SetActive(true);
-
+            tvPlayer.canMove = true;
             //
             //
             //

@@ -9455,6 +9455,7 @@ MonoBehaviour:
   bossMusic: {fileID: 543869814}
   updateObject: {fileID: 1599140744}
   gunTriggerObject: {fileID: 745591738}
+  bossDialogTrigger: {fileID: 1598224954}
 --- !u!95 &489597155
 Animator:
   serializedVersion: 3

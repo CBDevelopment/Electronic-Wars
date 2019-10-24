@@ -272,7 +272,6 @@ public class Draw : MonoBehaviour
         {
             currentHealth--;
 
-
             if (currentHealth <= 0)
             {
                 theBoss.gameObject.SetActive(false);
@@ -281,6 +280,7 @@ public class Draw : MonoBehaviour
                 healthBar.gameObject.SetActive(false);
                 bossMusic.gameObject.SetActive(false);
                 updateObject.gameObject.SetActive(true);
+
             }
         }
     }
