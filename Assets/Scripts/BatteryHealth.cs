@@ -8,8 +8,8 @@ public class BatteryHealth : MonoBehaviour
     private LevelManager theLevelManager;
 
     public GameObject healthbreak;
-    public PlayerController tvPlayer;
-    public PlasmaPlayer plasmaPlayer;
+    private PlayerController tvPlayer;
+    //public PlasmaPlayer plasmaPlayer;
 
     public int healthValue;
 
@@ -25,7 +25,8 @@ public class BatteryHealth : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            theLevelManager.AddHealth(healthValue);
+            //theLevelManager.AddHealth(healthValue);
+            tvPlayer.currentHealth = tvPlayer.maxHealth;
             Instantiate(healthbreak, this.transform.position, this.transform.rotation);
             //Destroy(gameObject.gameObject);
             gameObject.SetActive(false);

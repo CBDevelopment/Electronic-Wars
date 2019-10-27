@@ -40,8 +40,15 @@ public class TriggerActivate : MonoBehaviour
     public IEnumerator bossActivate()
     {
         yield return new WaitForSeconds(1f);
-        bossDialogScript.DialogFX.Play();
-        bossDialogScript.isTalking = true;
+        if(madTabScript.playerHasDiedOnce == 0)
+        {
+            bossDialogScript.DialogFX.Play();
+            bossDialogScript.isTalking = true;
+        }
+        if(madTabScript.playerHasDiedOnce == 1)
+        {
+            madTabScript.bossActive = true;
+        }
     }
 
     public IEnumerator FXTurnOff()

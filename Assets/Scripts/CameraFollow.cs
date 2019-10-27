@@ -17,9 +17,14 @@ public class CameraFollow : MonoBehaviour {
 
     public bool canFollow;
 
+    private PlayerController tvPlayer;
+    private LevelManager levelManagerScript;
+
 	// Use this for initialization
 	void Start () {
 
+        tvPlayer = FindObjectOfType<PlayerController>();
+        levelManagerScript = FindObjectOfType<LevelManager>();
         canFollow = true;
     }
 
@@ -33,9 +38,37 @@ public class CameraFollow : MonoBehaviour {
 
         if (canFollow)
         {
-
-
             transform.position = new Vector3(posX, posY, transform.position.z);
+
+            if(levelManagerScript.upgradeCount == 0)
+            {
+                if (tvPlayer.facingLeft)
+                {
+                    smoothTimeX = 0;
+                    smoothTimeY = .2f;
+                }
+                else
+                {
+                    smoothTimeX = 0f;
+                    smoothTimeY = .2f;
+
+                }
+            }
+
+            if(levelManagerScript.upgradeCount == 1)
+            {
+                if (tvPlayer.facingLeft)
+                {
+                    smoothTimeX = .2f;
+                    smoothTimeY = .2f;
+                }
+                else
+                {
+                    smoothTimeX = 0.2f;
+                    smoothTimeY = .2f;
+                }
+            }
+        }
 
             if (bounds)
             {
@@ -45,5 +78,3 @@ public class CameraFollow : MonoBehaviour {
             }
         }
     }
-
-}

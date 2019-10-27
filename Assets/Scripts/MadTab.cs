@@ -48,6 +48,7 @@ public class MadTab : MonoBehaviour
     public GameObject updateObject;
     public GameObject gunTriggerObject;
     public Collider2D bossDialogTrigger;
+    public int playerHasDiedOnce =0;
     // Start is called before the first frame update
     void Start()
     {
@@ -107,7 +108,6 @@ public class MadTab : MonoBehaviour
             {
                 anim.SetBool("Teleporting", false);
                 shieldObject.gameObject.SetActive(true);
-
             }
 
             if (behaviorTimer <= -8)
@@ -253,22 +253,24 @@ public class MadTab : MonoBehaviour
                 canShootRight = false;
                 healthBar.gameObject.SetActive(false);
                 Destroy(GameObject.Find("SubDrone(Clone)"));
+                playerHasDiedOnce = 1;
                 //bossDialogTrigger.enabled = false;
                 //add a counter for how many times you have faced the boss. and if the amount is more than 1, don't show the dialog stuff. just activate the boss. 
 
             }
+
         }
 
-        if (bossActive)
-        {
-            ActivateTriggerBox.gameObject.SetActive(false);
-            theCameraFollowScript.GetComponent<Camera>().orthographicSize = 17;
-        }
-        else
-        {
-            ActivateTriggerBox.gameObject.SetActive(true);
-            theCameraFollowScript.GetComponent<Camera>().orthographicSize = 14;
-        }
+        //if (bossActive)
+        //{
+        //    ActivateTriggerBox.gameObject.SetActive(false);
+        //    theCameraFollowScript.GetComponent<Camera>().orthographicSize = 20;
+        //}
+        //else
+        //{
+        //    ActivateTriggerBox.gameObject.SetActive(true);
+        //    theCameraFollowScript.GetComponent<Camera>().orthographicSize = 14;
+        //}
 
         if (canShootRight)
         {

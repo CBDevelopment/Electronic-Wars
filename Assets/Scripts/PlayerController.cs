@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;
     public float timeBetweenDamage = 1.4f;
 
-
     //Booleans
     public bool grounded;
     public bool canDoubleJump;
@@ -135,7 +134,6 @@ public class PlayerController : MonoBehaviour
 
             facingLeft = false;
             facingRight = true;
-
         }
 
         //if (facingRight)
