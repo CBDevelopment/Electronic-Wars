@@ -31,6 +31,11 @@ public class ButtonSoundFX : MonoBehaviour
             moveButtonSoundFX.Play();
         }
 
+        if (Input.GetButtonDown("Horizontal"))
+        {
+            moveButtonSoundFX.Play();
+        }
+
         if (Input.GetButtonDown("Submit"))
         {
             clickButtonSoundFX.Play();

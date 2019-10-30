@@ -253,6 +253,7 @@ public class MadTab : MonoBehaviour
                 canShootRight = false;
                 healthBar.gameObject.SetActive(false);
                 Destroy(GameObject.Find("SubDrone(Clone)"));
+                bossDialogTrigger.enabled = true;
                 playerHasDiedOnce = 1;
                 //bossDialogTrigger.enabled = false;
                 //add a counter for how many times you have faced the boss. and if the amount is more than 1, don't show the dialog stuff. just activate the boss. 

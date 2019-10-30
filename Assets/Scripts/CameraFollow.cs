@@ -64,7 +64,21 @@ public class CameraFollow : MonoBehaviour {
                 }
                 else
                 {
-                    smoothTimeX = 0.2f;
+                    smoothTimeX = .2f;
+                    smoothTimeY = .2f;
+                }
+            }
+
+            if (levelManagerScript.upgradeCount == 2)
+            {
+                if (tvPlayer.facingLeft)
+                {
+                    smoothTimeX = 0f;
+                    smoothTimeY = .2f;
+                }
+                else
+                {
+                    smoothTimeX = 0f;
                     smoothTimeY = .2f;
                 }
             }

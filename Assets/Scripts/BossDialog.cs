@@ -34,6 +34,7 @@ public class BossDialog : MonoBehaviour
             entirePlayer.gameObject.SetActive(false);
             theDialogUI.gameObject.SetActive(true);
             tvPlayer.canMove = false;
+            tvPlayer.canJump = false;
         }
 
         if (Input.GetButtonDown("Jump") && talkIndex ==1 && isTalking)
@@ -56,6 +57,9 @@ public class BossDialog : MonoBehaviour
             theDialogUI.gameObject.SetActive(false);
             entirePlayer.gameObject.SetActive(true);
             tvPlayer.canMove = true;
+            tvPlayer.canJump = true;
+            madTabScript.bossDialogTrigger.enabled = false;
+
             //
             //
             //

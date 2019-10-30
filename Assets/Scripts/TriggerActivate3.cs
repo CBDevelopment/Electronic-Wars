@@ -7,12 +7,13 @@ public class TriggerActivate3 : MonoBehaviour
 
     private BossDialog3 bossDialogScript3;
     private LevelManager levelManagerScript;
-
+    private Draw drawScript;
 
     // Start is called before the first frame update
     void Start()
     {
         bossDialogScript3 = FindObjectOfType<BossDialog3>();
+        drawScript = FindObjectOfType<Draw>();
         levelManagerScript = FindObjectOfType<LevelManager>();
     }
 
@@ -38,8 +39,15 @@ public class TriggerActivate3 : MonoBehaviour
     public IEnumerator bossActivate()
     {
         yield return new WaitForSeconds(.5f);
-        bossDialogScript3.DialogFX.Play();
-        bossDialogScript3.isTalking = true;
+        if (drawScript.playerHasDiedOnce == 0)
+        {
+            bossDialogScript3.DialogFX.Play();
+            bossDialogScript3.isTalking = true;
+        }
+        if (drawScript.playerHasDiedOnce == 1)
+        {
+            drawScript.bossActive = true;
+        }
 
     }
 

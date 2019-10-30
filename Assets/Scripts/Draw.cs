@@ -55,6 +55,8 @@ public class Draw : MonoBehaviour
 
     private LevelManager levelManagerScript;
     private PlayerController tvPlayer;
+    public int playerHasDiedOnce = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -195,6 +197,7 @@ public class Draw : MonoBehaviour
                 //myBodyTrigger.enabled = false;
                 StartCoroutine(ResetBodyTrigger());
                 DestroyEnemySpawns();
+                playerHasDiedOnce = 1;
                 //StartCoroutine(levelManagerScript.RespawnCo());
                 //StartCoroutine(ResetPlayer());
                 

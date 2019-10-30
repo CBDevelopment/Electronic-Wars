@@ -32,29 +32,39 @@ public class TriggerActivate : MonoBehaviour
 
             ////Test to make sure the boss activates after you have landed on the top level.
             levelManagerScript.levelMusic.Stop();
-            StartCoroutine(bossActivate());
-            StartCoroutine(FXTurnOff());
+            if(madTabScript .playerHasDiedOnce == 0)
+            {
+                StartCoroutine(bossFirstActivate());
+                StartCoroutine(FXTurnOff());
+            }
+
+            if (madTabScript.playerHasDiedOnce == 1)
+            {
+                madTabScript.bossDialogTrigger.enabled = false;
+                madTabScript.bossActive = true;
+                //StartCoroutine(resetTrigger());
+            }
+
         }
     }
 
-    public IEnumerator bossActivate()
+    public IEnumerator bossFirstActivate()
     {
-        yield return new WaitForSeconds(1f);
-        if(madTabScript.playerHasDiedOnce == 0)
-        {
+        yield return new WaitForSeconds(0f);
+ 
             bossDialogScript.DialogFX.Play();
             bossDialogScript.isTalking = true;
-        }
-        if(madTabScript.playerHasDiedOnce == 1)
-        {
-            madTabScript.bossActive = true;
-        }
     }
 
     public IEnumerator FXTurnOff()
     {
         yield return new WaitForSeconds(3.5f);
         bossDialogScript.DialogFX.gameObject.SetActive(false);
-
     }
+
+    //public IEnumerator resetTrigger()
+    //{
+    //    yield return new WaitForSeconds(.1f);
+    //    madTabScript.bossDialogTrigger.enabled = false;
+    //}
 }
