@@ -9,12 +9,13 @@ public class GunTutorialTrigger : MonoBehaviour
     private PlayerController tvPlayer;
     public bool triggered =false;
     public GameObject entirePlayer;
-
+    private PlasmaPlayer plasmaPlayer;
     private bool activateMessage;
     // Start is called before the first frame update
     void Start()
     {
         tvPlayer = FindObjectOfType<PlayerController>();
+        plasmaPlayer = FindObjectOfType<PlasmaPlayer>();
     }
 
     // Update is called once per frame
@@ -25,13 +26,18 @@ public class GunTutorialTrigger : MonoBehaviour
         {
             entirePlayer.gameObject.SetActive(false);
             gunTutorial.gameObject.SetActive(true);
+            tvPlayer.canMove = false;
+            plasmaPlayer.canMove = false;
+            tvPlayer.canJump = false;
 
              if (Input.GetButtonDown("Fire"))
             {
                 gunTutorial.gameObject.SetActive(false);
                 messageActive = false;
                 entirePlayer.gameObject.SetActive(true);
-
+                tvPlayer.canMove = true;
+                plasmaPlayer.canMove = true;
+                tvPlayer.canJump = true;
             }
         }
 

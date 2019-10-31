@@ -7,36 +7,52 @@ using UnityEngine.EventSystems;
 
 public class WorldMapButton : MonoBehaviour
 {
-    public Animator anim;
+    //public Animator anim;
+    public int bIndex;
+    public AudioSource moveButtonSoundFX;
+    public AudioSource clickButtonSoundFX;
+
     // Start is called before the first frame update
     void Start()
     {
         //anim = FindObjectOfType<Animator>();
+        bIndex = 1;
+        Cursor.visible = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Horizontal"))
+        {
+            moveButtonSoundFX.Play();
+        }
+
+ 
+        ///
+
+      
+        if (Input.GetButtonDown("Vertical"))
+        {
+             moveButtonSoundFX.Play();
+        }
         
+
+        if (Input.GetButtonDown("Submit"))
+        {
+            clickButtonSoundFX.Play();
+        }
+
     }
 
-    // When highlighted with mouse.
-    public void OnPointerEnter(PointerEventData eventData)
+    public void LoadNetworkTravelToPlains()
     {
-        // Do something.
+        SceneManager.LoadScene("Network1");
     }
 
-    // When selected.
-    public void OnSelect(BaseEventData eventData)
+    public void LoadCityNetwork()
     {
-        // Do something.
-        //anim.SetBool("Selected", true);
-        //anim.Play("CityNetworkExpand");
-    }
-
-    public void OnDeselect(BaseEventData eventData)
-    {
-        // Do something.
-        //anim.SetBool("Selected", false);
+        SceneManager.LoadScene("CityRegion");
     }
 }
