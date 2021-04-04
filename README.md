@@ -7,6 +7,8 @@
 # ABOUT THIS GAME
 Two electronics named: "TeeV" and "Cell" set off on a perilous journey to find a mysterious machine called "The Generator". This machine is capable of updating electronics infinitely, which would allow them to transcend time by becoming the supreme optimal electronic in existence. The electronic war begins when they realize others are searching for the Generator. TeeV and his partner Cell face nefarious drones, mind boggling computers, sinister tablets, and reunite with old friends. Not only will they need an army, but they'll need to power up and reach their ultimate potential to keep the world's enemies at bay!
 
+https://youtu.be/1A3CAdEEn6w
+
 # Website
 https://sites.google.com/view/electronicwars/overview?authuser=0
 
